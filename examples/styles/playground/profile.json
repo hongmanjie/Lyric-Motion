@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "0.1.0",
+  "id": "playground",
+  "revision": 2,
+  "name": "字形游乐场 / Type Playground",
+  "summary": "Playful editorial typography in which words and tangible graphic actors change scale, collide, soften and form relationships according to the current content.",
+  "principles": ["Treat important words as actors with weight, intention and a clear visual focus.", "Build contrast between a bold, immediate gesture and a quieter place to read."],
+  "typography": ["Prefer expressive, substantial letterforms; mix sizes and densities when the content calls for it.", "Allow a key glyph to become an object without losing the relationship to its surrounding phrase."],
+  "composition": ["Use generous negative space, deliberate asymmetry and strong differences in scale.", "Change the framing inside a lyric phrase when a new verb, stress or relationship deserves it; alternate wide, close and off-center views.", "Let position, enclosure, distance and overlap express relationships; avoid presenting every phrase on a centered card."],
+  "color": ["Use tactile light and dark fields with a few purposeful, vivid actor colors; select the actual palette for each song."],
+  "motion": ["Combine anticipation, acceleration, impact, overshoot and readable holds.", "Use fast, fluid camera pushes, diagonal traversals and scale changes to redirect attention; settle the important word long enough to read.", "Carry an actor or shape through a composition switch so speed retains a visible cause and direction.", "Use physical transformations such as pressure, opening, falling and reaching only where the new words justify them."],
+  "rhythm": ["Use supplied lyric/subphrase timing and real musical accents to place changes; distinguish authored editorial cues from vocal alignment.", "Vary the length of a transition and the following hold; neither a fixed cut interval nor constant motion defines energy."],
+  "semantics": ["Translate a lyric's verbs and relationships into spatial or material changes.", "Reinterpret the principle for each song instead of mapping words to a finite library of fixed shots."],
+  "transitions": ["Carry a contour, actor, color responsibility or movement into the next thought when that connection is meaningful."],
+  "avoid": ["A mandatory color palette, font list or shot count", "One centered layout repeated for every lyric line", "Continuous bouncing that removes readable holds", "Copying a source video's lyrics, footage or shot timings"],
+  "provenance": {"kind": "authored", "sourceLabel": "Original Lyric Motion creative direction", "visualCoverage": "not-observed", "audioCoverage": "not-observed", "lyricsCoverage": "not-provided", "limitations": ["This portable profile describes authored preferences and makes no claim to analyze a reference video."]},
+  "observations": []
+}

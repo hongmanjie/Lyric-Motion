@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "0.1.0",
+  "assets": {
+    "audio": "assets/song.wav",
+    "lyrics": {"format": "lrc", "path": "assets/lyrics.lrc"}
+  },
+  "creative": {"direction": "更俏皮，更有艺术感，其他由歌曲决定"}
+}

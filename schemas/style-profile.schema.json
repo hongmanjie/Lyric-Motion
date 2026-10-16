@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lyric Motion portable style profile (alpha contract)",
+  "description": "Transferable creative preferences, not a storyboard template. Profiles and prompts can be imported into an independent song project. Defaults are annotations; JSON Schema itself applies no defaults.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "name", "summary", "principles", "typography", "composition", "motion", "semantics", "transitions", "avoid", "provenance"],
+  "properties": {
+    "schemaVersion": {"const": "0.1.0"},
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{0,63}$"},
+    "revision": {"type": "integer", "minimum": 1, "default": 1},
+    "name": {"type": "string", "minLength": 1},
+    "summary": {"type": "string", "minLength": 1},
+    "principles": {"$ref": "#/$defs/statements"},
+    "typography": {"$ref": "#/$defs/statements"},
+    "composition": {"$ref": "#/$defs/statements"},
+    "color": {"$ref": "#/$defs/statements"},
+    "motion": {"$ref": "#/$defs/statements"},
+    "rhythm": {"$ref": "#/$defs/statements"},
+    "semantics": {"$ref": "#/$defs/statements"},
+    "transitions": {"$ref": "#/$defs/statements"},
+    "avoid": {"$ref": "#/$defs/statements"},
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "visualCoverage", "audioCoverage", "lyricsCoverage"],
+      "properties": {
+        "kind": {"enum": ["authored", "reference-analysis", "prompt-import"]},
+        "sourceLabel": {"type": "string"},
+        "visualCoverage": {"enum": ["not-observed", "stills", "continuous"]},
+        "audioCoverage": {"enum": ["not-observed", "signal-only", "listened"]},
+        "lyricsCoverage": {"enum": ["not-provided", "text", "timed"]},
+        "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["statement", "status"],
+        "properties": {
+          "statement": {"type": "string", "minLength": 1},
+          "status": {"enum": ["observed", "inferred", "unknown"]},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "evidence": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["at", "description"],
+              "properties": {
+                "at": {"type": "number", "minimum": 0},
+                "until": {"type": "number", "minimum": 0},
+                "description": {"type": "string", "minLength": 1},
+                "asset": {"$ref": "#/$defs/localEvidence"}
+              }
+            }
+          }
+        },
+        "allOf": [{"if": {"properties": {"status": {"const": "observed"}}}, "then": {"required": ["evidence"]}}]
+      }
+    },
+    "extensions": {"type": "object"}
+  },
+  "$defs": {
+    "statements": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "localEvidence": {
+      "type": "string",
+      "pattern": "^evidence/(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$",
+      "description": "Local evidence only. Shareable exports omit the asset field and evidence media. Validate resolved paths in the application."
+    }
+  }
+}

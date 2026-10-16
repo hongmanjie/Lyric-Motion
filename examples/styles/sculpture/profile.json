@@ -1,0 +1,15 @@
+{
+  "schemaVersion":"0.1.0","id":"sculpture","revision":2,
+  "name":"数字雕塑 / Digital Sculpture",
+  "summary":"Make type and geometry inhabit a dimensional stage with deliberate light, depth and changes of material.",
+  "principles":["Treat spatial relationships and material changes as carriers of meaning.","Use a clear focal object, readable words and deliberate camera or object motion."],
+  "typography":["Prefer solid, confident letterforms with carefully controlled depth or perspective.","Let type participate in the space while keeping a readable statement of the phrase."],
+  "composition":["Vary close sculptural views, open horizons and relationships between several actors.","Preserve quiet space and a calm bottom caption area."],
+  "color":["Dark space, cool reflected light and selective warm illumination are starting preferences.","Adapt material and accent colors to the new song rather than copying the demonstration palette."],
+  "motion":["Change physical relationships: enclosure, release, attraction, transformation, emergence.","Use supplied phrase cues for quick changes of distance, camera angle and scale; let each impact settle rather than jumping randomly.","Calculate object poses and lighting from song time so seeking remains reproducible."],
+  "rhythm":["Reserve impacts and depth shifts for meaningful musical accents.","Use supplied beat data when available; do not label guessed subdivisions as detected beats."],
+  "semantics":["Derive the actors and transformations from the new lyrics, not a fixed sequence of cages, spheres or sunrises.","Keep explanatory subtitles visually quieter than the main sculptural type."],
+  "transitions":["Carry a shape, light direction or depth relationship into the next composition.","Change distance and density as well as color."],
+  "avoid":["Do not replace each lyric with the same rotating 3D word.","Avoid endless particle wallpaper, unreadable perspective and uncontrolled glow.","The demonstration's phases, props and durations are not a storyboard requirement."],
+  "provenance":{"kind":"authored","visualCoverage":"not-observed","audioCoverage":"not-observed","lyricsCoverage":"not-provided","limitations":["Authored creative direction. Example observation and review are recorded separately."]}
+}

@@ -1,0 +1,24 @@
+{
+  "name": "lyric-motion",
+  "version": "0.1.0-alpha.3",
+  "description": "Conversation-first, editable lyric motion graphics for Codex and Claude Code",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "bin": {"lyric-motion": "tools/cli.mjs"},
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "preview": "node tools/cli.mjs preview",
+    "check": "node tools/cli.mjs check",
+    "doctor": "node tools/cli.mjs doctor",
+    "render": "node tools/cli.mjs render",
+    "sample": "node tools/cli.mjs render --sample",
+    "subtitles": "node tools/cli.mjs subtitles",
+    "demo": "node tools/make-demo.mjs",
+    "showcase": "node tools/cli.mjs showcase",
+    "package": "node tools/cli.mjs package",
+    "test": "node --test test/*.test.mjs"
+  }
+}

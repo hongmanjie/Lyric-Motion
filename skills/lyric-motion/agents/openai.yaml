@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lyric Motion"
+  short_description: "Create lyric motion graphics from songs and references"
+  default_prompt: "Use $lyric-motion to create a music video from my song and lyrics with an original visual direction."

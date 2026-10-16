@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lyric Motion · Style comparison</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#121617;color:#f2efe7;font:14px system-ui,sans-serif}main{max-width:1320px;margin:auto;padding:24px 30px}header{display:flex;justify-content:space-between;align-items:baseline;gap:20px}h1{font-size:23px;font-weight:600;margin:4px 0 10px}p{color:#a9b2ac;margin:5px 0 20px;line-height:1.65}small{color:#b9c4ba}video{display:block;width:100%;max-height:calc(100dvh - 235px);background:#070b11;aspect-ratio:16/9}nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}button{font:inherit;border:1px solid #424d48;border-radius:8px;background:#232b28;color:inherit;padding:11px 20px;cursor:pointer}button[aria-pressed=true]{background:#e4f799;color:#171e17;border-color:#e4f799}button:focus-visible{outline:3px solid #8baaf5;outline-offset:3px}label{margin-left:auto;display:flex;align-items:center;gap:7px;color:#b9c4ba}#error{color:#ffb39c}@media(max-width:650px){main{padding:18px 12px}header{display:block}video{max-height:none}label{margin-left:0}}
+</style>
+<main><header><h1 id="title">风格对比 · 同一段歌曲</h1><small>LYRIC MOTION / LOCAL REVIEW</small></header>
+<p id="description">相同歌曲、相同歌词与时间轴，用不同的文字、材料和动作表达内容。</p>
+<video controls playsinline preload="auto" aria-label="风格演示视频"></video>
+<nav aria-label="选择风格"><span id="choices"></span><label><input id="sync" type="checkbox" checked>切换时保持歌曲位置</label></nav><p id="error"></p></main>
+<script type="module">
+const video=document.querySelector('video'),choices=document.querySelector('#choices'),buttons=[];let selected=0,items=[];
+function select(index){
+  const before=items[selected],item=items[index],resume=!video.paused;
+  const keep=document.querySelector('#sync').checked&&!before?.continuous&&!item.continuous;
+  const time=keep?video.currentTime:0;selected=index;
+  for(const [i,button] of buttons.entries())button.setAttribute('aria-pressed',String(i===index));
+  video.onloadedmetadata=()=>{video.currentTime=Math.min(time,Math.max(0,video.duration-.1));if(resume)video.play().catch(()=>{});};video.src='/'+item.file;video.load();
+}
+try{
+  const response=await fetch('/comparison.json');if(!response.ok)throw new Error('没有找到 comparison.json');const data=await response.json();
+  items=data.items;if(!Array.isArray(items)||!items.length)throw new Error('没有可播放的成片');
+  document.querySelector('#title').textContent=data.title||'风格对比 · 同一段歌曲';
+  if(data.description)document.querySelector('#description').textContent=data.description;
+  for(const [i,item] of items.entries()){
+    if(typeof item.file!=='string'||!/^renders\/[a-zA-Z0-9_-]+\.mp4$/.test(item.file))throw new Error('比较文件必须位于本地 renders/ 目录');
+    const button=document.createElement('button');button.textContent=item.name;button.onclick=()=>select(i);button.setAttribute('aria-pressed','false');buttons.push(button);choices.append(button);if(i<items.length-1)choices.append(' ');
+  }
+  select(0);
+}catch(error){document.querySelector('#error').textContent=error.message;}
+</script></html>

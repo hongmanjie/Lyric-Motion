@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "duration": 16,
+  "bpm": 120,
+  "beat": 0.5,
+  "beats": [
+    0,
+    0.5,
+    1,
+    1.5,
+    2,
+    2.5,
+    3,
+    3.5,
+    4,
+    4.5,
+    5,
+    5.5,
+    6,
+    6.5,
+    7,
+    7.5,
+    8,
+    8.5,
+    9,
+    9.5,
+    10,
+    10.5,
+    11,
+    11.5,
+    12,
+    12.5,
+    13,
+    13.5,
+    14,
+    14.5,
+    15,
+    15.5,
+    16
+  ],
+  "timing": {
+    "source": "authored",
+    "kind": "editorial",
+    "vocals": false,
+    "notes": "Original instrumental and authored display text. These are creative cue timings, not sung lyrics or forced alignment."
+  },
+  "lines": [
+    {
+      "i": 0,
+      "text": "MOVE WITH THE BEAT",
+      "start": 0,
+      "end": 4,
+      "words": [
+        {
+          "text": "MOVE",
+          "start": 0,
+          "end": 0.75
+        },
+        {
+          "text": "WITH",
+          "start": 0.75,
+          "end": 1.5
+        },
+        {
+          "text": "THE",
+          "start": 1.5,
+          "end": 2.25
+        },
+        {
+          "text": "BEAT",
+          "start": 2.25,
+          "end": 3
+        }
+      ]
+    },
+    {
+      "i": 1,
+      "text": "MAKE WAVES",
+      "start": 4,
+      "end": 8,
+      "words": [
+        {
+          "text": "MAKE",
+          "start": 4,
+          "end": 5.5
+        },
+        {
+          "text": "WAVES",
+          "start": 5.5,
+          "end": 7
+        }
+      ]
+    },
+    {
+      "i": 2,
+      "text": "COME TOGETHER",
+      "start": 8,
+      "end": 12,
+      "words": [
+        {
+          "text": "COME",
+          "start": 8,
+          "end": 9.5
+        },
+        {
+          "text": "TOGETHER",
+          "start": 9.5,
+          "end": 11
+        }
+      ]
+    },
+    {
+      "i": 3,
+      "text": "MAKE IT YOURS",
+      "start": 12,
+      "end": 16,
+      "words": [
+        {
+          "text": "MAKE",
+          "start": 12,
+          "end": 13
+        },
+        {
+          "text": "IT",
+          "start": 13,
+          "end": 14
+        },
+        {
+          "text": "YOURS",
+          "start": 14,
+          "end": 15
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lyric Motion creation request (alpha contract)",
+  "description": "Minimal user inputs are song and lyrics. The CLI currently imports LRC, SRT, or TXT and resolves aspect ratio and 30fps defaults. Other optional fields describe agent-authored intent; JSON Schema itself applies no defaults. Files are imported into an independent project before resolving relative paths.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "assets"],
+  "properties": {
+    "schemaVersion": {"const": "0.1.0"},
+    "title": {"type": "string", "minLength": 1},
+    "assets": {
+      "type": "object", "additionalProperties": false,
+      "required": ["audio", "lyrics"],
+      "properties": {
+        "audio": {"$ref": "#/$defs/relativePath"},
+        "lyrics": {
+          "type": "object", "additionalProperties": false,
+          "required": ["format", "path"],
+          "properties": {
+            "format": {"enum": ["txt", "lrc", "srt"]},
+            "path": {"$ref": "#/$defs/relativePath"},
+            "language": {"type": "string", "minLength": 2}
+          }
+        },
+        "reference": {
+          "type": "object", "additionalProperties": false,
+          "required": ["path"],
+          "properties": {
+            "path": {"$ref": "#/$defs/relativePath"},
+            "timeRange": {"$ref": "#/$defs/timeRange"},
+            "region": {
+              "type": "object", "additionalProperties": false,
+              "required": ["x", "y", "width", "height"],
+              "properties": {
+                "x": {"type": "integer", "minimum": 0},
+                "y": {"type": "integer", "minimum": 0},
+                "width": {"type": "integer", "minimum": 1},
+                "height": {"type": "integer", "minimum": 1}
+              }
+            }
+          }
+        }
+      }
+    },
+    "creative": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "mode": {"enum": ["free", "reference"], "default": "free"},
+        "direction": {"type": "string"},
+        "styleProfile": {"$ref": "#/$defs/relativePath"},
+        "stylePrompt": {"$ref": "#/$defs/relativePath"}
+      }
+    },
+    "output": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "aspectRatio": {"enum": ["16:9", "9:16", "1:1"], "default": "16:9"},
+        "quality": {"enum": ["1080p", "draft"], "default": "1080p"},
+        "fps": {"enum": [24, 25, 30, 50, 60], "default": 30},
+        "clip": {"$ref": "#/$defs/timeRange"},
+        "subtitles": {
+          "type": "object", "additionalProperties": false,
+          "required": ["mode"],
+          "properties": {
+            "mode": {"enum": ["original", "translation", "off"], "default": "original"},
+            "language": {"type": "string", "minLength": 2}
+          },
+          "allOf": [{"if": {"properties": {"mode": {"const": "translation"}}}, "then": {"required": ["language"]}}]
+        }
+      }
+    },
+    "extensions": {"type": "object"}
+  },
+  "allOf": [{
+    "if": {"required": ["creative"], "properties": {"creative": {"required": ["mode"], "properties": {"mode": {"const": "reference"}}}}},
+    "then": {"anyOf": [
+      {"properties": {"assets": {"required": ["reference"]}}},
+      {"properties": {"creative": {"required": ["styleProfile"]}}},
+      {"properties": {"creative": {"required": ["stylePrompt"]}}}
+    ]}
+  }],
+  "$defs": {
+    "relativePath": {
+      "type": "string", "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\)(?!\\.\\.(?:/|$))(?!.*?/\\.\\.(?:/|$)).+$",
+      "description": "Project-relative path. The application must additionally check realpath, file existence and project containment."
+    },
+    "timeRange": {
+      "type": "object", "additionalProperties": false,
+      "required": ["start", "end"],
+      "properties": {
+        "start": {"type": "number", "minimum": 0},
+        "end": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "description": "Seconds in source media. The application must verify end > start and end <= media duration."
+    }
+  }
+}

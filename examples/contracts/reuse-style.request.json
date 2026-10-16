@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "0.1.0",
+  "assets": {
+    "audio": "assets/another-song.wav",
+    "lyrics": {"format": "lrc", "path": "assets/another-lyrics.lrc", "language": "en"}
+  },
+  "creative": {
+    "mode": "free",
+    "styleProfile": "style/kinetic-play.style.json",
+    "direction": "沿用风格原则，构图和动作由新歌内容决定"
+  },
+  "output": {"aspectRatio": "9:16", "subtitles": {"mode": "original"}}
+}

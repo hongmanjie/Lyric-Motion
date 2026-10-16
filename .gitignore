@@ -1,0 +1,26 @@
+# Private creative inputs and generated work. Never publish by accident.
+/input/
+/output/
+/qa/
+/jobs/
+/projects/
+/data/
+/dist/
+/release/
+/node_modules/
+/coverage/
+/.cache/
+/.tmp/
+*.log
+.env
+.env.*
+!.env.example
+*.local.json
+.DS_Store
+Thumbs.db
+
+# Generated project reviews and renders are never source assets.
+**/renders/
+**/qa/
+**/*.partial-*.mp4
+# Public docs/media is generated intentionally from the original demo.

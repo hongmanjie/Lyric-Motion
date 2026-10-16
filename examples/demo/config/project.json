@@ -1,0 +1,12 @@
+{
+  "title": "MAKE IT YOURS · Original demo",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "duration": 16,
+  "previewDuration": 15,
+  "audio": "assets/audio.wav",
+  "timeline": "timeline.json",
+  "artwork": "artwork.js",
+  "readyToRender": true
+}

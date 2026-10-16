@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "0.1.0",
+  "assets": {
+    "audio": "assets/new-song.wav",
+    "lyrics": {"format": "lrc", "path": "assets/new-lyrics.lrc", "language": "zh"},
+    "reference": {
+      "path": "assets/reference.mp4",
+      "timeRange": {"start": 0, "end": 12},
+      "region": {"x": 0, "y": 0, "width": 1920, "height": 1080}
+    }
+  },
+  "creative": {"mode": "reference", "direction": "学习动词与动作的关系，重新为新歌词编排"},
+  "output": {"aspectRatio": "16:9", "subtitles": {"mode": "translation", "language": "zh-CN"}}
+}
