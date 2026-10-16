@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.4 — 2026-10-16
+
+- Added a 20-second four-style highlight at the start of both READMEs, with an animated preview and full-resolution video.
+- Added an editable, original 20-second vocal-story example using Bautsch's CC0 recording of Auld Lang Syne, with credited sources and estimated recognition timings.
+- Added optional local audio-to-LRC/SRT/TXT transcription with lazy isolated Python setup, cached Whisper models, uncertainty hints and review metadata. No transcription API key is required.
+- Enhanced only the Story Sketch direction with coherent protagonists, expressive acting and lyric-led scene continuity.
+- Included the vocal example in the portable toolkit and kept model weights, Python environments, user media and QA outside public packaging.
+
 ## 0.1.0-alpha.3 — 2026-10-16
 
 - Added Story Sketch, a fourth optional direction for lyric-led characters and hand-drawn scenes.

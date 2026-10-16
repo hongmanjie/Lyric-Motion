@@ -2,7 +2,7 @@
 
 ## Inputs and preparation
 
-Resolve file paths from the conversation and workspace. The required inputs are an audio file and lyrics. A direction can be as brief as “playful typography”; otherwise choose an art direction suited to the song. Do not stop to ask about fonts, colors, scene count, or implementation unless a missing preference materially prevents progress.
+Resolve file paths from the conversation and workspace. If the user only supplies audio, use [lyrics.md](lyrics.md) to generate and review a timed draft before import. A direction can be as brief as “playful typography”; otherwise choose an art direction suited to the song. Do not stop to ask about fonts, colors, scene count, or implementation unless a missing preference materially prevents progress.
 
 The default style is `auto`, with no built-in profile imposed. If the user selects 1/字形游乐场, 2/流动诗境, 3/数字雕塑, or 4/故事手绘, read [styles.md](styles.md) and pass `--style` with that selection. It imports reusable preferences, not the showcase's finished artwork.
 
@@ -26,7 +26,7 @@ Read the local runtime and template only as an interface contract, not as an art
 
 Develop a varied visual arc across the music. Useful questions are what the lyric is doing, where the viewer should look, and how the outgoing motion can become the next scene. Choose a few strong materials, then vary their behavior. Do not repeat the same centered heading, decorative background, and transition for every line. Maintain clear reading time while allowing deliberate oversized text and fast musical accents.
 
-For illustrated storytelling, use the lyric's subjects, actions, relationships, and emotional changes to choose scenes. Recurring characters or props should have continuity through poses, locations, and scale changes. Hand-drawn texture alone is not the story: let the scene perform the content. Select framing and movement for each situation rather than assigning one repeated drawing reveal to every lyric line. When more energy is requested, use purposeful quick cuts and fluid visual handoffs while allowing important actions and subtitles time to read.
+For illustrated storytelling, use the lyric's subjects, actions, relationships, and emotional changes to choose scenes. Honor a specified protagonist; otherwise choose a cast suited to the song. Set a concise reusable character description with recognizable shape, clothing, color, and key props, then preserve it across poses, locations, and scale changes. Show a readable sequence of anticipation, action, and response through expression, gaze, hands, weight, and interaction. Hand-drawn texture alone is not the story. Select framing and movement for each situation rather than assigning one repeated drawing reveal to every lyric line. Connect scenes through a continuing action, object, silhouette, or direction. When more energy is requested, use purposeful quick cuts and fluid visual handoffs while allowing important actions and subtitles time to read. A bear protagonist, particular material, or reference storyboard is not required.
 
 Bottom reading subtitles are a composition decision, not an automatic runtime layer. `<toolkit>/src/captions.js` provides optional drawing helpers; inspect the timeline and the composition before adding or adjusting captions. Avoid duplicate overlapping subtitle layers. A translation must be authored for the actual lyric lines, with uncertainty noted where needed; the importer does not translate.
 

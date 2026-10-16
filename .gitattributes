@@ -6,9 +6,11 @@
 *.yml text eol=lf
 *.yaml text eol=lf
 *.html text eol=lf
+*.py text eol=lf
 *.png binary
 *.gif binary
 *.mp4 binary
 *.wav binary
+*.ogg binary
 *.ttf binary
 *.woff2 binary

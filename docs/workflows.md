@@ -4,11 +4,23 @@ This alpha uses conversation for inputs and feedback. The browser is a local pre
 
 The default is `auto`: no built-in style is imposed. Optionally choose 1/字形游乐场, 2/流动诗境, 3/数字雕塑, or 4/故事手绘 in conversation; see [styles.md](styles.md) for previews and examples. These are flexible starting preferences, not fixed scene templates. The agent can resolve them with `styles` and pass `--style 4` during import.
 
+## Start with audio only: generate an LRC draft
+
+**Conversation:** “只有这首歌，先识别歌词并生成 LRC、SRT 和文本，标出疑似错词，先不用制作 MV。”
+
+```sh
+node tools/cli.mjs lyrics --audio /path/song.mp3 --out projects/song-lyrics --language auto
+```
+
+The optional local faster-whisper backend needs Python 3.10–3.13 and FFmpeg/FFprobe. First use prepares an isolated environment and downloads a model; later use reuses the cache. There is no transcription API key. It writes real model-estimated line/word times to an independent output, plus `lyrics.lrc`, `lyrics.srt`, `lyrics.txt`, raw `transcription.json`, and `state.json` marked `draft-needs-review`. Singing recognition can miss or invent words; review before using it for a final synchronized video. This is not forced alignment of an external lyric sheet. [Dependencies, commands, and review](lyrics.md).
+
+If only lyric extraction was requested, deliver the files and stop there. If full MV creation was requested, continue with the reviewed timed lyric file and retain the raw result and any timing limitations.
+
 ## 1. Create from a song and lyrics
 
 Provide an audio file and `.lrc`, `.srt`, or `.txt` lyrics. Optionally say “quiet and poetic”, “playful typography”, a frame shape, or another direction. The agent handles ordinary technical choices and creates an independent song project.
 
-**Conversation:** “Use this song and LRC to make a landscape MV. Choose the art direction yourself, preview it, and fix visible problems.” For illustrated storytelling: “Use style 4 / 故事手绘. Let drawn characters and objects perform the lyrics, with quick, fluid changes that follow the musical phrasing.”
+**Conversation:** “Use this song and LRC to make a landscape MV. Choose the art direction yourself, preview it, and fix visible problems.” For illustrated storytelling: “Use style 4 / 故事手绘. The protagonist is a little fox with a worn schoolbag. Let its acting and changing situation perform the lyrics, with fluid changes that follow the musical phrasing.” A specified protagonist takes precedence; otherwise the agent chooses a coherent cast.
 
 ```sh
 node tools/cli.mjs init --audio /path/song.mp3 --lyrics /path/lyrics.lrc --out projects/my-song --aspect 16:9 --direction "Playful typography"
@@ -18,7 +30,7 @@ Import probes the real audio duration and preserves lyric source text. A new pro
 
 With an explicit `--style`, the new project receives independent profile/prompt copies and still starts with unfinished artwork. Extra `--direction` and reference inputs remain intact. Either custom `--style-profile` or `--style-prompt` replaces the built-in bundle as a unit; `request.json` records the requested and applied selection under `extensions.style`. The song, explicit user instructions, and relevant reference analysis guide the final composition.
 
-LRC and SRT provide supplied line timing. TXT is stored as unaligned and marked `needs_alignment`; the tool does not invent equal-duration lyric cues. A reliable timed source or a separate alignment step is required for a final synchronized result. No automatic transcription, translation, beat detection, or word-level alignment service is bundled in this version.
+LRC and SRT provide supplied line timing. TXT is stored as unaligned and marked `needs_alignment`; the tool does not invent equal-duration lyric cues. Optional local transcription can produce model-estimated times when no timed source is available. Keep its draft/review limitations alongside the song project. External-text forced alignment, automatic translation, and beat detection are not provided by the current toolkit.
 
 ## 2. Analyze a reference
 

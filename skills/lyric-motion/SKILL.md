@@ -1,11 +1,11 @@
 ---
 name: lyric-motion
-description: Create and revise local lyric motion graphics music videos from a song and lyrics, optionally using a reference or written direction. Analyze a video into either a transferable style prompt or an authored reconstruction prompt for a similar visible result. Use the local toolkit for import, preview, deterministic rendering, and subtitles.
+description: Create and revise local lyric music videos with Codex or Claude Code. Generate a timed LRC draft from audio, or use supplied lyrics; optionally analyze a reference into a reusable style or reconstruction prompt. Use the local toolkit for preview, reproducible rendering, and subtitles.
 ---
 
 # Lyric Motion
 
-Work through the conversation. The user supplies a song and lyrics; a reference or art direction is optional. Do not make the user fill in a production prompt, choose a JavaScript framework, or supply a shot list. Honor explicit choices and resolve ordinary creative decisions yourself.
+Work through the conversation. The user supplies a song and optionally lyrics, a reference, or an art direction. Do not make the user fill in a production prompt, choose a JavaScript framework, or supply a shot list. Honor explicit choices and resolve ordinary creative decisions yourself.
 
 Resolve the absolute directory containing this `SKILL.md` first; do not assume the shell's current directory is the repository:
 
@@ -18,6 +18,7 @@ In this skill and its references, `<toolkit>` always means that resolved absolut
 ## Route the request
 
 - **New song, with or without a written direction:** read [references/create.md](references/create.md).
+- **Audio to timed lyrics, or a song with no lyric file:** read [references/lyrics.md](references/lyrics.md). Generate and review a transcription draft; an LRC-only request ends there.
 - **Reverse-engineer a prompt to recreate a similar video** (反推、还原、复现提示词): read [references/reverse-prompt.md](references/reverse-prompt.md). Preserve useful scene relationships and cadence with evidence; this is an authored reconstruction request, not recovery of the original secret prompt.
 - **Extract transferable style principles, with or without immediate creation:** read [references/reference.md](references/reference.md). A reusable style prompt is a complete standalone deliverable; it need not reproduce the reference sequence.
 - **Select or compare an optional built-in direction:** read [references/styles.md](references/styles.md). Default to `auto` when the user has not selected one; do not require a style choice before creating.
@@ -27,13 +28,13 @@ Run `node <toolkit>/tools/cli.mjs doctor` early. It reports Node, browser, FFmpe
 
 ## Creative and technical invariants
 
-Use the imported song and actual lyric timing. Plain TXT is deliberately unaligned; LRC/SRT provide line timing, not inferred word timing. Do not distribute lyrics evenly and label that result synchronized. Preserve the user's supplied timing; resolve missing alignment honestly before a final synchronized export.
+Use the imported song and actual lyric timing. Plain TXT is deliberately unaligned; supplied LRC/SRT provide line timing. Optional local transcription produces model-estimated times and retains review status; it does not establish forced alignment or verified singing accuracy. Do not distribute lyrics evenly and label that result synchronized. Preserve supplied timing and raw recognition results; resolve missing timing honestly before a final synchronized export.
 
 Treat words, graphics, space, and movement as one composition. Let lyric meaning, emotional relationships, and musical phrasing shape the animation. Transferable style analysis should preserve principles without locking a new song to old shots; an explicit reconstruction request may retain the observed sequence while labeling uncertain details. A scene need not equal one lyric line. Canvas, SVG, WebGL, or other suitable techniques remain creative choices.
 
 Built-in directions are editable starting preferences, not constraints that override the user's words or reference. The showcase compositions illustrate possibilities; never copy their finished artwork into a new project. A supplied custom profile or prompt replaces the built-in bundle as a unit. Recompose for the new song, retaining explicit user direction and relevant reference analysis.
 
-The optional catalog is 1/字形游乐场, 2/流动诗境, 3/数字雕塑, and 4/故事手绘. Storybook means lyric-driven scenes and acting through drawn characters or objects, with continuity and musical changes; it is not merely a handwritten font treatment. Follow the maintained bundle for the selected direction, adapting energy and pacing to the user's song.
+The optional catalog is 1/字形游乐场, 2/流动诗境, 3/数字雕塑, and 4/故事手绘. Storybook means lyric-driven scenes and acting through drawn characters or objects. Honor a requested protagonist; otherwise choose a coherent cast without blocking on a character form. Follow the maintained bundle for the selected direction, adapting energy and pacing to the user's song. No particular model or client is mandatory.
 
 Replace the unfinished `artwork.js` with an original composition. Its module exports `createArtwork({canvas,ctx,project,timeline})`, which resolves to an object with `render(t)`; it also exports `cuts` and `readyToRender`. Set readiness true only after the work exists. The runtime exposes `__ready`, `__meta`, `__seek(t)`, and `__freeze()`. Every frame must be a function of absolute song time and work after random-order seeks. Await asset/font loading; avoid wall-clock animation and accumulating simulation state.
 

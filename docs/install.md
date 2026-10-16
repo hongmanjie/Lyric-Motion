@@ -11,7 +11,9 @@ Lyric Motion runs locally through your existing Codex or Claude Code session. Th
 - Chrome, Edge, or Chromium for rendering and local preview.
 - Codex or Claude Code with access to the working directory and shell tools.
 
-No npm dependencies are required. Rendering, file access, and browser observation remain subject to your agent's actual permissions and available tools.
+No npm dependencies are required by the core MV toolkit. Rendering, file access, and browser observation remain subject to your agent's actual permissions and available tools.
+
+**Optional audio-to-LRC:** Python 3.10–3.13 is required only when generating lyrics from audio. On first use, `lyrics` prepares an isolated faster-whisper environment and downloads the selected model; subsequent runs reuse the cache. FFmpeg/FFprobe are also used. This local recognizer needs no transcription API key. Existing LRC/SRT creation does not require Python or a model download. [Setup and review details](lyrics.md).
 
 ## 1. Install by asking your agent
 
@@ -69,7 +71,7 @@ The installer writes only to the selected project:
 | Codex | `.agents/skills/lyric-motion/` |
 | Claude Code | `.claude/skills/lyric-motion/` |
 
-Each copy contains `SKILL.md`, its references, and a self-contained `toolkit/` with the local CLI, runtime, template, schemas, and public demo. It does not depend on the original checkout and does not copy private projects, generated renders, reference footage, or account settings.
+Each copy contains `SKILL.md`, its references, and a self-contained `toolkit/` with the local CLI, runtime, template, schemas, and public examples. It does not depend on the original checkout and does not copy private projects, generated renders, reference footage, or account settings. The optional transcription environment and model cache are prepared separately when requested, rather than shipped in every Skill installation.
 
 ### Step 4 — open the target project and invoke the Skill
 
@@ -93,11 +95,17 @@ In a source checkout, the Skill resolves the repository root two directories abo
 
 ## 4. First requests
 
+**Only have a song? Generate lyric files first:**
+
+> 只有这首歌，先用 Lyric Motion 识别歌词并生成 LRC、SRT 和文本，标出疑似错词，保留原始识别结果。先不用制作 MV。
+
+The result remains an ASR draft with model-estimated times until reviewed. It is not equal-duration text, a promise of exact sung-word alignment, or an external-lyrics forced aligner. [Audio-to-LRC workflow](lyrics.md).
+
 **Let the agent choose:**
 
 > Use Lyric Motion to make an MV from this song and LRC. Use landscape; decide the typography, composition, and animation. Watch the result and fix obvious issues.
 
-You can also say “use direction 1 / 字形游乐场”, “2 / 流动诗境”, “3 / 数字雕塑”, or “4 / 故事手绘”. They are optional starting points; omitting a choice keeps `auto`. The fourth direction uses hand-drawn characters, objects, and changing scenes to perform the lyric story. See [styles.md](styles.md) for public original demos. A supplied reference or custom prompt can guide a different result.
+You can also say “use direction 1 / 字形游乐场”, “2 / 流动诗境”, “3 / 数字雕塑”, or “4 / 故事手绘”. They are optional starting points; omitting a choice keeps `auto`. The fourth direction uses consistent hand-drawn characters, expressions, gestures, and changing scenes to perform the lyric story. Name a protagonist if you have one; otherwise the agent chooses a coherent cast. No particular model or client is mandatory. See [styles.md](styles.md) for public original demos. A supplied reference or custom prompt can guide a different result.
 
 **Analyze a reference:**
 

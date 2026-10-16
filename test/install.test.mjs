@@ -29,6 +29,10 @@ async function fixture(t) {
     'src/runtime.js': 'export const runtime = true;\n',
     'schemas/project.schema.json': '{}',
     'examples/demo/config/project.json': '{"width":1920}',
+    'examples/vocal-demo/provenance.json': '{"recording":{"license":"CC0-1.0"}}',
+    'examples/vocal-demo/assets/source.ogg': 'public CC0 fixture recording',
+    'examples/vocal-demo/renders/final.mp4': 'ignore generated vocal render',
+    'examples/vocal-demo/qa/review.json': 'ignore generated vocal review',
     'examples/styles/playground/profile.json': '{"id":"playground"}',
     'examples/styles/playground/prompt.md': '# Playful type\n',
     'examples/styles/storybook/profile.json': '{"id":"storybook"}',
@@ -58,7 +62,7 @@ test('installs a portable, allowlisted Codex toolkit and remains unchanged after
   for (const notice of ['LICENSE', 'THIRD_PARTY_NOTICES.md']) {
     assert.deepEqual(await fs.readFile(path.join(report.path, 'toolkit', notice)), await fs.readFile(path.join(source, notice)));
   }
-  for (const relative of ['examples/styles/storybook/profile.json', 'examples/styles/storybook/prompt.md']) {
+  for (const relative of ['examples/styles/storybook/profile.json', 'examples/styles/storybook/prompt.md', 'examples/vocal-demo/provenance.json', 'examples/vocal-demo/assets/source.ogg']) {
     assert.deepEqual(await fs.readFile(path.join(report.path, 'toolkit', relative)), await fs.readFile(path.join(source, relative)));
   }
   const render = path.join(report.path, 'toolkit/examples/demo/renders/generated.mp4');

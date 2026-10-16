@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "date": "2026-10-16",
+  "video": "demo.mp4",
+  "sha256": "97836ced95284516b3f96d1230ef1c60bc944633e5245bbadf7271af482b11fc",
+  "fullSizeFrames": {
+    "width": 1920,
+    "height": 1080,
+    "seconds": [
+      1.81515,
+      3.6303,
+      7.26061,
+      9.07576,
+      12.70606,
+      16.33636,
+      18.15152,
+      18.5,
+      19.96667
+    ],
+    "inspected": true
+  },
+  "continuousPlayback": {
+    "date": "2026-10-16",
+    "method": "Actual encoded MP4 playback in the Codex in-app browser, normal speed, with intermittent screenshots and read-only currentTime observations. No seeking during either pass.",
+    "combinedPass": {
+      "duration": 40,
+      "start": 0,
+      "end": 40,
+      "observedSeconds": [
+        0,
+        12.879019,
+        26.650145,
+        38.781419,
+        40
+      ],
+      "ended": true
+    },
+    "vocalOnlyPass": {
+      "duration": 20,
+      "start": 0,
+      "end": 20,
+      "observedSeconds": [
+        0,
+        20
+      ],
+      "ended": true
+    },
+    "coverageLimit": "Playback reached the end; intermittent screenshots do not establish frame-by-frame viewing or subjective listening.",
+    "subjectiveListening": "not-claimed",
+    "combinedClipRange": [
+      20,
+      40
+    ]
+  },
+  "technical": {
+    "checkedSeeks": 169,
+    "deterministic": true,
+    "encodedFrames": 600,
+    "fps": 30,
+    "duration": 20,
+    "audioTrackPresent": true
+  },
+  "correctedIssues": [
+    "Scaled the cast inside small photos to preserve heads.",
+    "Replaced stepped photo erasure with a gradient fade.",
+    "Moved the MIND character above the subtitle band.",
+    "Reflowed long words and the final title to avoid edge clipping and character collisions.",
+    "Interpolated the meeting gesture into hand contact."
+  ],
+  "findings": "In the inspected frames and playback screenshots the cast remains consistent, lyric text is readable, and the final title clears the characters. The visual sequence follows memories, recollection, a bridge and reunion.",
+  "timingQuality": "asr-estimated",
+  "limitations": [
+    "The first four canonical lines were grouped from actual local ASR word estimates. First vocal onset was constrained by measured leading silence.",
+    "These are model estimates, not independently verified forced alignment.",
+    "Playback screenshots and technical checks do not establish sung-word accuracy; subjective listening is not claimed.",
+    "Only the 0–20 second public recording excerpt is demonstrated."
+  ]
+}

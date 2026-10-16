@@ -1,8 +1,16 @@
 # Lyric Motion
 
-**Give your coding agent a song and lyrics. Get a music video you can watch, revise, and edit as code.**
+**Give your coding agent a song. Generate timed lyrics and make a music video you can watch, revise, and edit as code.**
 
 [中文](README.zh-CN.md) · [Installation](docs/install.md) · [Style gallery](docs/styles.md) · [Workflows](docs/workflows.md)
+
+[![Four creative directions in 20 seconds](docs/media/highlight/demo.gif)](docs/media/highlight/demo.mp4)
+
+**20 seconds: Type Playground → Flowing Poetry → Digital Sculpture → Story Sketch.** Play the [HD highlight with sound](docs/media/highlight/demo.mp4). Code-rendered artwork, original instrumental music, and authored graphic copy.
+
+[![Sung lyrics in motion: Auld Lang Syne](docs/media/vocal/poster.png)](docs/media/vocal/demo.mp4)
+
+**Hear a real voice and see the lyrics performed:** [watch the Auld Lang Syne story example](docs/media/vocal/demo.mp4). Character acting and scene changes express the song while readable lyrics stay at the bottom. The vocal recording is CC0 and the traditional lyrics are public-domain material. [Source and timing notes](examples/vocal-demo/README.md).
 
 ## 1. Why Lyric Motion?
 
@@ -10,7 +18,7 @@ Coding agents can draw an MV with Canvas, SVG, or WebGL. Making the result usabl
 
 Lyric Motion gives **Codex and Claude Code** a reusable creation workflow and local production tools:
 
-- **Start with files and a sentence.** The agent handles ordinary typography, scene, implementation, and export decisions.
+- **Start with a song.** Supply lyrics if you have them, or first generate a timed LRC draft. The agent handles ordinary typography, scene, implementation, and export decisions.
 - **Make the song visible.** Words, shapes, characters, and scene changes can express lyric meaning and musical phrasing together.
 - **Keep control after generation.** Each song has an independent, editable project with source media, timing, artwork, renders, and review notes.
 
@@ -63,6 +71,8 @@ Prepare **Node.js 22+**, **FFmpeg / FFprobe**, and **Chrome, Edge, or Chromium**
 
 The installation includes a self-contained toolkit and does not depend on the downloaded checkout staying in place. No `npm install` or API key is needed by the toolkit. [Paths, updates, and direct-checkout use](docs/install.md).
 
+Audio-to-lyrics is optional: it prepares a local Python/Whisper environment and downloads a model on first use, then reuses the cache. Creating from an existing LRC does not need it. [Generate an LRC from a song](docs/lyrics.md).
+
 ## 3. Make your first MV
 
 Attach an audio file and `.lrc` or `.srt` lyrics. In Codex, mention `$lyric-motion`; in Claude Code, use `/lyric-motion`, then say:
@@ -71,9 +81,25 @@ Attach an audio file and `.lrc` or `.srt` lyrics. In Codex, mention `$lyric-moti
 
 No style choice, shot list, or technical form is required. Plain `.txt` lyrics can also be imported, but need real timing before a synchronized final export. If the Skill is not discovered, start a fresh conversation or explicitly ask the agent to read the installed `SKILL.md`. [Detailed workflow](docs/workflows.md).
 
+**Only have the song? Start with:**
+
+> Transcribe this song and generate an LRC. Flag uncertain words and keep the raw result. Do not make the MV yet.
+
+Times come from actual model estimates, never evenly divided text. Singing recognition can be wrong; check the draft before using it in a final video.
+
 ## 4. Features — and how to use each one
 
-### 1. Create a new MV freely from a song
+### 1. Turn a song into an LRC/SRT draft
+
+The agent can use optional local Whisper transcription to produce `.lrc`, `.srt`, plain text, and raw transcription data for your MV. The first run prepares an isolated Python environment and model; no transcription API key is required. The result is an estimated transcription draft, not a retrieved lyric sheet or a guarantee of accurate sung words.
+
+**Say:**
+
+> Use Lyric Motion to transcribe this song into LRC, SRT, and text. Flag uncertain words, preserve the audio and raw recognition result, and do not make an MV yet.
+
+[Setup, commands, and review](docs/lyrics.md). If you have an official lyric sheet, supply it for comparison. The current recognition command does not force-align that external text.
+
+### 2. Create a new MV freely from a song
 
 The agent designs around the new lyrics and musical phrasing. It can use typography, abstract graphics, illustrated scenes, or another suitable direction. `auto` is the default; no built-in style is imposed.
 
@@ -81,7 +107,7 @@ The agent designs around the new lyrics and musical phrasing. It can use typogra
 
 > Use this song and lyrics to make an MV. Choose the art direction yourself. Keep the scene changes fluid and meaningful.
 
-### 2. Create with one of four starting styles
+### 3. Create with one of four starting styles
 
 Each direction is an editable set of creative principles. It does not install the example's scene order, timing, or finished artwork into your song.
 
@@ -95,15 +121,17 @@ Each direction is an editable set of creative principles. It does not install th
 | [![Sculpture](docs/media/styles/sculpture/poster.png)](docs/media/styles/sculpture/demo.gif) | [![Story Sketch](docs/media/styles/storybook/poster.png)](docs/media/styles/storybook/demo.gif) |
 | Dimensional forms, spatial movement, sculptural light. [MP4 with sound](docs/media/styles/sculpture/demo.mp4) | Drawn characters, changing places, and objects that perform the lyrics. [MP4 with sound](docs/media/styles/storybook/demo.mp4) |
 
-Click an image for its animated preview. Public previews use original instrumental music and authored text; they do not demonstrate sung-vocal alignment. User-song studies and reference footage stay in private projects. [Profiles, prompts, and source](docs/styles.md).
+Click an image for its animated preview. These four previews use original instrumental music and authored text; the separate example above uses a publicly shareable vocal recording. User-song studies and reference footage stay in private projects. [Profiles, prompts, and source](docs/styles.md).
 
 **Say:**
 
-> Use style 4, Story Sketch, for this song. Let characters and objects act out the lyrics, with quick, fluid changes that follow the phrasing. Keep the bottom lyrics easy to read.
+> Use style 4, Story Sketch, for this song. The protagonist is a small fox with a worn schoolbag. Let its expressions, actions, and changing situation perform the lyrics. Keep its design consistent, transitions fluid, and bottom lyrics readable. You decide the rest.
 
 Or: “Use style 1, with warmer colors and a quieter ending.” Styles can be adapted or mixed; your explicit request takes precedence.
 
-### 3. Extract a reference's reusable style
+Naming a protagonist gives the story a clear direction. If you omit one, the agent chooses a coherent cast for the song. Story Sketch emphasizes acting, spatial relationships, and cause and effect; handwritten type or paper texture alone is not the story.
+
+### 4. Extract a reference's reusable style
 
 Give the agent a video and optionally a region or time range. It observes the composition, typography, motion, transitions, and relationship to the lyrics, then saves a reusable style prompt and profile. This can be the entire task, or the starting point for a different song.
 
@@ -113,7 +141,7 @@ Give the agent a video and optionally a region or time range. It observes the co
 
 [Reference workflow](docs/workflows.md#2-analyze-a-reference).
 
-### 4. Reverse-engineer a prompt for a similar video
+### 5. Reverse-engineer a prompt for a similar video
 
 Ask for a copyable request that could guide a **similar visible result**, retaining useful composition, motion mechanisms, scene relationships, and cadence. This is more specific than transferring a style. The agent separates observations from inferences and states what it actually viewed or heard. It cannot recover the original author's private prompt.
 
@@ -123,7 +151,7 @@ Ask for a copyable request that could guide a **similar visible result**, retain
 
 The deliverable is `reconstruction-prompt.md` plus structured analysis and cited evidence. [How it works](docs/reverse-prompt.md).
 
-### 5. Apply a saved prompt to a new song
+### 6. Apply a saved prompt to a new song
 
 Supply an extracted style prompt, a reconstruction prompt, or your own written direction. The agent applies it to new lyrics and timing. A custom style bundle replaces the built-in direction rather than silently mixing unrelated instructions.
 
@@ -131,7 +159,7 @@ Supply an extracted style prompt, a reconstruction prompt, or your own written d
 
 > Use this saved prompt with my new song and lyrics. Keep its visual relationships, but redesign the words, actions, and timing for this song.
 
-### 6. Preview and revise a specific moment
+### 7. Preview and revise a specific moment
 
 The local preview shares the audio clock and supports scrubbing. Ask for a change at a specific moment; the agent edits the project, preserves the previous good version, renders, and reviews the affected interval. Actual video observation depends on the tools available in your client.
 
@@ -139,7 +167,7 @@ The local preview shares the audio clock and supports scrubbing. Ask for a chang
 
 > At 8–12 seconds the screen feels crowded. Make one word the focus and connect the next scene through its movement. Preserve the previous version and check the revised playback.
 
-### 7. Add captions and export the editable result
+### 8. Add captions and export the editable result
 
 Create a composed lyric layer, an MP4, a timed SRT, and the editable project. The default format is landscape; portrait and square are also supported. Translation is agent-authored when requested, not generated by the lyric parser.
 
@@ -149,13 +177,13 @@ Create a composed lyric layer, an MP4, a timed SRT, and the editable project. Th
 
 ## 5. What to expect from this alpha
 
-- LRC/SRT preserve supplied **line timing**. TXT remains unaligned; automatic forced alignment, transcription, translation, and beat detection are not bundled. Per-word accuracy needs real timing data.
+- LRC/SRT preserve supplied line timing. Optional Whisper transcription produces actual model-estimated times and stays a draft for review. TXT remains unaligned. External-text forced alignment, automatic translation, and beat detection are not provided; sung words and word-level precision need separate verification.
 - Local tools prepare evidence and render media; the agent does the interpretation and creative work. Technical checks do not prove visual quality or that audio was heard.
 - Windows tooling has been exercised locally. Fresh-session client discovery and macOS/Linux host execution still need broader verification.
 
 ## 6. For contributors and direct tool use
 
-Ordinary users can stay in conversation. The agent has commands for import, style selection, reference preparation, reverse-prompt preparation/export, preview, rendering, and subtitle export. [Command workflows](docs/workflows.md) · [Architecture](docs/architecture.md).
+Ordinary users can stay in conversation. The agent has commands for lyric transcription, import, style selection, reference preparation, reverse-prompt preparation/export, preview, rendering, and subtitle export. [Command workflows](docs/workflows.md) · [Architecture](docs/architecture.md).
 
 ```sh
 node tools/cli.mjs styles
@@ -168,6 +196,6 @@ New songs live in independent `projects/` folders. The shared runtime is in `src
 
 Media processing and rendering run locally; your agent client controls what is sent to its provider. **Local tooling does not mean offline inference.** The toolkit carries no model credentials and makes no promise of unlimited subscription usage.
 
-Code, original demo text, and procedural score: [MIT](LICENSE). Bundled fonts retain OFL notices. [Third-party notices](THIRD_PARTY_NOTICES.md) · [Demo provenance](docs/media/README.md). Use media you are entitled to process and share.
+Code, original demo text, and procedural score: [MIT](LICENSE). Bundled fonts retain OFL notices; the vocal demo documents its CC0 recording separately. [Third-party notices](THIRD_PARTY_NOTICES.md) · [Demo provenance](docs/media/README.md). Use media you are entitled to process and share.
 
 [Contributing](CONTRIBUTING.md) · [Roadmap](docs/roadmap.md) · [Changelog](CHANGELOG.md). Share the prompts, client/model, manual edits, and asset permissions behind your examples. If Lyric Motion helps you make something worth sharing, a Star helps others find it.

@@ -1,0 +1,2 @@
+# Optional, isolated local lyrics backend. No packages are installed globally.
+faster-whisper==1.2.1

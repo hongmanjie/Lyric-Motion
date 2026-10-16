@@ -1,0 +1,55 @@
+{
+  "format": 1,
+  "date": "2026-10-16",
+  "video": "demo.mp4",
+  "sha256": "a2a6dc98fd8a87dd5a66246462bfa9003c2e6ff9feb82a0831190e816818a154",
+  "fullSizeFrames": {
+    "width": 1920,
+    "height": 1080,
+    "seconds": [
+      2.6,
+      7.3,
+      12.6,
+      18.5
+    ],
+    "inspected": true
+  },
+  "continuousPlayback": {
+    "date": "2026-10-16",
+    "method": "Actual encoded MP4 playback in the Codex in-app browser, normal speed, with intermittent screenshots and read-only currentTime observations. No seeking during either pass.",
+    "combinedPass": {
+      "duration": 40,
+      "start": 0,
+      "end": 40,
+      "observedSeconds": [
+        0,
+        12.879019,
+        26.650145,
+        38.781419,
+        40
+      ],
+      "ended": true
+    },
+    "vocalOnlyPass": {
+      "duration": 20,
+      "start": 0,
+      "end": 20,
+      "observedSeconds": [
+        0,
+        20
+      ],
+      "ended": true
+    },
+    "coverageLimit": "Playback reached the end; intermittent screenshots do not establish frame-by-frame viewing or subjective listening.",
+    "subjectiveListening": "not-claimed",
+    "combinedClipRange": [
+      0,
+      20
+    ]
+  },
+  "findings": "The four original directions are visually distinct. No blocking text overflow or missing artwork was observed in the inspected stills and playback screenshots.",
+  "limitations": [
+    "The score is original instrumental music; graphic copy is not a vocal-transcription demonstration.",
+    "No subjective listening or every-frame visual claim."
+  ]
+}
