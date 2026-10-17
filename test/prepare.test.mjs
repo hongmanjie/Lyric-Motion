@@ -49,6 +49,10 @@ test('prepare probes real duration, imports portable paths and keeps export bloc
   assert.equal(result.request.output.aspectRatio, '9:16');
   assert.deepEqual(await readFile(path.join(files.out, 'assets/audio.wav')), await readFile(files.audio));
   assert.deepEqual(await readFile(path.join(files.out, 'assets/lyrics.lrc')), await readFile(files.lyrics));
+  const sources=JSON.parse(await readFile(path.join(files.out,'sources.json'),'utf8'));
+  for(const source of sources.files)assert.deepEqual(await readFile(path.join(files.out,source.path)),await readFile(path.join(files.out,source.asset)));
+  assert.equal(sources.files[0].originalName,path.basename(files.audio));
+  assert.match(sources.files[0].sha256,/^[a-f0-9]{64}$/);
   assert.equal(await readFile(path.join(files.out, 'artwork.js'), 'utf8'), await readFile(path.join(root, 'templates/artwork.js'), 'utf8'));
   assert.deepEqual(JSON.parse(await readFile(path.join(files.out, 'timeline.json'), 'utf8')), result.timeline);
   assert.doesNotMatch(JSON.stringify(result.request), /[A-Z]:\\|\/Users\/|\.\.\//);

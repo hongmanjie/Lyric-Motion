@@ -9,13 +9,14 @@ window.__ready=(async()=>{
   const art=await module.createArtwork({canvas,ctx,project,timeline});await document.fonts.ready;
   const audio=new Audio(encode(project.audio));audio.id='audio';audio.hidden=true;audio.preload='auto';document.body.append(audio);
   const slider=document.querySelector('#scrub'),label=document.querySelector('#time'),button=document.querySelector('#play');slider.max=project.duration;
-  let frame=0,queue=Promise.resolve();
+  let frame=0,queue=Promise.resolve(),completed=false;
   window.__meta={width:project.width,height:project.height,fps:project.fps,duration:project.duration,readyToRender:module.readyToRender===true,sceneCuts:module.cuts||[]};
   window.__seek=t=>{const time=Math.min(project.duration,Math.max(0,Number(t)||0));queue=queue.then(async()=>{ctx.reset();await art.render(time);slider.value=time;label.textContent=`${time.toFixed(2)} / ${project.duration.toFixed(2)}`;});return queue.then(()=>true);};
   window.__freeze=()=>{cancelAnimationFrame(frame);audio.pause();button.textContent='Play';};
-  const tick=async()=>{if(audio.paused)return;await window.__seek(audio.currentTime);if(audio.currentTime>=project.duration){window.__freeze();return;}if(!audio.paused)frame=requestAnimationFrame(tick);};
-  button.onclick=async()=>{if(!audio.paused){window.__freeze();return;}try{if(Number(slider.value)>=project.duration)slider.value=0;audio.currentTime=Number(slider.value);await audio.play();button.textContent='Pause';tick();}catch(e){document.querySelector('#error').textContent=e.message;}};
-  slider.oninput=async()=>{window.__freeze();audio.currentTime=Number(slider.value);await window.__seek(Number(slider.value));};audio.onended=()=>window.__freeze();
+  const finish=async()=>{completed=true;window.__freeze();await window.__seek(Math.max(0,project.duration-1/project.fps));};
+  const tick=async()=>{if(audio.paused)return;await window.__seek(audio.currentTime);if(audio.currentTime>=project.duration){await finish();return;}if(!audio.paused)frame=requestAnimationFrame(tick);};
+  button.onclick=async()=>{if(!audio.paused){window.__freeze();return;}try{if(completed||audio.ended||Number(slider.value)>=project.duration)slider.value=0;completed=false;audio.currentTime=Number(slider.value);await audio.play();button.textContent='Pause';tick();}catch(e){document.querySelector('#error').textContent=e.message;}};
+  slider.oninput=async()=>{completed=false;window.__freeze();audio.currentTime=Number(slider.value);await window.__seek(Number(slider.value));};audio.onended=finish;
   await window.__seek(Number(new URLSearchParams(location.search).get('t'))||0);button.disabled=false;slider.disabled=false;button.textContent='Play';return true;
 })();
 window.__ready.catch(e=>document.querySelector('#error').textContent=e.stack);

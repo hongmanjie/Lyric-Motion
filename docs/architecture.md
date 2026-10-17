@@ -39,7 +39,7 @@ my-song/
   qa/                          Technical report, stills and concrete review notes
 ```
 
-`init` writes the prepared/needs_input state. It is not an autonomous agent-job scheduler; this alpha does not invent progress events. The agent records subsequent creation/review outcomes in the project. Keep original inputs and previous good renders.
+`init` writes the prepared/needs_input state. It is not an autonomous agent-job scheduler; this version does not invent progress events. The agent records subsequent creation/review outcomes in the project. Keep original inputs and previous good renders.
 
 ## Timing
 
@@ -90,10 +90,16 @@ The JSON Schemas describe structural contracts. CLI `style-check` performs the d
 
 ## Installation and release
 
-One canonical Skill source is copied into the client's project skill directory with a self-contained `toolkit/`. Paths derive from the installed location. Existing modified installations are preserved. Global installation and credential forwarding are outside this alpha.
+One canonical Skill source is copied into the client's project skill directory with a self-contained `toolkit/`. Paths derive from the installed location. Existing modified installations are preserved. Global installation and credential forwarding are outside this version.
 
 `package` builds an explicit public allowlist into an English-named folder and tar archive, with SHA256 per file. It excludes user projects, private references, generated QA and intermediate renders. The lead README contains maintainer-selected rendered song excerpts under `docs/media/showcase/`, with separate source/rights/timing notes; their original inputs and private artwork projects are excluded. The original instrumental developer fixture retains its public sources; old four-style and CC0 vocal examples are excluded from the current package. Release packaging is not a GitHub publish action.
 
 ## Host status
 
-Local Windows tool execution, two installed toolkit copies, real FFmpeg imports/exports, local HTTP preview behavior and browser capture are exercised. Actual new-session discovery inside both independent client applications, and macOS/Linux host execution, remain to be verified. No claim of hosted/cloud agent compatibility is made.
+Local Windows tool execution, two installed toolkit copies, real FFmpeg imports/exports, local HTTP preview behavior and browser capture are exercised. Linux CI runs the logic tests and original-demo check/render. Actual new-session discovery inside both independent client applications, macOS, and broader Linux desktop configurations remain unverified. No claim of hosted/cloud agent compatibility is made.
+
+## Source notes and local handoff
+
+Imported originals live in input/audio/, input/lyrics/ and optional input/reference/, with the supplied filenames and SHA256 in sources.json. Clearly labelled timed credits, website notices and instrumental declarations remain in timeline.metadata.annotations. Vocal lines keep their original times. An instrumental-marker-only file declares content.kind=instrumental and alignment.quality=not-applicable; it has no invented vocal cues or subtitle file. This is source metadata, not a listening claim.
+
+`deliver --project DIR --render NAME --name final` collects the selected encoded movie, source folder and a tar.gz archive into a new delivery directory. Old renders, unselected QA, installed dependencies and hidden configuration are excluded. Current audio/timeline hashes must match the render. Only explicit qa/review.md/json records are included. Tar is needed for this optional archive step, as for public release packaging. Deliveries remain local; this command never uploads media.

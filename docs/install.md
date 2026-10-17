@@ -42,6 +42,6 @@ node /installed/lyric-motion/toolkit/tools/cli.mjs render --sample --name instal
 
 默认检查/短渲染使用随包的原创工具演示，生成文件保存在安装副本的演示 qa/ 与 renders/，不碰用户作品。检查两个风格的指南、画面参考，以及节奏图形动效代码都存在；已有浏览器观察工具时打开实际示例，记录可见结果。技术通过不等于主观美术或音频审查。
 
-交接给用户：实际安装路径、补齐了哪些环境、验证结果，以及 Codex 的 $lyric-motion 或 Claude Code 的 /lyric-motion。新安装未被发现时，提示新开对话，或直接读取已验证的 SKILL.md。两个客户端的新会话发现与 macOS/Linux 环境还需要更多实际验证，不把本地文件测试写成全平台验证。
+交接给用户：实际安装路径、补齐了哪些环境、验证结果，以及 Codex 的 $lyric-motion 或 Claude Code 的 /lyric-motion。新安装未被发现时，提示新开对话，或直接读取已验证的 SKILL.md。Linux CI 已执行逻辑测试和原始演示渲染；两个客户端的新会话发现、macOS 与更多 Linux 桌面环境还需要实际验证，不把文件或命令测试写成全平台验证。
 
 卸载只移除当前项目的 lyric-motion Skill 目录，保留独立作品、原始歌曲和成片。

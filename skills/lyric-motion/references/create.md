@@ -12,7 +12,7 @@ Use the bundled CLI with a new output directory:
 node <toolkit>/tools/cli.mjs init --audio /path/song.mp3 --lyrics /path/lyrics.lrc --out /workspace/projects/my-song --aspect 16:9 --direction "Playful typography with bold changes in scale"
 ```
 
-Supported import formats are `.lrc`, `.srt`, and `.txt`. The default is landscape, 30fps; `--aspect 9:16` and `--aspect 1:1` are available. The importer probes real duration, copies media, preserves lyric source text, and creates `config/project.json`, `timeline.json`, `request.json`, `state.json`, and an unfinished `artwork.js`. It refuses an existing project directory.
+Supported import formats are `.lrc`, `.srt`, and `.txt`. The default is landscape, 30fps; `--aspect 9:16` and `--aspect 1:1` are available. The importer probes real duration, copies media, preserves original filenames and hashes in input/ and sources.json, separates clearly labelled credits/source notices from vocal cues, preserves lyric source text, and creates `config/project.json`, `timeline.json`, `request.json`, `state.json`, and an unfinished `artwork.js`. It refuses an existing project directory.
 
 Read the imported `timeline.json` and `state.json`. TXT is marked `needs_alignment`; it does not receive invented timing. Request a timed lyric source, or use an available alignment tool with the user's audio and document its actual accuracy. Do not overwrite the lyric source. LRC/SRT are line-level timing: avoid claiming per-syllable precision. Inspect words and phrase boundaries before creating semantic word hits.
 
@@ -47,3 +47,5 @@ node <toolkit>/tools/cli.mjs subtitles --project /workspace/projects/my-song
 Use the tool's actual report for final output paths. Review sample/final playback through available browser or media controls; recorded frame inspection alone is incomplete motion review. Save concise review notes within the project. If a change affects timing, transitions, or subtitles, review the changed interval in motion after the edit.
 
 For revisions, interpret requests such as “the scene around 18 seconds is too crowded” against the timeline and current composition. Preserve unrelated good work. Keep the preceding export or artwork snapshot before a major redesign.
+
+After the actual review, record it in qa/review.md or qa/review.json, export subtitles when applicable, then run `node <toolkit>/tools/cli.mjs deliver --project /workspace/projects/my-song --render final --name final`. The local delivery folder contains video.mp4, editable project/, project.tar.gz and hashes. This uses the system tar utility, preserves previous deliveries and excludes prior renders, hidden configuration, installed dependencies and unselected QA. The source archive does not itself prove visual quality or authorize public upload.

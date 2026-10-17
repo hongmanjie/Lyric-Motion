@@ -5,6 +5,7 @@ import http from 'node:http';
 import { fileURLToPath } from 'node:url';
 import { mkdir, mkdtemp, readFile, rm, writeFile, stat } from 'node:fs/promises';
 import { loadProject, normalizeTimeline } from '../lib/project.mjs';
+import {exportSubtitles} from '../lib/render.mjs';
 import { serve } from '../tools/browser.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -146,6 +147,17 @@ test('loadProject rejects unaligned TXT instead of treating null times as timed 
   const input = { ...timeline, alignment: { quality: 'unaligned', source: 'txt' }, lines: [{ id: 'line-1', text: 'Needs alignment', start: null, end: null, tokens: [] }] };
   const { projectRoot } = await fixture(t, input);
   await assert.rejects(loadProject(projectRoot), /Lyrics need timing/);
+});
+
+test('explicit instrumental timeline loads and produces no fake or empty vocal SRT',async t=>{
+  const input={...timeline,content:{kind:'instrumental',evidence:'provided-marker'},alignment:{quality:'not-applicable',source:'lrc'},lines:[]};
+  const {projectRoot}=await fixture(t,input);
+  assert.equal((await loadProject(projectRoot)).timeline.lines.length,0);
+  await writeFile(path.join(projectRoot,'renders/captions.srt'),'Previous good subtitles');
+  assert.deepEqual(await exportSubtitles(projectRoot),{file:null,lines:0,reason:'instrumental-no-vocal-subtitles'});
+  assert.equal(await readFile(path.join(projectRoot,'renders/captions.srt'),'utf8'),'Previous good subtitles');
+  const bad=await fixture(t,{...input,lines:timeline.lines});
+  await assert.rejects(loadProject(bad.projectRoot),/cannot contain/);
 });
 
 test('loadProject accepts simultaneous and overlapping timed voices in start order', async t => {

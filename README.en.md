@@ -1,5 +1,7 @@
 # Lyric Motion
 
+[![Toolkit checks](https://github.com/hongmanjie/Lyric-Motion/actions/workflows/ci.yml/badge.svg)](https://github.com/hongmanjie/Lyric-Motion/actions/workflows/ci.yml) · **v0.1.0**
+
 **Give Codex / Claude Code a song. Create an editable lyric MV through conversation.**
 
 [简体中文](README.md) · [Style packs](docs/styles.md) · [Workflows](docs/workflows.md)
@@ -118,3 +120,5 @@ Media processing/rendering is local; your agent client decides what reaches its 
 Code is [MIT](LICENSE), with OFL font notices. **Songs, recordings and lyrics retain their separate rights; the code license grants no music rights.** Source songs, full lyric files and private artwork are excluded from installation. [Third-party notices](THIRD_PARTY_NOTICES.md) · [Showcase sources](docs/media/README.md)
 
 If this helps, leave a Star or share what you made.
+
+Original filenames and input hashes are preserved. The agent can collect the reviewed movie, editable source and source archive through the internal deliver step; it never publishes user media. See [acceptance coverage](docs/acceptance.md).

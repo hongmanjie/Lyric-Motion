@@ -24,6 +24,13 @@ export function handPositions({x=0,y=0,scale=1,facing=1,rotation=0,left=[-77,-73
  return {left:point(left),right:point(right)};
 }
 
+/** Pin a prop's local grip to a world point. Draw with translate, scale, then rotate. */
+export function placePropAt(target,anchor=[0,0],{scale=1,facing=1,rotation=0}={}){
+ if(!Array.isArray(target)||target.length!==2||!Array.isArray(anchor)||anchor.length!==2||[...target,...anchor,scale,rotation].some(v=>!Number.isFinite(v))||scale<=0||![1,-1].includes(facing))throw Error('Prop placement needs finite points, positive scale and facing 1 or -1');
+ const [px,py]=anchor,c=Math.cos(rotation),s=Math.sin(rotation);
+ return {x:target[0]-(px*c-py*s)*scale*facing,y:target[1]-(px*s+py*c)*scale,scale,facing,rotation};
+}
+
 /** A small editable 2D rig. Draw your own props using its stable returned hand coordinates. */
 export function createPuppetPainter({ctx,paint,ink,palette}){
  const C={ink:'#35434a',fox:'#cd925f',cream:'#ead4a4',cat:'#ddd8c6',coat:'#3f5963',blue:'#819ca4',red:'#ad5e4b',rabbit:'#eee4cd',yellow:'#cbb470',...palette};

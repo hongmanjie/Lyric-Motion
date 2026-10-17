@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Lyric Motion creation request (alpha contract)",
+  "title": "Lyric Motion creation request",
   "description": "Minimal user inputs are song and lyrics. The CLI currently imports LRC, SRT, or TXT and resolves aspect ratio and 30fps defaults. Other optional fields describe agent-authored intent; JSON Schema itself applies no defaults. Files are imported into an independent project before resolving relative paths.",
   "type": "object",
   "additionalProperties": false,

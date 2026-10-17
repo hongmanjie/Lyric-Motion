@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0 — 2026-10-18
+
+- Preserve supplied filenames and input hashes in every imported project.
+- Separate clearly labelled credits and source notices from sung subtitles; support source-declared instrumental timelines without fabricated lyrics.
+- Fix final-frame display and replay after slow preview frames. Add a real browser regression check.
+- Add local reviewed-movie/source delivery with manifests, source archive and protection for previous deliveries.
+- Refine paper storytelling for energetic music, prop grip transforms and varied song-specific casts; keep five conversation workflows.
+
 ## 0.1.0-alpha.8 — 2026-10-17
 
 - Made lyric interpretation and a song-specific complete story precede painted scene code: character objectives, consequences, motif continuity, staged reads and meaningful repetition.

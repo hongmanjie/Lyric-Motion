@@ -76,3 +76,21 @@ test('malformed and out-of-range-only timed inputs fail clearly', () => {
   assert.throws(() => parseLyrics('Lyrics', { duration: 0 }), /positive/);
   assert.throws(() => parseLyrics('Lyrics', { duration: 3, format: 'json' }), /Unsupported/);
 });
+
+test('timed credits and unmistakable source notices are preserved apart from sung lines', () => {
+  const result=parseLyrics('[00:00]欢迎来访 Example www.example.test\n[00:00.15]第一行唱词\n[00:03.42]第二行唱词\n[00:07]作词 : Example', {format:'lrc',duration:8});
+  assert.deepEqual(result.lines.map(l=>[l.text,l.start,l.end]),[['第一行唱词',.15,3.42],['第二行唱词',3.42,7]]);
+  assert.deepEqual(result.metadata.annotations.map(l=>l.kind),['source-notice','credit']);
+  assert.equal(result.metadata.annotations[0].text,'欢迎来访 Example www.example.test');
+  const literal=parseLyrics('[00:00]我想作词给你听\n[00:02]欢迎来到我的世界', {format:'lrc',duration:4});
+  assert.equal(literal.lines.length,2);
+});
+
+test('instrumental marker allows an empty vocal timeline without inventing lyrics', () => {
+  const result=parseLyrics('[00:00]作词 : Example\n[00:01]作曲 : Example\n[00:05]纯音乐，请欣赏', {format:'lrc',duration:30});
+  assert.equal(result.content.kind,'instrumental');assert.equal(result.alignment.quality,'not-applicable');assert.deepEqual(result.lines,[]);
+  assert.equal(result.metadata.annotations.length,3);
+  const mixed=parseLyrics('[00:00]纯音乐，请欣赏\n[00:05]真正的演唱', {format:'lrc',duration:30});
+  assert.equal(mixed.content,undefined);assert.equal(mixed.lines[0].text,'真正的演唱');
+  assert.throws(()=>parseLyrics('[00:00]作词 : Example', {format:'lrc',duration:30}),/No timed lyric/);
+});

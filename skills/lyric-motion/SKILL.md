@@ -41,6 +41,8 @@ Paper storytelling starts by reading the song's lyric meaning and emotional turn
 
 Implement original artwork.js. Its module exports createArtwork({canvas,ctx,project,timeline}), returning render(t), plus cuts and readyToRender. Set readiness true only after actual creation. Await fonts/assets. Every frame is a function of absolute song time, including out-of-order seeks; no accumulating simulations or wall-clock randomness. Runtime exposes __ready, __meta, __seek(t), __freeze().
 
+Timed credits, unmistakable website notices and instrumental markers are preserved as timeline annotations, not sung subtitles. A marker-only instrumental file permits an empty vocal timeline; never infer verified absence of vocals from metadata alone. Original filenames and hashes are preserved in input/ and sources.json.
+
 Bottom reading lyrics should be clear and subordinate to the primary performance. Preserve source text and timing, avoid overlapping duplicate captions, and honor subtitle/translation requests.
 
 ## Verify and deliver
@@ -49,4 +51,4 @@ Run check, inspect full-size frames at important words, densest layouts and tran
 
 Record actual inspected frames, playback ranges and whether sound was subjectively heard in the project's qa/. A waveform, audio metadata or a playing indicator does not establish listening. State unavailable modalities honestly.
 
-Deliver playable MP4, editable project, requested lyric/subtitle files and material limitations. Creation does not authorize publishing private songs, full lyrics, inputs or finished media. Publishing needs the requested media and destination.
+After review, write qa/review.md and/or qa/review.json with actual coverage. Run deliver --project PROJECT --render RENDER_NAME --name final to collect the selected movie, original inputs and editable source archive locally. It refuses stale audio/timeline data and existing output; inspect the returned files. Deliver playable MP4, editable project, requested lyric/subtitle files and material limitations. Creation does not authorize publishing private songs, full lyrics, inputs or finished media. Publishing needs the requested media and destination.

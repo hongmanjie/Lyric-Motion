@@ -70,10 +70,14 @@ node tools/cli.mjs still --project projects/song --time 8.5
 node tools/cli.mjs check --project projects/song
 node tools/cli.mjs render --project projects/song --name final
 node tools/cli.mjs subtitles --project projects/song
+# 实际观看并写好 qa/review.md 后整理本地交付
+node tools/cli.mjs deliver --project projects/song --render final --name final
 ~~~
 
 检查全尺寸关键帧与实际连续播放，修正主字遮挡、停空、跳闪和字幕冲突，保留上一版。记录真正观察的范围及是否实际听到声音。技术测试不证明主观美术或听感。
 
 可选的内部工具 tools/analyze-audio.mjs 从真实音频测量 RMS、低频能量和声学起音，帮助安排次级响应；它不是人工核验拍点、BPM 检测或歌词对齐。
+
+deliver 生成本地 video.mp4、可编辑 project/、project.tar.gz、字幕和逐文件哈希。需系统 tar；常见桌面系统已提供，缺失时由 Agent 按官方来源补齐。它保留原始文件名、拒绝覆盖旧交付，并检查录音与歌词时间轴是否在渲染后改变。打包本身不执行或冒充主观审片。
 
 本地交付 MP4、可编辑工程及需要的字幕。发布作品需要明确媒体与目的地；安装和制作不自动授权公开用户歌曲、完整歌词或参考素材。

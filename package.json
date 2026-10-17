@@ -1,6 +1,6 @@
 {
   "name": "lyric-motion",
-  "version": "0.1.0-alpha.8",
+  "version": "0.1.0",
   "description": "Conversation-first, editable lyric motion graphics for Codex and Claude Code",
   "license": "MIT",
   "private": true,

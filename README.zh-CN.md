@@ -1,5 +1,7 @@
 # Lyric Motion
 
+[![Toolkit checks](https://github.com/hongmanjie/Lyric-Motion/actions/workflows/ci.yml/badge.svg)](https://github.com/hongmanjie/Lyric-Motion/actions/workflows/ci.yml) · **v0.1.0**
+
 **一首歌，一段对话，让 Codex／Claude Code 把歌词画成可编辑的 MV。**
 
 [English](README.en.md) · [风格包](docs/styles.md) · [工作流](docs/workflows.md)
@@ -110,7 +112,7 @@ Agent 负责理解歌词、设计分镜与编写动画；项目负责素材导�
 
 ## 五、项目与贡献
 
-作品保存在独立 projects/，包括输入、歌词时间轴、动画代码和导出文件。预览、字幕、修改和导出是上述创作流程的一部分；普通使用一直通过对话完成。[架构与工具](docs/architecture.md) · [贡献说明](CONTRIBUTING.md) · [更新记录](CHANGELOG.md)
+作品保存在独立 projects/，保留原始文件名、输入哈希、歌词时间轴、动画代码和导出文件。完成后交付 MP4、可编辑工程和源码归档；已有交付不会被直接覆盖。预览、字幕、修改和导出是上述创作流程的一部分；普通使用一直通过对话完成。[架构与工具](docs/architecture.md) · [贡献说明](CONTRIBUTING.md) · [更新记录](CHANGELOG.md) · [验收范围](docs/acceptance.md)
 
 工具在本地处理和渲染，Agent 客户端决定哪些内容发送给模型。识别与美术效果取决于素材、模型和实际校对；行级 LRC 不代表逐字对齐，实测声学起音不代表人工核验拍点。技术检查不能代替观看成片。
 

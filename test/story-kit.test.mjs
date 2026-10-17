@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {actionPhase,lerpFace,expressions,handPositions} from '../examples/styles/painted-story/story-kit.mjs';
+import {actionPhase,lerpFace,expressions,handPositions,placePropAt} from '../examples/styles/painted-story/story-kit.mjs';
 
 test('acting phases separate anticipation, action and reaction with repeatable random seeks',()=>{
  const config={at:2,anticipation:.25,action:.75,reaction:.5};
@@ -9,6 +9,15 @@ test('acting phases separate anticipation, action and reaction with repeatable r
  const times=[3.3,2.1,8,0,2.8],results=times.map(t=>actionPhase(t,config));
  assert.deepEqual(times.map(t=>actionPhase(t,config)),results);
  assert.throws(()=>actionPhase(0,{action:0}),/positive duration/);assert.throws(()=>actionPhase(NaN),/finite/);
+});
+
+test('a rotated and mirrored prop keeps its actual grip at the hand rather than floating nearby',()=>{
+ for(const facing of [-1,1])for(const rotation of [-.8,0,1.2]){
+  const target=[315,420],anchor=[8,192],p=placePropAt(target,anchor,{scale:1.7,facing,rotation});
+  const point=handPositions({...p,left:anchor}).left;
+  assert.ok(Math.abs(point[0]-target[0])<1e-9);assert.ok(Math.abs(point[1]-target[1])<1e-9);
+ }
+ assert.throws(()=>placePropAt([NaN,0]),/finite/);assert.throws(()=>placePropAt([0,0],[0,0],{scale:0}),/positive/);
 });
 
 test('expression blending preserves endpoints and hand anchors follow mirrored/rotated poses',()=>{
