@@ -3,8 +3,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "size": 249,
-      "sha256": "5069dd53ba14b0c4b2de274a71207db77abaf0d4940a110f5bd8166d815c0e56"
+      "size": 267,
+      "sha256": "ada6c0400ddab21b6ada7b727bda7987c3a740d6b06a7718f782955ef0310fcb"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug.md",
@@ -68,8 +68,8 @@
     },
     {
       "path": "docs/media/showcase/duo/manifest.json",
-      "size": 2530,
-      "sha256": "37c85a5504352e7f3c5b72c48049bc90964e03a13c66ca7f05d32328e1a250cc"
+      "size": 2474,
+      "sha256": "352a9b57d8f062d543fc964fb15a23f9dce37782ace8cbb527eb2849f884ab68"
     },
     {
       "path": "docs/media/showcase/duo/painted-story.mp4",
