@@ -2,7 +2,7 @@
 
 This alpha uses conversation for inputs and feedback. The browser is a local preview surface; generation is performed by your Codex or Claude Code session. The toolkit has no hidden model call and no “generate” web service.
 
-The default is `auto`: no built-in style is imposed. Optionally choose 1/字形游乐场, 2/流动诗境, 3/数字雕塑, or 4/故事手绘 in conversation; see [styles.md](styles.md) for previews and examples. These are flexible starting preferences, not fixed scene templates. The agent can resolve them with `styles` and pass `--style 4` during import.
+The default is `auto`: no built-in style is imposed. Optionally choose 1/纸绘叙事 or 2/节奏图形 in conversation; see [styles.md](styles.md) for previews and examples. These are flexible starting preferences, not fixed scene templates. The agent can resolve them with `styles` and pass `--style 1` during import.
 
 ## Start with audio only: generate an LRC draft
 
@@ -20,7 +20,7 @@ If only lyric extraction was requested, deliver the files and stop there. If ful
 
 Provide an audio file and `.lrc`, `.srt`, or `.txt` lyrics. Optionally say “quiet and poetic”, “playful typography”, a frame shape, or another direction. The agent handles ordinary technical choices and creates an independent song project.
 
-**Conversation:** “Use this song and LRC to make a landscape MV. Choose the art direction yourself, preview it, and fix visible problems.” For illustrated storytelling: “Use style 4 / 故事手绘. The protagonist is a little fox with a worn schoolbag. Let its acting and changing situation perform the lyrics, with fluid changes that follow the musical phrasing.” A specified protagonist takes precedence; otherwise the agent chooses a coherent cast.
+**Conversation:** “Use this song and LRC to make a landscape MV. Choose the art direction yourself, preview it, and fix visible problems.” For illustrated storytelling: “Use style 1 / 纸绘叙事. The protagonist is a little fox with a worn schoolbag. Let its acting and changing situation perform the lyrics, with fluid changes that follow the musical phrasing.” A specified protagonist takes precedence; otherwise the agent chooses a coherent cast.
 
 ```sh
 node tools/cli.mjs init --audio /path/song.mp3 --lyrics /path/lyrics.lrc --out projects/my-song --aspect 16:9 --direction "Playful typography"

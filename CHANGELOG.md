@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.6 — 2026-10-17
+
+- Replaced four built-ins with Painted Story (1) and Rhythmic Type (2); old IDs and 3/4 are retired with an explicit migration error. Custom bundles remain importable.
+- Rebuilt the public presentation around two different songs: 29.23 seconds of 《走散》 and 43.87 seconds of 《稳稳地接住你》, with supplied LRC captions and native README players.
+- Added portable reference-informed principles, original painted character scenes, semantic graphic choreography, and measured acoustic accents. No source recordings, full lyrics, reference footage or private artwork are packaged.
+- Removed obsolete four-style and vocal-demo assets from installation and public packaging. Style studies now start with unfinished artwork instead of copying a finished demo.
+- Added explicit two-render showcase capture with metadata/hashes and refreshed Chinese/English documentation.
+
+
 ## 0.1.0-alpha.5 — 2026-10-17
 
 - Made Chinese the default repository README and preserved a complete English README.

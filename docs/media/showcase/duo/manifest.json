@@ -1,0 +1,54 @@
+{
+  "format": 2,
+  "notes": "Two maintainer-selected rendered excerpts. Source recordings, full lyrics, private artwork and reference videos are excluded. Recording rights are separate from the code license.",
+  "videos": [
+    {
+      "id": "painted-story",
+      "video": "painted-story.mp4",
+      "poster": "painted-story.png",
+      "posterTime": 11.8,
+      "duration": 29.233333,
+      "width": 1920,
+      "height": 1080,
+      "frames": 877,
+      "bytes": 6745808,
+      "sha256": "237c0580d3f78403ec684708208547cc81c2d8784fe1b7d22d582f88b7d82d04",
+      "nativePlayer": "https://github.com/user-attachments/assets/bf78d7f6-c715-49c2-8f98-ee3911631e06",
+      "song": "走散",
+      "sourceRange": {
+        "start": 93.03,
+        "end": 122.2633333333,
+        "clock": "maintainer-supplied recording"
+      },
+      "audioExcerptSHA256": "5bb06fe8685483285e0861647772dc6f0ea9fbc1643554835d74874ff4fc0999",
+      "captionTiming": "Original supplied LRC line starts; no verified word alignment."
+    },
+    {
+      "id": "rhythmic-type",
+      "video": "rhythmic-type.mp4",
+      "poster": "rhythmic-type.png",
+      "posterTime": 1.9,
+      "duration": 43.866667,
+      "width": 1920,
+      "height": 1080,
+      "frames": 1316,
+      "bytes": 7190407,
+      "sha256": "253d3879ad20213a7233059505166434741af1cef631217d8a3bff9240088fb3",
+      "nativePlayer": "https://github.com/user-attachments/assets/94e30a93-d83f-4949-91e9-5ce7ae5baa89",
+      "song": "稳稳地接住你",
+      "sourceRange": {
+        "start": 0,
+        "end": 43.8666666667,
+        "clock": "designated reference audio"
+      },
+      "audioExcerptSHA256": "11c936fe546db6150dd02a24555aa9e0d74e7f64430e5b5375af6b016ba8ec31",
+      "captionTiming": "Original supplied LRC line starts; no verified word alignment.",
+      "wordPerformance": {
+        "entries": 83,
+        "method": "Supplied LRC anchors, actual ASR word estimates and explicitly editorial visual cues.",
+        "verifiedWordAlignment": false
+      },
+      "audioReference": "https://www.bilibili.com/video/BV1ptad65ES9/"
+    }
+  ]
+}

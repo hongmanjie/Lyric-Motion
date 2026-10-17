@@ -33,10 +33,10 @@ async function fixture(t) {
     'examples/vocal-demo/assets/source.ogg': 'public CC0 fixture recording',
     'examples/vocal-demo/renders/final.mp4': 'ignore generated vocal render',
     'examples/vocal-demo/qa/review.json': 'ignore generated vocal review',
-    'examples/styles/playground/profile.json': '{"id":"playground"}',
-    'examples/styles/playground/prompt.md': '# Playful type\n',
-    'examples/styles/storybook/profile.json': '{"id":"storybook"}',
-    'examples/styles/storybook/prompt.md': '# Hand-drawn lyric story\n',
+    'examples/styles/painted-story/profile.json': '{"id":"painted-story"}',
+    'examples/styles/painted-story/prompt.md': '# Playful type\n',
+    'examples/styles/rhythmic-type/profile.json': '{"id":"rhythmic-type"}',
+    'examples/styles/rhythmic-type/prompt.md': '# Hand-drawn lyric story\n',
     'examples/style-assets/OFL.txt': 'SIL Open Font License\n',
     'examples/demo/renders/generated.mp4': 'ignore this generated output',
     'examples/demo/qa/viewing.md': 'ignore this generated check',
@@ -62,9 +62,11 @@ test('installs a portable, allowlisted Codex toolkit and remains unchanged after
   for (const notice of ['LICENSE', 'THIRD_PARTY_NOTICES.md']) {
     assert.deepEqual(await fs.readFile(path.join(report.path, 'toolkit', notice)), await fs.readFile(path.join(source, notice)));
   }
-  for (const relative of ['examples/styles/storybook/profile.json', 'examples/styles/storybook/prompt.md', 'examples/vocal-demo/provenance.json', 'examples/vocal-demo/assets/source.ogg']) {
+  for (const relative of ['examples/styles/rhythmic-type/profile.json', 'examples/styles/rhythmic-type/prompt.md', 'examples/styles/painted-story/profile.json', 'examples/styles/painted-story/prompt.md']) {
     assert.deepEqual(await fs.readFile(path.join(report.path, 'toolkit', relative)), await fs.readFile(path.join(source, relative)));
   }
+  assert.ok(sources.every(file => !file.destination.includes('/vocal-demo/')));
+  await assert.rejects(fs.stat(path.join(report.path, 'toolkit/examples/vocal-demo/assets/source.ogg')), { code: 'ENOENT' });
   const render = path.join(report.path, 'toolkit/examples/demo/renders/generated.mp4');
   await fs.mkdir(path.dirname(render), { recursive: true });
   await fs.writeFile(render, 'new local render');

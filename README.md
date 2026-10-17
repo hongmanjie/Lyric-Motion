@@ -4,18 +4,21 @@
 
 [English](README.en.md) · [安装详情](docs/install.md) · [风格画廊](docs/styles.md) · [完整工作流](docs/workflows.md)
 
-https://github.com/user-attachments/assets/84948bd4-842c-4238-83ac-2c314d4dc952
+## 两首歌，两种画面语言
 
-**同一首歌、同一段 22.33 秒，四种不同的画面语言。** 歌曲为 YOASOBI《夜に駆ける》，使用同一段日语演唱与歌词，底部配中文字幕。画面由代码绘制：字形碰撞、纸墨留白、空间材质、角色故事。
+**1 · 纸绘叙事｜《走散》 · 29 秒**
 
-**点击上方播放按钮，观看 22 秒有声高光合辑。** [MP4 备用链接](docs/media/showcase/highlight.mp4) · [四风格同屏对比](docs/media/showcase/comparison.mp4)。下方画廊可分别观看每一版完整视频。
+https://github.com/user-attachments/assets/bf78d7f6-c715-49c2-8f98-ee3911631e06
 
-<details>
-<summary>播放器无法加载？展开无声动图</summary>
+小狐狸、空座、列车与不完整的车票，把走散、追赶和告别演成纸绘故事。歌曲和 LRC 由维护者提供。[播放 MP4](docs/media/showcase/duo/painted-story.mp4)
 
-[![同一首《夜に駆ける》，四种不同的 MV 表达](docs/media/showcase/highlight.gif)](docs/media/showcase/highlight.mp4)
+**2 · 节奏图形｜《稳稳地接住你》 · 44 秒**
 
-</details>
+https://github.com/user-attachments/assets/94e30a93-d83f-4949-91e9-5ce7ae5baa89
+
+歌词逐词进入，已出现的字继续重排；“躲、逃、绕、藏、接住”变成字形动作，重点处改变整个构图，并点缀粒子。使用指定参考中的同一段歌曲，字幕采用维护者补充的 LRC。[播放 MP4](docs/media/showcase/duo/rhythmic-type.mp4)
+
+两个示例均为 **1920×1080 横屏、30fps、有声＋底部中文字幕**。点击播放器播放并开启声音。[风格与提示词](docs/styles.md) · [歌曲来源与时间方法](docs/media/README.md)
 
 ## 一、为什么需要这个项目？
 
@@ -118,29 +121,24 @@ Agent 根据新歌的歌词、情绪和音乐段落设计画面，可以使用�
 
 > 用这首歌和歌词做 MV，不选内置方向，你自由发挥。画面切换跟随歌曲段落，快速但流畅，动作要和歌词含义有关系。
 
-### 3. 选择风格：用四种内置方向制作 MV
+### 3. 选择风格：纸绘叙事 / 节奏图形
 
-内置的是可以修改的美术原则。具体镜头、时长、文字动作和构图仍为新歌重新设计，不把演示视频当固定模板。
+内置的是两份可修改的创作原则。新歌曲的角色、镜头、字体、时长和构图仍重新设计，默认 `auto` 自由创作。
 
-| 1 · 字形游乐场 | 2 · 流动诗境 |
+| 1 · 纸绘叙事 | 2 · 节奏图形 |
 | --- | --- |
-| [![字形游乐场：字形碰撞与尺度变化](docs/media/showcase/playground.jpg)](docs/media/showcase/playground.mp4) | [![流动诗境：纸墨与光隙承担叙事](docs/media/showcase/poetry.jpg)](docs/media/showcase/poetry.mp4) |
-| **让字形演戏。** 字词碰撞、弹跳、挤压与大胆尺度变化，画面重心随文字动作转移。[播放有声视频](docs/media/showcase/playground.mp4) | **让材料流动。** 墨液扩散、纸张折叠、负形光隙与朱砂线表达情绪，文字退到边缘。[播放有声视频](docs/media/showcase/poetry.mp4) |
-
-| 3 · 数字雕塑 | 4 · 故事手绘 |
-| --- | --- |
-| [![数字雕塑：空间与材质变形](docs/media/showcase/sculpture.jpg)](docs/media/showcase/sculpture.mp4) | [![故事手绘：角色演出歌词故事](docs/media/showcase/storybook.jpg)](docs/media/showcase/storybook.mp4) |
-| **让空间变形。** 立体结构、材质、光影与镜头运动组织视觉，随音乐压缩、分离、重组。[播放有声视频](docs/media/showcase/sculpture.mp4) | **让角色表演。** 连续人物、具体处境、动作和前后关系，把歌词演成手绘故事。[播放有声视频](docs/media/showcase/storybook.mp4) |
-
-四版使用《夜に駆ける》的**同一段音轨、同一份歌词时间轴和中文字幕**，便于直接比较美术与动作的差异。点击封面播放对应有声 MP4。歌词时间采用有记录的行级估计，不把演示当作逐字精度证明。[风格资料与提示词](docs/styles.md)。
+| [![《走散》纸绘叙事](docs/media/showcase/duo/painted-story.png)](docs/media/showcase/duo/painted-story.mp4) | [![《稳稳地接住你》节奏图形](docs/media/showcase/duo/rhythmic-type.png)](docs/media/showcase/duo/rhythmic-type.mp4) |
+| 角色表演、平面笔触、具体处境与因果转场。 | 逐词入画、累积重排、词义动作与选择性粒子。 |
 
 **在对话里说：**
 
-> 用方向 4「故事手绘」做这首歌，主角是一只背着旧书包的小狐狸。让它的表情、动作和处境演出歌词，保持造型连续，随着音乐自然转场，底部歌词清楚。其他你决定。
+> 用方向 1「纸绘叙事」做这首歌，主角是一只背旧书包的小狐狸。让表情、动作和场景演出歌词，保持角色连贯，底部歌词清楚，其他你决定。
 
-也可以说“用方向 1，颜色暖一点，结尾安静一点”，或要求混合方向。用户明确要求优先。
+> 用方向 2「节奏图形」做这首歌。画面快速但流畅地切换，图形动作表达歌词，强句有明显变化，粒子偶尔出现。
 
-指定主角能让故事更贴合你的想法；不指定时，Agent 会根据歌曲选择一组连贯角色，不必先补一张角色表。故事手绘强调角色表演、空间关系和因果，不只是给画面添加手写字体或纸纹。
+也可以说“方向 2，颜色暖一点，结尾安静一点”。不指定主角时，Agent 会根据歌曲设计角色；自带方向和参考仍优先。[完整风格档案与提示词](docs/styles.md)。
+
+alpha.6 用这两个方向替换旧四风格，编号 1、2 已重新定义。已有自定义风格文件仍可导入，之前的用户作品会保留。
 
 ### 4. 提炼风格：参考视频 → 可复用风格提示词
 
@@ -207,6 +205,6 @@ node tools/cli.mjs help
 
 媒体处理和渲染在本地完成；Agent 客户端决定哪些内容发给模型提供方。**本地工具不等于离线推理**。项目不复制模型凭证，不承诺订阅无限使用。
 
-代码和项目原创内容采用 [MIT](LICENSE)，字体保留 OFL 声明。演示歌曲《夜に駆ける》、录音及歌词的权利归各自权利人，代码许可证不授予歌曲使用权。[第三方许可](THIRD_PARTY_NOTICES.md) · [演示素材来源](docs/media/README.md)。
+代码和项目原创内容采用 [MIT](LICENSE)，字体保留 OFL 声明。演示歌曲《走散》《稳稳地接住你》、录音及歌词的权利归各自权利人，代码许可证不授予歌曲使用权。[第三方许可](THIRD_PARTY_NOTICES.md) · [演示素材来源](docs/media/README.md)。
 
 [贡献说明](CONTRIBUTING.md) · [路线图](docs/roadmap.md) · [更新记录](CHANGELOG.md)。分享作品时说明提示词、模型／客户端、人工修改与素材许可。觉得有用，欢迎给一颗 Star，让更多人找到它。

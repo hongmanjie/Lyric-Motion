@@ -1,0 +1,476 @@
+{
+  "format": 1,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size": 249,
+      "sha256": "5069dd53ba14b0c4b2de274a71207db77abaf0d4940a110f5bd8166d815c0e56"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug.md",
+      "size": 507,
+      "sha256": "e34fcbd841f940af200ad6f3a8dc10289945c938f7cef0aff725a249cf554590"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/showcase.md",
+      "size": 305,
+      "sha256": "c3a661c13a9667d564ee0fe1593593fabcd13aed678104120e38df20a024758a"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "size": 817,
+      "sha256": "6dd35a174debc02ec67b3f304c1ee62d8b383c4a6f081907648d2cb23253e734"
+    },
+    {
+      "path": ".gitignore",
+      "size": 419,
+      "sha256": "4546e5105a840bdad36ea808859b27801d18a762af7102d617da586fc6313e27"
+    },
+    {
+      "path": "AGENTS.md",
+      "size": 2351,
+      "sha256": "e76956dceb023e18828e81f5a7b81cbf14668abf149b1e13094fc8fcbe647875"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size": 4783,
+      "sha256": "93fcaba1beabd5ee08957ae1488cb3707d737dd43342ec1b4795f378c886e4c8"
+    },
+    {
+      "path": "CLAUDE.md",
+      "size": 441,
+      "sha256": "04e1bfcda3e9e0f3e99e9ce0b75e72f8add4962ccc51d340b244dd9c704280dd"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "size": 1547,
+      "sha256": "03a5d77fdd60b7f58ae42ca72e2a12b8ae944791c6db1a9e121ecfa5c83dd0b5"
+    },
+    {
+      "path": "docs/architecture.md",
+      "size": 9449,
+      "sha256": "2a42c95b049b8c96ab5a42befeeebfafb5883d31b5ef77e02b1bc0b0d85a9e85"
+    },
+    {
+      "path": "docs/install.md",
+      "size": 8104,
+      "sha256": "9f412bea81681ca4d9df9869ec9fe5e3c8d8d949ab13f5bb118a52c98c268fe8"
+    },
+    {
+      "path": "docs/lyrics.md",
+      "size": 4683,
+      "sha256": "a74b71fdc5306f0d73778af312d5b31fee2467928a030a852fa7dcd0747ac90d"
+    },
+    {
+      "path": "docs/media/README.md",
+      "size": 2192,
+      "sha256": "35ceba952a9011b8c2ed9424f87b5ad66c439975aaaf3c825ff6de9f6151d185"
+    },
+    {
+      "path": "docs/media/showcase/duo/manifest.json",
+      "size": 2092,
+      "sha256": "38c4584b1a5650c310d3f88173a8b9df8e5d7d81a265ba1981a08b598e1266ed"
+    },
+    {
+      "path": "docs/media/showcase/duo/painted-story.mp4",
+      "size": 6745808,
+      "sha256": "237c0580d3f78403ec684708208547cc81c2d8784fe1b7d22d582f88b7d82d04"
+    },
+    {
+      "path": "docs/media/showcase/duo/painted-story.png",
+      "size": 1207912,
+      "sha256": "e4ffd6a769c117fc614234c9f14064e5f1368f50e17323dcc1046c566cd5b484"
+    },
+    {
+      "path": "docs/media/showcase/duo/rhythmic-type.mp4",
+      "size": 7190407,
+      "sha256": "253d3879ad20213a7233059505166434741af1cef631217d8a3bff9240088fb3"
+    },
+    {
+      "path": "docs/media/showcase/duo/rhythmic-type.png",
+      "size": 293837,
+      "sha256": "aebfc804650963d6b044aa26d26d06a4c56c16aa7de80fbe6056efcfaa0bf29c"
+    },
+    {
+      "path": "docs/reverse-prompt.md",
+      "size": 4081,
+      "sha256": "459903091d1308c964d28fa02fa5ada03c1f821e0f6382b03634325df6d8c93f"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "size": 2167,
+      "sha256": "fbbd9940dfdf7c131d0dc0946111e0623c8a5c34a615af3ca5529499923c52ba"
+    },
+    {
+      "path": "docs/showcase.md",
+      "size": 2677,
+      "sha256": "c5cb62b392fef40c610fdacddfaa5891eb96e925007cffdcb3413f69ca4253ad"
+    },
+    {
+      "path": "docs/styles.md",
+      "size": 3932,
+      "sha256": "45615e817e8f149c1f77c428952cb2dfb701be01daf2d33d8eb6df2fa1705cdd"
+    },
+    {
+      "path": "docs/workflows.md",
+      "size": 8797,
+      "sha256": "95ff2df01e9abbf18c573fd4d5462dd4b8f9e76b65c411b0bec095a8cf399e11"
+    },
+    {
+      "path": "examples/contracts/free.request.json",
+      "size": 227,
+      "sha256": "ada70dcdb321bc3d58f1f984a8e5cbbe574db2fef6eee4a4f18db154f851e124"
+    },
+    {
+      "path": "examples/contracts/kinetic-play.style.json",
+      "size": 1885,
+      "sha256": "c6aa19de47096de33d4d0c4ac1151bb460d211e16e381a0b08cfa638e3a1759b"
+    },
+    {
+      "path": "examples/contracts/README.md",
+      "size": 1076,
+      "sha256": "61c580c234a9596c638d441050786ce2887712075dbfa4c9a331008a4f56e480"
+    },
+    {
+      "path": "examples/contracts/reference.request.json",
+      "size": 548,
+      "sha256": "abe0f89f49386c76707b8480539220506ec805da4cb3b2e1da40792d23ec6a3b"
+    },
+    {
+      "path": "examples/contracts/reuse-style.request.json",
+      "size": 420,
+      "sha256": "f32f11b9167141822832946b66f43ec575a2d2281ca83a28abaea69a67522c5f"
+    },
+    {
+      "path": "examples/contracts/style-prompt.md",
+      "size": 948,
+      "sha256": "2dad4870c44b1e578b2df4981437af10c2c5836059818f262b441960aa51ce0e"
+    },
+    {
+      "path": "examples/demo/artwork.js",
+      "size": 7839,
+      "sha256": "b937cbfed582b51a1119b1d9bf41f2f7263447cd9d2756108bbef9203f9df1d0"
+    },
+    {
+      "path": "examples/demo/assets/audio.wav",
+      "size": 2822444,
+      "sha256": "a152f292026093a94ff22d815b06502bfb41f00a287d0ec42de63ea88558a7c2"
+    },
+    {
+      "path": "examples/demo/assets/display.ttf",
+      "size": 9589900,
+      "sha256": "c2f3b4d463500a2ddcd3849cded1fceeb9fd6d1c32e6cbecd568453ba50fc68f"
+    },
+    {
+      "path": "examples/demo/assets/lyrics.lrc",
+      "size": 109,
+      "sha256": "19e1e13b336e8047c2fbba441c07b3cf0ab2c8c5f7846139e7ac00f8b065e5da"
+    },
+    {
+      "path": "examples/demo/assets/OFL.txt",
+      "size": 4388,
+      "sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9"
+    },
+    {
+      "path": "examples/demo/config/project.json",
+      "size": 253,
+      "sha256": "217ffd9b2e86b30beddd99866bd37b4f2df024da1b26f8dc591dfe7fe53f4b14"
+    },
+    {
+      "path": "examples/demo/README.md",
+      "size": 1742,
+      "sha256": "5bb33e8a62121debc04a4826f4b0592191df5a9303a9a9943695d8129eed0b52"
+    },
+    {
+      "path": "examples/demo/timeline.json",
+      "size": 2071,
+      "sha256": "e72abd181b7717f47d63a950af0feba73a1d76da5be24fe5259f767b2908fc57"
+    },
+    {
+      "path": "examples/style-assets/fonts/OFL-serif.txt",
+      "size": 4350,
+      "sha256": "5e0da210fb04058a8c0087985d2d456b931c2579811a49655721d3cf0c36b6d6"
+    },
+    {
+      "path": "examples/style-assets/fonts/serif.ttf",
+      "size": 13574352,
+      "sha256": "2fd527ba12b6a44ec30d796d633360da0aeba6c5d4af1304ce12bb4dc15a7dfc"
+    },
+    {
+      "path": "examples/style-assets/README.md",
+      "size": 530,
+      "sha256": "4a87dd9154358d88a78cf6ac8260b7b93378088c6aa253e03ef4553e0368a6c3"
+    },
+    {
+      "path": "examples/styles/painted-story/profile.json",
+      "size": 2660,
+      "sha256": "3691de8fb3d104d1ab8c81e792f72f1ce6b898a04471ca0a16bcb0e6ea9c1593"
+    },
+    {
+      "path": "examples/styles/painted-story/prompt.md",
+      "size": 1860,
+      "sha256": "bce5bd9195473d2e2334771016828c5c1189d78a8a86e90ce954686b9e66aece"
+    },
+    {
+      "path": "examples/styles/rhythmic-type/profile.json",
+      "size": 3674,
+      "sha256": "a4d7c346f8ec799707b74c3d1803ccbc1f958c3a58ef51f87e9aba004503c421"
+    },
+    {
+      "path": "examples/styles/rhythmic-type/prompt.md",
+      "size": 2605,
+      "sha256": "bd02587ae2a18ac8f9032b2c1abcc41b78645f3effbf66057b40480d2b867715"
+    },
+    {
+      "path": "lib/lyrics.mjs",
+      "size": 5402,
+      "sha256": "14fb08fccfd07535dd4dae25ce3d26bfef4881748e9a100cd1e6e2cc598a5f1a"
+    },
+    {
+      "path": "lib/paths.mjs",
+      "size": 2446,
+      "sha256": "6c0edcf01b27d52c601a04bc8d37e75de338153444d47bdb1ec25a7913728520"
+    },
+    {
+      "path": "lib/prepare.mjs",
+      "size": 7855,
+      "sha256": "1279ea7d7683a0ba8e236fb4af51e8c96db41c23068f74ef720539f0996c91f3"
+    },
+    {
+      "path": "lib/project.mjs",
+      "size": 2982,
+      "sha256": "a8de40c7f510aa8788088c81c7e377c239ca027527af4f2e411ea1424397e1c6"
+    },
+    {
+      "path": "lib/reconstruction.mjs",
+      "size": 16701,
+      "sha256": "ca794b8277625b52f44d373d2088fc39ce04fef134bd382b280b4f468f1e1f9b"
+    },
+    {
+      "path": "lib/reference.mjs",
+      "size": 4844,
+      "sha256": "3e0dcb80495e78757b8d087b06ff3afe2f536f3f73bf1758a9e8cf7122c0cc8a"
+    },
+    {
+      "path": "lib/render.mjs",
+      "size": 8057,
+      "sha256": "09d95d65ffbd2cd1046a2ca4e870827217b166e3a964152061ccc7fa2eb04637"
+    },
+    {
+      "path": "lib/styles.mjs",
+      "size": 4237,
+      "sha256": "c89e37d2dc2a30b66205a839e46ae76d1f7a6883f329923fdc17c200f7182b63"
+    },
+    {
+      "path": "lib/transcription.mjs",
+      "size": 16571,
+      "sha256": "cf5b09799257e436fdf33b7cd994122a926a6b710c653d8a2a448e62debc5d3f"
+    },
+    {
+      "path": "LICENSE",
+      "size": 1082,
+      "sha256": "99608a32bd76925a658208d5fe4fca21975f33643620343fa1ba95b11812c097"
+    },
+    {
+      "path": "package.json",
+      "size": 773,
+      "sha256": "6225cac0cf1eea83efb515029bb696a693c21bb926fd5339db9616f5e3049d0a"
+    },
+    {
+      "path": "README.en.md",
+      "size": 13476,
+      "sha256": "29bacf468eacb2edeb45944381ff9adfffe8947e5de202bcd20001a60952944c"
+    },
+    {
+      "path": "README.md",
+      "size": 13144,
+      "sha256": "9f463bf0b75be136ab0f9e00c16ceaf8a4ce643aa96f1678e842e9c1ef448a0d"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "size": 13144,
+      "sha256": "9f463bf0b75be136ab0f9e00c16ceaf8a4ce643aa96f1678e842e9c1ef448a0d"
+    },
+    {
+      "path": "schemas/mv-request.schema.json",
+      "size": 4132,
+      "sha256": "4e17daa7a6298d53d9c7138f8398fcf9231452da2e8dd175a6f2fc2a112f37d7"
+    },
+    {
+      "path": "schemas/reconstruction.schema.json",
+      "size": 5267,
+      "sha256": "49ed505931437d699928259100a7a9355238ab3bbf72422f1223e70b49a7bef6"
+    },
+    {
+      "path": "schemas/style-profile.schema.json",
+      "size": 3390,
+      "sha256": "15c1b5ef57fd2680916a8df265bb30a996c19cbdd65027f83f35238e54c1c1e5"
+    },
+    {
+      "path": "skills/lyric-motion/agents/openai.yaml",
+      "size": 241,
+      "sha256": "5e69725860b44ab0ce03c166e79b42e7e1339e0f8a6d4892e6632124096774a4"
+    },
+    {
+      "path": "skills/lyric-motion/references/create.md",
+      "size": 6158,
+      "sha256": "2fdd8f4b87d2b2325a31d34240094c3011038e64049296417191eb6c4fd4bc6d"
+    },
+    {
+      "path": "skills/lyric-motion/references/lyrics.md",
+      "size": 2614,
+      "sha256": "aa8e4443c23ea1efcfd5fdf67e973d8ba4f62d2b3bb6067d27e0765dd50bb74f"
+    },
+    {
+      "path": "skills/lyric-motion/references/reference.md",
+      "size": 3113,
+      "sha256": "ea33a4f6befb3ccf33d38119275a6696b3a3f1eda38eadd63c8b8aea12355ced"
+    },
+    {
+      "path": "skills/lyric-motion/references/reverse-prompt.md",
+      "size": 4446,
+      "sha256": "70117408573bbef22d8d3614ae42412fef48296916a90ecc62992018b1223d16"
+    },
+    {
+      "path": "skills/lyric-motion/references/styles.md",
+      "size": 3106,
+      "sha256": "703c174eae30c5e015594dfc9b8f00d32918a49acb6ce698fd3c18b229e8130f"
+    },
+    {
+      "path": "skills/lyric-motion/SKILL.md",
+      "size": 6583,
+      "sha256": "73ceee56f55b612abacd7e98c7369a60e4c63d2765aa1c28907d065b4e7f1b7e"
+    },
+    {
+      "path": "src/captions.js",
+      "size": 599,
+      "sha256": "d95c88e7dc4641a425a50f4d8f03b5c90022c59f461eb0f063b0910d6ac79937"
+    },
+    {
+      "path": "src/compare.html",
+      "size": 3322,
+      "sha256": "cc1f7130a628543c02947d160ddb98b3f086bc78fcf3c55b8f5738993fcc1bae"
+    },
+    {
+      "path": "src/index.html",
+      "size": 1521,
+      "sha256": "70e642be22b44d0caae47f224041436790402cc97d5ebcb986dcf020bd29cc60"
+    },
+    {
+      "path": "src/player.html",
+      "size": 2043,
+      "sha256": "08b4b582a70b303c0080d9ca371cbc3ee9e4acd8577f0d60124cfbadd49ccc14"
+    },
+    {
+      "path": "src/runtime.js",
+      "size": 2638,
+      "sha256": "f73a6f39223d5a2d8358ca9523c75853ac42f113395531931b5fc986f2acb01c"
+    },
+    {
+      "path": "templates/artwork.js",
+      "size": 554,
+      "sha256": "0b88948687c8fe4f72c1727033168bdc37d84b53a4248a07c45e13ff36122a73"
+    },
+    {
+      "path": "test/install.test.mjs",
+      "size": 7349,
+      "sha256": "8a11fc23da2be2dc8fbac69152bf62070f1d12acbe3c9c696342bd4a94487869"
+    },
+    {
+      "path": "test/lyrics.test.mjs",
+      "size": 4600,
+      "sha256": "860fe4dd027844a1259f7fc54bbe0e738faeff9e813b526f9a5ef348ab9f2126"
+    },
+    {
+      "path": "test/prepare.test.mjs",
+      "size": 8809,
+      "sha256": "2bdf08bc8fcbb287bf54ebe6278c2dd4322b3257c801243f24c3979b607a7c31"
+    },
+    {
+      "path": "test/reconstruction.test.mjs",
+      "size": 10245,
+      "sha256": "b4c62a4f6721d04ef6b7f536805ae5dd7c4992d0ef0365c18c4e47d1421d71d1"
+    },
+    {
+      "path": "test/reference.test.mjs",
+      "size": 6043,
+      "sha256": "6490b14c9f1b554f26f57e18232c38aeadfae2a95bd4ada2f0b8f742996b9205"
+    },
+    {
+      "path": "test/runtime.test.mjs",
+      "size": 10504,
+      "sha256": "2ee1a4f010fd0bd03d5fba2d9010db33b7f665d3d2399143614040ac6f08d055"
+    },
+    {
+      "path": "test/style-examples.test.mjs",
+      "size": 8284,
+      "sha256": "0f559e95469c665ff39747035d0b1337839075f5448bcd4fd64049ab3c0916ea"
+    },
+    {
+      "path": "test/styles.test.mjs",
+      "size": 11182,
+      "sha256": "331819d46269f3253e4f585cec587be52cfcf2f0b4b133ac83241ab10f9ea43b"
+    },
+    {
+      "path": "test/transcription.test.mjs",
+      "size": 7360,
+      "sha256": "9d7a2754cbd4e5270e762856200d75f757156625c3fda1f818ec3cebbe983074"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "size": 2817,
+      "sha256": "9f03bbcba4075f4559ee2b2e8f4e457dae51b16209fbf1b42c67c22d68de177f"
+    },
+    {
+      "path": "tools/browser.mjs",
+      "size": 8209,
+      "sha256": "a6798f84cb61958b6a53aee2104a57bd9491da0a2351daf856c1ea573b9300c3"
+    },
+    {
+      "path": "tools/cli.mjs",
+      "size": 10439,
+      "sha256": "80d2a85c7ad36df1af10e2bf697f2849497a3a45a49cd44cdb536c15baa97472"
+    },
+    {
+      "path": "tools/install.mjs",
+      "size": 8182,
+      "sha256": "5f4f153e781adfd5ad1457da14380833cb810b093f4ce0d0c9fc918369691961"
+    },
+    {
+      "path": "tools/lyrics-requirements.txt",
+      "size": 101,
+      "sha256": "36e985fef2a3e091601e3606b0022810ba89ee2b827761c03a45b131600d975e"
+    },
+    {
+      "path": "tools/make-demo.mjs",
+      "size": 4657,
+      "sha256": "a52f43b6cf9a7d4dc254810c4d669fa330824a729386fdaa2f3e2afcec667842"
+    },
+    {
+      "path": "tools/make-style-examples.mjs",
+      "size": 8164,
+      "sha256": "1f0ffeb26ae97bd51f0bf84167265cc8a35e4dc5abbe03957c8a8ce0570ad2d9"
+    },
+    {
+      "path": "tools/package.mjs",
+      "size": 3923,
+      "sha256": "3a035b39659eb03c193ddde9a1d6e2d7c7a4112af39cd9df464b191c0215d20e"
+    },
+    {
+      "path": "tools/showcase-styles.mjs",
+      "size": 3638,
+      "sha256": "ec757ccf5e602eb9c9daa6e3b08e864cd0ba0386a03d9f332fa7f60d4fbe2745"
+    },
+    {
+      "path": "tools/showcase.mjs",
+      "size": 1798,
+      "sha256": "d3f80dfb52abe4278db3bb7e1b7c12354cd439d5df9f283e7c1a41289845c15b"
+    },
+    {
+      "path": "tools/transcribe-lyrics.py",
+      "size": 4423,
+      "sha256": "e7301e20fd7887c1bc23ea402fda6cafd3003583ebec961cb4c1d3ca38785b63"
+    }
+  ],
+  "note": "Public allowlist. User projects, original private song, reference footage and generated QA are excluded."
+}

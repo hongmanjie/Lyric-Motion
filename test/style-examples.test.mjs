@@ -37,7 +37,8 @@ async function fixture(t) {
 test('excerpt keeps translations, clipped token timing, source bytes, and identical portable audio across directions', { skip: !available }, async t => {
   const input = await fixture(t);
   const before = [digest(await readFile(input.audio)), digest(await readFile(input.timeline))];
-  const sourceArtwork = await Promise.all(STYLE_IDS.map(id => readFile(path.join(root, 'examples/styles', id, 'artwork.js'))));
+  const sourceArtwork = await readFile(path.join(root, 'templates/artwork.js'));
+  assert.deepEqual(STYLE_IDS, ['painted-story', 'rhythmic-type']);
   const result = await makeStyleExamples({ ...input, start: .6, duration: 1.1 });
   assert.equal(result.duration, 1.1);
   const timeline = JSON.parse(await readFile(path.join(input.out, 'timeline.json'), 'utf8'));
@@ -56,14 +57,15 @@ test('excerpt keeps translations, clipped token timing, source bytes, and identi
     const folder = path.join(input.out, id);
     assert.equal(digest(await readFile(path.join(folder, 'assets/audio.wav'))), sharedAudio);
     assert.deepEqual(JSON.parse(await readFile(path.join(folder, 'timeline.json'), 'utf8')), timeline);
-    assert.equal((await stat(path.join(folder, 'shared.mjs'))).isFile(), true);
+    assert.equal(JSON.parse(await readFile(path.join(folder, 'config/project.json'), 'utf8')).readyToRender, false);
+    assert.equal(JSON.parse(await readFile(path.join(folder, 'style/style-profile.json'), 'utf8')).id, id);
+    await absent(path.join(folder, 'shared.mjs'));
     const captions = await readFile(path.join(folder, 'captions.srt'), 'utf8');
     assert.ok(captions.includes('00:00:00,000 --> 00:00:00,200\n第二句'));
     assert.ok(captions.includes('第三句'));
     const code = await readFile(path.join(folder, 'artwork.js'), 'utf8');
-    assert.match(code, /['"]\.\/shared\.mjs['"]/);
-    assert.doesNotMatch(code, /['"]\.\.\/shared\.mjs['"]/);
-    assert.deepEqual(await readFile(path.join(root, 'examples/styles', id, 'artwork.js')), sourceArtwork[index]);
+    assert.equal(code, sourceArtwork.toString('utf8'));
+    assert.deepEqual(await readFile(path.join(root, 'templates/artwork.js')), sourceArtwork);
   }
   assert.deepEqual([digest(await readFile(input.audio)), digest(await readFile(input.timeline))], before);
   const source = JSON.parse(await readFile(path.join(input.out, 'source.json'), 'utf8'));

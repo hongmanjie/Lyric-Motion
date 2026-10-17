@@ -1,36 +1,21 @@
 # Optional starting directions
 
-The user may choose a number or name in conversation. Do not require them to select a direction; `auto` is the default and leaves the agent free to design around the song.
+Default to `auto`: let the current song determine the artwork. Users may choose a number, English ID or Chinese name in conversation.
 
-| Input | Direction | Starting emphasis |
+| Input | Direction | Emphasis |
 | --- | --- | --- |
-| `auto` / `0` | AI 自由创作 | No imported preset; choose an original direction. |
-| `playground` / `1` / `字形游乐场` | 字形游乐场 | Expressive type, scale changes, playful physical word behavior. |
-| `poetry` / `2` / `流动诗境` | 流动诗境 | Paper, ink, flowing forms, and expressive negative space. |
-| `sculpture` / `3` / `数字雕塑` | 数字雕塑 | Spatial choreography, evolving structures, materials, and sculptural light. |
-| `storybook` / `4` / `故事手绘` | 故事手绘 | Hand-drawn characters, objects, and places perform the lyric's story. |
+| `auto` / `0` | AI 自由创作 | No imported preset. |
+| `painted-story` / `1` / `纸绘叙事` | Painted Story | Painted characters, situations, reactions and causal scene changes perform the lyrics. |
+| `rhythmic-type` / `2` / `节奏图形` | Rhythmic Type | Kinetic type, graphic relationships, scale changes and selective particles perform the lyrics. |
 
-List the real shipped catalog or locate one bundle:
+Run `node <toolkit>/tools/cli.mjs styles` or `style --id 1`. Read the returned profilePath and promptPath: these are the maintained principles. Export an independent bundle with `style --id 2 --out /workspace/styles/my-direction`.
 
-```sh
-node <toolkit>/tools/cli.mjs styles
-node <toolkit>/tools/cli.mjs style --id 1
-```
+Initialize with `init --audio /path/song.mp3 --lyrics /path/song.lrc --out /workspace/projects/my-song --style 1`. This copies preferences only; it never copies finished showcase artwork or marks artwork complete. Create an original work using [create.md](create.md). Custom --style-profile and/or --style-prompt replaces the entire built-in bundle. User direction and relevant reference analysis guide adaptation.
 
-Read the selected `profilePath` and `promptPath` from the actual command result. They contain the maintained art direction; the table is only a discovery guide. With `--out /workspace/styles/my-direction`, `style` creates independent `style-profile.json` and `style-prompt.md` copies in a new directory. `auto` has no fixed bundle to export. Existing directories are preserved.
+For painted-story, design a coherent cast and world from this song. Use anticipation, action and reaction, expressive poses, meaningful close/wide shots, paper and ink as appropriate. JohnHeibel/ClaudeAnimationBase inspired the style study; the toolkit does not integrate or require its library. Do not reuse reference characters, fixed scenes or the showcase's fox/train story unless specifically requested.
 
-Create a new song project with the selected preferences:
+For rhythmic-type, make sung lyric words the main visual material when word performance is requested. Reveal words in sequence, then move/resize previously entered words into a continuous evolving composition. Let semantic verbs change the glyph action, occlusion or path. Do not replace sung words with unrelated English labels. Use reliable word timing where available; supplied line anchors plus actual ASR estimates may inform clearly editorial visual cues, but never invent equal-duration tokens or claim verified word alignment. Make semantic actions visible in typography and graphics. Use varied scale, clear focus, motion handoffs and deliberate reading holds. React to actual supplied timing and measured acoustic changes. Onset detection is not verified musical beat alignment. Particles accent selected events, not every frame.
 
-```sh
-node <toolkit>/tools/cli.mjs init --audio /path/song.mp3 --lyrics /path/lyrics.lrc --out /workspace/projects/my-song --style 1 --direction "Warm colors, with a quiet ending"
-```
+Neither direction fixes palette, character, font, duration, shot count or implementation. Two public rendered song excerpts illustrate the directions; private artwork, source recordings, full lyrics and reference video are excluded from installation. The examples/styles directories contain portable profiles/prompts, not complete MV implementations. Publishing another user's project needs authorization for that media and destination.
 
-Initialization copies only the profile and prompt to the project's `style/` directory, preserves the supplied direction, and leaves `artwork.js` unfinished and rendering blocked. It never imports the demonstration's `artwork.js` or uses a fixed shot list, duration, or scene count. Read the song and timing, then create an original composition using [create.md](create.md).
-
-Explicit user direction and relevant reference analysis guide any adaptation. A supplied `--style-profile` and/or `--style-prompt` replaces the built-in bundle entirely; it does not combine a custom profile with an unrelated built-in prompt. Preserve this priority when interpreting the generated request.
-
-For `storybook`, design a visual story from the actual lyric situations and emotional changes. Give recurring characters or objects continuity across changing shots. Hand-drawn appearance can use irregular ink, pencil, paper, expressive poses, and limited palettes; it need not use a particular character design or copy any reference's scenes. Choreograph action and shot changes around the music, with reading holds where needed. A line-drawing reveal is one possible action, not a transition to repeat for every shot.
-
-For every direction, movement should have a purpose. A request for more energy can change shot scale, camera, poses, materials, and transition handoffs while preserving lyric readability. Quiet visual materials do not require static slides. Use actual supplied timing and observed musical cues; do not manufacture a beat grid and call it measured synchronization.
-
-The self-contained examples under `examples/styles/` use original synthetic instrumental audio and original graphics. Their text cues are editorial, not sung alignment. The main README separately shows maintainer-selected rendered song excerpts with documented sources, timing limits and music rights; those private artwork projects and original inputs are not bundled. Neither set is a required scene template. Publishing a user's own song project still needs an explicit request for that media and destination.
+alpha.6 replaces the previous four built-ins. Numbers 1 and 2 have new meanings; old English IDs and numbers 3/4 fail with a migration message. Existing custom bundles remain importable.

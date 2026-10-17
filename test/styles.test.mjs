@@ -29,7 +29,7 @@ async function fixture(t) {
   const directory = await mkdtemp(path.join(testRoot, 'case-'));
   t.after(() => rm(directory, { recursive: true, force: true }));
   const styleRoot = path.join(directory, 'catalog');
-  for (const id of ['playground', 'poetry', 'sculpture', 'storybook']) {
+  for (const id of ['painted-story', 'rhythmic-type']) {
     const folder = path.join(styleRoot, 'examples/styles', id);
     await mkdir(folder, { recursive: true });
     await writeFile(path.join(folder, 'profile.json'), JSON.stringify(profile(id)));
@@ -44,24 +44,25 @@ async function fixture(t) {
 
 test('style aliases resolve consistently and catalog validates real profile/prompt files', async t => {
   const files = await fixture(t);
-  for (const [id, aliases] of Object.entries({ auto: ['auto', '0', 0], playground: ['playground', '1', 1, '字形游乐场'], poetry: ['poetry', '2', '流动诗境'], sculpture: ['sculpture', '3', '数字雕塑'], storybook: ['storybook', '4', 4, '故事手绘', ' STORYBOOK '] })) {
+  for (const old of ['3', '4', 'playground', 'poetry', 'sculpture', 'storybook']) assert.throws(() => resolveStyleId(old), /retired/);
+  for (const [id, aliases] of Object.entries({ auto: ['auto', '0', 0], 'painted-story': ['painted-story', '1', 1, '纸绘叙事', '手绘叙事'], 'rhythmic-type': ['rhythmic-type', '2', 2, '节奏图形', ' RHYTHMIC-TYPE '] })) {
     for (const alias of aliases) assert.equal(resolveStyleId(alias), id);
   }
   const catalog = await listStyles({ root: files.styleRoot });
-  assert.deepEqual(catalog.map(style => style.id), ['auto', 'playground', 'poetry', 'sculpture', 'storybook']);
+  assert.deepEqual(catalog.map(style => style.id), ['auto', 'painted-story', 'rhythmic-type']);
   assert.equal(catalog[0].profilePath, null);
-  const missing = path.join(files.styleRoot, 'examples/styles/poetry/prompt.md');
+  const missing = path.join(files.styleRoot, 'examples/styles/rhythmic-type/prompt.md');
   await writeFile(missing, '   ');
   await assert.rejects(listStyles({ root: files.styleRoot }), /prompt is empty/);
   await writeFile(missing, '# Poetry');
-  await writeFile(path.join(files.styleRoot, 'examples/styles/sculpture/profile.json'), '{"schemaVersion":"wrong"}');
+  await writeFile(path.join(files.styleRoot, 'examples/styles/painted-story/profile.json'), '{"schemaVersion":"wrong"}');
   await assert.rejects(listStyles({ root: files.styleRoot }), /Invalid style/);
 });
 
 test('bundle export creates independent preferences and refuses overwrites or auto export', async t => {
   const files = await fixture(t), out = path.join(files.directory, 'saved-style');
   const result = await exportStyle({ id: '1', out, root: files.styleRoot });
-  const source = await getStyle('playground', { root: files.styleRoot });
+  const source = await getStyle('painted-story', { root: files.styleRoot });
   assert.deepEqual(await readFile(result.profilePath), await readFile(source.profilePath));
   assert.deepEqual(await readFile(result.promptPath), await readFile(source.promptPath));
   await assert.rejects(stat(path.join(out, 'artwork.js')), { code: 'ENOENT' });
@@ -79,24 +80,24 @@ test('a relocated public catalog resolves from its new root without original che
   await cp(files.styleRoot, moved, { recursive: true });
   await rename(files.styleRoot, path.join(files.directory, 'source-moved-away'));
   const styles = await listStyles({ root: moved });
-  assert.equal(styles.length, 5);
+  assert.equal(styles.length, 3);
   assert.ok(styles.slice(1).every(style => style.profilePath.startsWith(moved) && style.promptPath.startsWith(moved)));
-  assert.equal(JSON.parse(await readFile(styles[1].profilePath, 'utf8')).id, 'playground');
-  const story = await getStyle('故事手绘', { root: moved });
-  assert.equal(JSON.parse(await readFile(story.profilePath, 'utf8')).id, 'storybook');
-  const exported = await exportStyle({ id: 4, out: path.join(files.directory, 'portable-story'), root: moved });
-  assert.equal(JSON.parse(await readFile(exported.profilePath, 'utf8')).id, 'storybook');
+  assert.equal(JSON.parse(await readFile(styles[1].profilePath, 'utf8')).id, 'painted-story');
+  const story = await getStyle('纸绘叙事', { root: moved });
+  assert.equal(JSON.parse(await readFile(story.profilePath, 'utf8')).id, 'painted-story');
+  const exported = await exportStyle({ id: 1, out: path.join(files.directory, 'portable-story'), root: moved });
+  assert.equal(JSON.parse(await readFile(exported.profilePath, 'utf8')).id, 'painted-story');
   await assert.rejects(stat(path.join(exported.directory, 'artwork.js')), { code: 'ENOENT' });
 });
 
-test('storybook imports the selected direction without inheriting its final example', { skip: !hasProbe }, async t => {
+test('painted story imports the selected direction without inheriting its final example', { skip: !hasProbe }, async t => {
   const files = await fixture(t);
-  const result = await prepareProject({ ...files, style: '故事手绘', direction: 'Tell the lyric story through characters and changing places.' });
-  assert.deepEqual(result.request.extensions.style, { requested: 'storybook', applied: 'storybook', source: 'builtin', role: 'starting-point' });
-  assert.equal(JSON.parse(await readFile(path.join(result.directory, result.request.creative.styleProfile), 'utf8')).id, 'storybook');
+  const result = await prepareProject({ ...files, style: '纸绘叙事', direction: 'Tell the lyric story through characters and changing places.' });
+  assert.deepEqual(result.request.extensions.style, { requested: 'painted-story', applied: 'painted-story', source: 'builtin', role: 'starting-point' });
+  assert.equal(JSON.parse(await readFile(path.join(result.directory, result.request.creative.styleProfile), 'utf8')).id, 'painted-story');
   assert.equal(result.project.readyToRender, false);
   assert.deepEqual(await readFile(path.join(result.directory, 'artwork.js')), await readFile(path.join(files.templateRoot, 'artwork.js')));
-  const original = await getStyle(4, { root: files.styleRoot });
+  const original = await getStyle(1, { root: files.styleRoot });
   await writeFile(path.join(result.directory, result.request.creative.stylePrompt), '# A different story for this song');
   assert.notEqual(await readFile(original.promptPath, 'utf8'), '# A different story for this song');
 });
@@ -107,8 +108,8 @@ test('explicit style imports only independent preferences, preserving direction/
   const result = await prepareProject({ ...files, style: '1', direction: 'Use warm colors and quiet pauses.', reference });
   assert.equal(result.request.creative.direction, 'Use warm colors and quiet pauses.');
   assert.equal(result.request.creative.mode, 'reference');
-  assert.deepEqual(result.request.extensions.style, { requested: 'playground', applied: 'playground', source: 'builtin', role: 'starting-point' });
-  const original = await getStyle('playground', { root: files.styleRoot });
+  assert.deepEqual(result.request.extensions.style, { requested: 'painted-story', applied: 'painted-story', source: 'builtin', role: 'starting-point' });
+  const original = await getStyle('painted-story', { root: files.styleRoot });
   assert.deepEqual(await readFile(path.join(files.out, result.request.creative.styleProfile)), await readFile(original.profilePath));
   assert.deepEqual(await readFile(path.join(files.out, result.request.creative.stylePrompt)), await readFile(original.promptPath));
   assert.deepEqual(await readFile(path.join(files.out, 'artwork.js')), await readFile(path.join(files.templateRoot, 'artwork.js')));
@@ -127,14 +128,14 @@ test('auto leaves art direction open and custom inputs replace the complete buil
   await assert.rejects(stat(path.join(files.out, 'style')), { code: 'ENOENT' });
   const customProfile = path.join(files.directory, 'custom.json');
   await writeFile(customProfile, JSON.stringify(profile('custom-direction')));
-  const custom = await prepareProject({ ...files, out: path.join(files.directory, 'custom-project'), style: 'poetry', styleProfile: customProfile, direction: 'My explicit direction' });
-  assert.deepEqual(custom.request.extensions.style, { requested: 'poetry', applied: 'custom', source: 'custom', role: 'starting-point' });
+  const custom = await prepareProject({ ...files, out: path.join(files.directory, 'custom-project'), style: 'rhythmic-type', styleProfile: customProfile, direction: 'My explicit direction' });
+  assert.deepEqual(custom.request.extensions.style, { requested: 'rhythmic-type', applied: 'custom', source: 'custom', role: 'starting-point' });
   assert.equal(custom.request.creative.stylePrompt, undefined);
   assert.equal(custom.request.creative.direction, 'My explicit direction');
   assert.equal(JSON.parse(await readFile(path.join(custom.directory, custom.request.creative.styleProfile), 'utf8')).id, 'custom-direction');
   const customPrompt = path.join(files.directory, 'custom.md');
   await writeFile(customPrompt, '# Only my prompt');
-  const promptOnly = await prepareProject({ ...files, out: path.join(files.directory, 'prompt-project'), style: '3', stylePrompt: customPrompt });
+  const promptOnly = await prepareProject({ ...files, out: path.join(files.directory, 'prompt-project'), style: '2', stylePrompt: customPrompt });
   assert.equal(promptOnly.request.creative.styleProfile, undefined);
   assert.equal(await readFile(path.join(promptOnly.directory, promptOnly.request.creative.stylePrompt), 'utf8'), '# Only my prompt');
 });

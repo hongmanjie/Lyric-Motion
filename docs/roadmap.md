@@ -7,10 +7,10 @@
 - Optional local audio-to-LRC/SRT transcription with real model-estimated times, retained raw output, confidence-based review hints, and explicit draft status.
 - Reference evidence preparation, reusable style profile/prompt workflow.
 - Video-to-prompt reconstruction with authored analysis, evidence, and an exportable production request.
-- Automatic free creation plus four optional, editable art directions: Playground, Flowing Poetry, Digital Sculpture, and Story Sketch.
+- Free creation plus two optional, editable directions: Painted Story and Rhythmic Type.
 - Editable code, deterministic preview/render, MP4/SRT and technical checks.
-- Original reproducible demos, a 20-second four-style highlight, and a separate shareable vocal/lyric story example with documented CC0 audio.
-- Story Sketch direction with consistent characters, lyric-driven acting, spatial continuity, and purposeful scene changes.
+- Two maintainer-selected song excerpts with supplied LRC captions, native README players, source notes, and separate music rights.
+- Painted Story with consistent characters and lyric acting; Rhythmic Type with sequential lyric words, semantic glyph motion and purposeful changes of composition.
 - Actual README media and a public release allowlist that excludes private songs and reference footage.
 
 This is an alpha toolkit. The agent does the creative work; it is not a one-button generator or model service. Client discovery and cross-platform host testing remain documented verification work.

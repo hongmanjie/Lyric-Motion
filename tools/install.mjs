@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 export const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const TOOLKIT_SOURCE_PATHS = Object.freeze([
-  'package.json', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'lib', 'tools', 'templates', 'src', 'schemas', 'examples/demo', 'examples/styles', 'examples/style-assets', 'examples/vocal-demo',
+  'package.json', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'lib', 'tools', 'templates', 'src', 'schemas', 'examples/demo', 'examples/styles', 'examples/style-assets',
 ]);
 const SKILL_SOURCE = 'skills/lyric-motion';
 const MANIFEST = '.lyric-motion-install.json';

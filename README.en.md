@@ -4,18 +4,21 @@
 
 [中文](README.md) · [Installation](docs/install.md) · [Style gallery](docs/styles.md) · [Workflows](docs/workflows.md)
 
-https://github.com/user-attachments/assets/84948bd4-842c-4238-83ac-2c314d4dc952
+## Two songs, two visual languages
 
-**One song, the same 22.33-second excerpt, four different visual languages.** Each version uses YOASOBI's *Yoru ni Kakeru* (夜に駆ける), the same Japanese vocal and lyric timeline, and Chinese reading subtitles. The code-rendered directions explore colliding type, ink and empty space, spatial materials, and character storytelling.
+**1 · Painted Story | 《走散》 (Zou San) · 29 seconds**
 
-**Press play above for the 22-second highlight with sound.** [MP4 fallback](docs/media/showcase/highlight.mp4) · [Four versions side by side](docs/media/showcase/comparison.mp4). Play each complete version in the gallery below.
+https://github.com/user-attachments/assets/bf78d7f6-c715-49c2-8f98-ee3911631e06
 
-<details>
-<summary>Silent GIF fallback</summary>
+A fox, an empty seat, a departing train and an incomplete ticket turn separation and pursuit into a painted story. The maintainer supplied the song and timed LRC. [MP4 fallback](docs/media/showcase/duo/painted-story.mp4)
 
-[![One excerpt of YOASOBI's Yoru ni Kakeru, four distinct MV directions](docs/media/showcase/highlight.gif)](docs/media/showcase/highlight.mp4)
+**2 · Rhythmic Type | 《稳稳地接住你》 · 44 seconds**
 
-</details>
+https://github.com/user-attachments/assets/94e30a93-d83f-4949-91e9-5ce7ae5baa89
+
+Sung words enter in sequence, previous words move and rearrange, and semantic verbs change the glyph action or the whole composition, with occasional particle accents. It uses the same song excerpt as the designated reference and the maintainer's supplied LRC. [MP4 fallback](docs/media/showcase/duo/rhythmic-type.mp4)
+
+Both are **1920×1080, 30fps, with vocals and Chinese bottom captions**. Press play and enable sound. [Styles and prompts](docs/styles.md) · [Sources and timing](docs/media/README.md)
 
 ## 1. Why Lyric Motion?
 
@@ -112,29 +115,24 @@ The agent designs around the new lyrics and musical phrasing. It can use typogra
 
 > Use this song and lyrics to make an MV. Choose the art direction yourself. Keep the scene changes fluid and meaningful.
 
-### 3. Create with one of four starting styles
+### 3. Choose Painted Story or Rhythmic Type
 
-Each direction is an editable set of creative principles. It does not install the example's scene order, timing, or finished artwork into your song.
+These two editable sets of principles leave characters, shots, typography, timing and compositions open to the new song. The default remains `auto`.
 
-| 1 · Type Playground | 2 · Flowing Poetry |
+| 1 · Painted Story | 2 · Rhythmic Type |
 | --- | --- |
-| [![Type Playground: colliding words and scale changes](docs/media/showcase/playground.jpg)](docs/media/showcase/playground.mp4) | [![Flowing Poetry: paper, ink, and openings of light](docs/media/showcase/poetry.jpg)](docs/media/showcase/poetry.mp4) |
-| **Type performs.** Words collide, bounce, compress, and shift scale; their actions move the visual focus. [Play with sound](docs/media/showcase/playground.mp4) | **Materials flow.** Spreading ink, folded paper, negative space, and a red thread express emotion; text becomes a small marginal note. [Play with sound](docs/media/showcase/poetry.mp4) |
+| [![Painted Story: Zou San](docs/media/showcase/duo/painted-story.png)](docs/media/showcase/duo/painted-story.mp4) | [![Rhythmic Type: Catch You](docs/media/showcase/duo/rhythmic-type.png)](docs/media/showcase/duo/rhythmic-type.mp4) |
+| Character acting, painted 2D form, concrete situations and causal transitions. | Kinetic type, geometric actions, scale contrast and selective particles. |
 
-| 3 · Digital Sculpture | 4 · Story Sketch |
-| --- | --- |
-| [![Digital Sculpture: spatial structures and materials](docs/media/showcase/sculpture.jpg)](docs/media/showcase/sculpture.mp4) | [![Story Sketch: characters perform the lyric story](docs/media/showcase/storybook.jpg)](docs/media/showcase/storybook.mp4) |
-| **Space transforms.** Dimensional structures, materials, lighting, and camera movement compress, separate, and regroup with the music. [Play with sound](docs/media/showcase/sculpture.mp4) | **Characters act.** Consistent people, concrete situations, gestures, and relationships turn the lyrics into a drawn story. [Play with sound](docs/media/showcase/storybook.mp4) |
+**Say in conversation:**
 
-All four versions share **the same audio excerpt, lyric timeline, and Chinese subtitles** for a direct comparison of art direction and motion. Click a cover to play its MP4 with sound. The documented line times are estimates; the showcase does not establish verified word-level alignment. [Style profiles and prompts](docs/styles.md).
+> Use style 1 / Painted Story. The protagonist is a small fox with an old schoolbag. Let poses, expressions and situations perform the lyrics; keep characters coherent and captions readable. You decide the rest.
 
-**Say:**
+> Use style 2 / Rhythmic Type. Make fast, fluid changes with semantic graphic actions, strong visual changes on emphatic phrases, and occasional particles.
 
-> Use style 4, Story Sketch, for this song. The protagonist is a small fox with a worn schoolbag. Let its expressions, actions, and changing situation perform the lyrics. Keep its design consistent, transitions fluid, and bottom lyrics readable. You decide the rest.
+Add preferences naturally, such as warm colors or a quiet ending. Your explicit directions and supplied reference take precedence. [Profiles, prompts and commands](docs/styles.md).
 
-Or: “Use style 1, with warmer colors and a quieter ending.” Styles can be adapted or mixed; your explicit request takes precedence.
-
-Naming a protagonist gives the story a clear direction. If you omit one, the agent chooses a coherent cast for the song. Story Sketch emphasizes acting, spatial relationships, and cause and effect; handwritten type or paper texture alone is not the story.
+alpha.6 replaces the old four built-ins. Numbers 1 and 2 now refer to these directions. Saved custom bundles remain importable; previous user projects are preserved.
 
 ### 4. Extract a reference's reusable style
 
@@ -201,6 +199,6 @@ New songs live in independent `projects/` folders. The shared runtime is in `src
 
 Media processing and rendering run locally; your agent client controls what is sent to its provider. **Local tooling does not mean offline inference.** The toolkit carries no model credentials and makes no promise of unlimited subscription usage.
 
-Code and original project content: [MIT](LICENSE). Bundled fonts retain OFL notices. The featured *Yoru ni Kakeru* song, recording, and lyrics belong to their respective rights holders; the code license grants no rights to the song. [Third-party notices](THIRD_PARTY_NOTICES.md) · [Demo provenance](docs/media/README.md).
+Code and original project content: [MIT](LICENSE). Bundled fonts retain OFL notices. The featured *Zou San* and *Catch You* songs, recordings, and lyrics belong to their respective rights holders; the code license grants no rights to the song. [Third-party notices](THIRD_PARTY_NOTICES.md) · [Demo provenance](docs/media/README.md).
 
 [Contributing](CONTRIBUTING.md) · [Roadmap](docs/roadmap.md) · [Changelog](CHANGELOG.md). Share the prompts, client/model, manual edits, and asset permissions behind your examples. If Lyric Motion helps you make something worth sharing, a Star helps others find it.

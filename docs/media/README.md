@@ -1,43 +1,16 @@
-# Public media provenance
+# 两首歌、两个公开演示片段
 
-The main README showcase is **YOASOBI's Yoru ni Kakeru (夜に駆ける)**, rendered in four distinct directions from the same 22.333-second excerpt. The repository also retains separate original-instrumental and CC0 vocal examples. Their sources and licenses are different; the main showcase is not an original instrumental or a CC0 recording.
+| 方向 | 歌曲与来源 | 实际片段 | 字幕与画面 |
+| --- | --- | --- | --- |
+| 纸绘叙事 | 《走散》，维护者提供的「不是花火呀」录音文件 | 原始文件 93.03–122.263333 秒，29.233333 秒 | 原始 LRC 行级时间，纸绘角色与列车故事 |
+| 节奏图形 | 《稳稳地接住你》，[指定参考视频](https://www.bilibili.com/video/BV1ptad65ES9/)的同段音频；参考简介注明「十元钱钱」 | 参考视频 0–43.866667 秒 | 维护者补充 LRC 的 25 行原始时间，逐词入画、字形语义动作与选择性粒子 |
 
-## Main showcase: one sung excerpt, four directions
+两个视频均为 1920×1080、30fps、H.264＋AAC，有短音频淡入淡出。渲染画面为本项目原创代码作品，不使用参考视频的画面。第一支风格研究另参考 [JohnHeibel/ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) 与[第一条参考](https://www.bilibili.com/video/BV1MaHp6KENU/)。
 
-`showcase/` contains the code-rendered previews selected by the maintainer for this project's public demonstration:
+[纸绘叙事视频](showcase/duo/painted-story.mp4) · [节奏图形视频](showcase/duo/rhythmic-type.mp4) · [文件、时长与 SHA256](showcase/duo/manifest.json)
 
-| File | Content |
-| --- | --- |
-| `showcase/highlight.mp4` | Four-direction highlight with the Japanese vocal and Chinese reading subtitles. |
-| `showcase/highlight.gif` | Silent inline preview derived from the highlight. |
-| `showcase/poster.jpg` | Still cover captured from the rendered showcase. |
-| `showcase/comparison.mp4` | Complete four-version comparison. |
-| `showcase/playground.mp4`, `poetry.mp4`, `sculpture.mp4`, `storybook.mp4` | Individual versions using the same excerpt and lyric clock. |
-| `showcase/playground.jpg`, `poetry.jpg`, `sculpture.jpg`, `storybook.jpg` | Actual rendered cover frames for the gallery. |
-| `showcase/manifest.json` | Source description, excerpt clock, processing and exported media metadata. |
+歌词行起点保留用户提供的 LRC；没有伪造逐字时间。第二支主画面的 83 次词语入画综合行级 LRC 锚点、实际 ASR 词边界和明确标注的编辑动作时间；这不是经过听音核验的逐字强制对齐。底部字幕仍完全采用 LRC。画面脉冲与粒子用实际音频能量及声学起音检测，不能等同于经过人工核验的节拍网格。技术确定性、实际播放与主观听音是不同验证；未声称主观试听或逐字精度。
 
-**Source:** a recording excerpt of *Yoru ni Kakeru* by YOASOBI supplied by the maintainer for this project's demonstration. Each individual version uses source-audio seconds **28.62–50.953333**, approximately **22.333333 seconds**, from the supplied excerpt file. These are positions in that file, not claimed full-track positions. The original audio input, complete lyric file and private production projects are not published; this folder contains only rendered excerpts, stills, GIF and the manifest.
+这里只公开维护者指定的两个渲染片段、封面及 manifest。歌曲、录音、歌词归各自权利人，项目 MIT 不授予其使用权；没有把这些录音标记成 CC0。原始歌曲、完整 LRC、参考视频、私人工程与 QA 不进入公开包。旧四风格主展示已从当前公开版本撤下，历史仍可在 Git 记录中查阅。
 
-**Rights:** the song, recording and lyrics belong to their respective rights holders. The project does not claim CC0 status or authorization from those rights holders. The code's MIT license does not grant rights to the song or recording. The maintainer's choice to display a clip is not a statement that the music is freely reusable. See [third-party notices](../../THIRD_PARTY_NOTICES.md).
-
-**Timing:** the same line clock was prepared from actual local Whisper Japanese recognition estimates, with supplied LRC text used to correct the recognized phrases. The LRC's full-track clock differed from the supplied excerpt, so it was not directly applied as if both clocks matched. This is estimated phrase timing, not forced alignment or verified per-word alignment. Source `tokens` were not fabricated. Real audio RMS and energy-rise events can drive material movement; those events are not a verified musical beat grid. This example does not establish recognition accuracy for arbitrary songs.
-
-The four versions use different visual subjects: performing type, flowing ink and empty paper, spatial structures and materials, and drawn characters. The same music, lyric timing and Chinese subtitles keep the comparison meaningful. Actual review coverage and limitations are recorded with the production/export metadata; a GIF or poster alone is not evidence of continuous playback or subjective listening.
-
-## Other example: original four-direction previews
-
-`styles/` contains the earlier, separately reproducible direction examples under `examples/styles/`. They use original code-rendered artwork, repository-authored graphic copy and a **14.3-second procedural instrumental excerpt**, with a short fade and no added silent ending hold. They contain no vocals; their phrase cues are editorial decisions, not vocal alignment.
-
-The score is synthesized by `node tools/make-demo.mjs`: deterministic percussion, bass and plucked notes in stereo 44.1 kHz PCM. The 2 × 2 `styles/overview.png`, per-direction covers, GIFs and MP4s come from actual exported video. Their own `styles/manifest.json` and `styles/review.json` retain provenance and review coverage. `highlight/` is a separate 20-second montage of these original-instrumental exports, generated by `tools/make-highlight.mjs`; it is not the main song showcase.
-
-## Other example: CC0 sung-lyric story
-
-`vocal/demo.mp4` uses the first 20 seconds of [Bautsch's CC0 Auld Lang Syne recording](https://commons.wikimedia.org/wiki/File:AuldLangSyne.ogg), with a short final fade. Its traditional/Burns lyrics are public-domain source material; original artwork and Chinese adaptations are distinct from the CC0 recording.
-
-The editable [vocal example](../../examples/vocal-demo/README.md) retains its source and documents recognition-derived timing, manual phrase grouping and actual review limits. Its estimates are not proof of accurate transcription or alignment for every song. This CC0 source applies only to the *Auld Lang Syne* example, not *Yoru ni Kakeru*.
-
-## Fonts and updates
-
-Bundled Noto Sans JP and Noto Serif JP fonts retain SIL Open Font License 1.1 notices in [the demo assets](../../examples/demo/assets/OFL.txt) and [the style font assets](../../examples/style-assets/fonts/OFL-serif.txt). Original code and project-authored content use the repository license; recording rights remain separate.
-
-Use relative image/GIF links and a clear MP4 link in README. A native GitHub video player requires a real uploaded attachment URL in its own paragraph; a relative MP4 link does not create one. See [the showcase workflow](../showcase.md) for the distinction between updating the main private-source showcase and regenerating self-contained examples.
+README 使用 GitHub 实际上传返回的原生播放器 URL；仓库 MP4 为备用链接。播放器通常需要点击播放并开启声音。[展示维护流程](../showcase.md)。

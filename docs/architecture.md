@@ -78,7 +78,7 @@ Projects serve their artwork and local assets at root-relative paths. The shared
 
 `style-prompt` exports portable statements from a profile. `init --style-profile` and `init --style-prompt` copy prior style materials into a new project; the agent uses them alongside the new song and the user's current direction. No shot time or old song text is automatically transferred.
 
-`styles` lists `auto` and four optional authored directions, including `storybook` / `4` / `故事手绘`. `init --style` resolves a number, English ID or Chinese name and copies only its profile/prompt. `auto` loads no style bundle. Explicit custom profile/prompt inputs replace the built-in bundle as a unit; `request.extensions.style` records what was selected and actually applied. The example artwork stays an example, so choosing a direction never marks new artwork complete.
+`styles` lists `auto` and two optional directions: `painted-story` / `1` / `纸绘叙事` and `rhythmic-type` / `2` / `节奏图形`. `init --style` resolves a number, English ID or Chinese name and copies only its profile/prompt. `auto` loads no style bundle. Explicit custom profile/prompt inputs replace the built-in bundle as a unit; `request.extensions.style` records what was selected and actually applied. The example artwork stays an example, so choosing a direction never marks new artwork complete.
 
 ## Video-to-prompt reconstruction
 
@@ -92,7 +92,7 @@ The JSON Schemas describe structural contracts. CLI `style-check` performs the d
 
 One canonical Skill source is copied into the client's project skill directory with a self-contained `toolkit/`. Paths derive from the installed location. Existing modified installations are preserved. Global installation and credential forwarding are outside this alpha.
 
-`package` builds an explicit public allowlist into an English-named folder and tar archive, with SHA256 per file. It excludes user projects, private references, generated QA and intermediate renders. The lead README contains maintainer-selected rendered song excerpts under `docs/media/showcase/`, with separate source/rights/timing notes; their original inputs and private artwork projects are excluded. The other original-instrumental and CC0 vocal examples retain editable public sources. Release packaging is not a GitHub publish action.
+`package` builds an explicit public allowlist into an English-named folder and tar archive, with SHA256 per file. It excludes user projects, private references, generated QA and intermediate renders. The lead README contains maintainer-selected rendered song excerpts under `docs/media/showcase/`, with separate source/rights/timing notes; their original inputs and private artwork projects are excluded. The original instrumental developer fixture retains its public sources; old four-style and CC0 vocal examples are excluded from the current package. Release packaging is not a GitHub publish action.
 
 ## Host status
 

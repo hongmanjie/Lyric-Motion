@@ -1,11 +1,11 @@
-// Reproduce four demonstrations with media you provide, or an original public score.
+// Prepare two independent studies; the agent creates each artwork for the current song.
 import path from 'node:path';
 import {mkdir,mkdtemp,copyFile,readFile,writeFile,stat,rename,rm} from 'node:fs/promises';
 import {pathToFileURL} from 'node:url';
 import {REPO_ROOT,json,probe,run,writeJSON,timecode,inside} from '../lib/paths.mjs';
 import {normalizeTimeline,validate} from '../lib/project.mjs';
 
-export const STYLE_IDS=['playground','poetry','sculpture','storybook'];
+export const STYLE_IDS=['painted-story','rhythmic-type'];
 const PUBLIC_CUES=[
   ['BREAK THROUGH THE NOISE','NOISE','Find your own rhythm in the noise.','pressure',['BREAK THROUGH','THE','NOISE']],
   ['MAKE TOMORROW BRIGHT','BRIGHT','Open a brighter possibility.','open',['MAKE','TOMORROW','BRIGHT']],
@@ -42,12 +42,12 @@ export async function makeStyleExamples({audio,timeline:timelineFile,out,start=0
     timeline={duration,language:input.language,alignment:{quality:'supplied-line-timed',source:'provided-timeline',tokenTiming:'supplied, not independently aligned',inputProvenance:input.alignment},beats:(input.beats||[]).filter(b=>b>=start&&b<start+duration).map(b=>b-start),lines};
     source={kind:'user-supplied-media',sourceAudio:path.basename(audio),sourceTimeline:path.basename(timelineFile),range:{start,end:start+duration},originalTrackRange:input.segStart===undefined?undefined:{start:input.segStart+start,end:input.segStart+start+duration},publicRedistribution:'not-assumed'};
   }
-  const project={title:'Style comparison',width:1920,height:1080,fps:30,duration,previewDuration:Math.min(15,duration),audio:'assets/audio.wav',timeline:'timeline.json',artwork:'artwork.js',readyToRender:true,fonts:{sans:'/assets/display.ttf',serif:'/assets/serif.ttf',caption:'/assets/caption.ttf'}};
+  const project={title:'Style comparison',width:1920,height:1080,fps:30,duration,previewDuration:Math.min(15,duration),audio:'assets/audio.wav',timeline:'timeline.json',artwork:'artwork.js',readyToRender:false,fonts:{sans:'/assets/display.ttf',serif:'/assets/serif.ttf',caption:'/assets/caption.ttf'}};
   validate(project,timeline);
   const serif=path.join(REPO_ROOT,'examples/style-assets/fonts/serif.ttf'),sans=path.join(REPO_ROOT,'examples/demo/assets/display.ttf');
   for(const file of [audio,serif,sans,captionFont||sans])if(!(await stat(path.resolve(file))).isFile())throw new Error('Required source asset is not a file');
-  for(const id of STYLE_IDS)for(const file of ['artwork.js','profile.json','prompt.md'])await stat(path.join(REPO_ROOT,`examples/styles/${id}/${file}`));
-  for(const file of ['examples/style-assets/fonts/OFL-serif.txt','examples/demo/assets/OFL.txt','examples/styles/shared.mjs'])await stat(path.join(REPO_ROOT,file));
+  for(const id of STYLE_IDS)for(const file of ['profile.json','prompt.md'])await stat(path.join(REPO_ROOT,`examples/styles/${id}/${file}`));
+  for(const file of ['examples/style-assets/fonts/OFL-serif.txt','examples/demo/assets/OFL.txt','templates/artwork.js'])await stat(path.join(REPO_ROOT,file));
   const parent=path.dirname(destination);await mkdir(parent,{recursive:true});
   root=await mkdtemp(path.join(parent,'.lyric-motion-styles-'));
   try{
@@ -60,12 +60,9 @@ export async function makeStyleExamples({audio,timeline:timelineFile,out,start=0
     for(const [from,to] of [[path.join(root,'assets/audio.wav'),'audio.wav'],[sans,'display.ttf'],[serif,'serif.ttf'],[captionFont||sans,'caption.ttf']])await copyFile(from,path.join(dir,'assets',to));
     await copyFile(path.join(REPO_ROOT,'examples/style-assets/fonts/OFL-serif.txt'),path.join(dir,'assets/OFL-serif.txt'));
     await copyFile(path.join(REPO_ROOT,'examples/demo/assets/OFL.txt'),path.join(dir,'assets/OFL-sans.txt'));
-    await copyFile(path.join(REPO_ROOT,`examples/styles/${id}/artwork.js`),path.join(dir,'artwork.js'));
+    await copyFile(path.join(REPO_ROOT,'templates/artwork.js'),path.join(dir,'artwork.js'));
     await copyFile(path.join(REPO_ROOT,`examples/styles/${id}/profile.json`),path.join(dir,'style/style-profile.json'));
     await copyFile(path.join(REPO_ROOT,`examples/styles/${id}/prompt.md`),path.join(dir,'style/style-prompt.md'));
-    await copyFile(path.join(REPO_ROOT,'examples/styles/shared.mjs'),path.join(dir,'shared.mjs'));
-    // Each isolated project owns its helper; source examples import their shared parent.
-    const artwork=await readFile(path.join(dir,'artwork.js'),'utf8');await writeFile(path.join(dir,'artwork.js'),artwork.replaceAll("'../shared.mjs'","'./shared.mjs'").replaceAll('"../shared.mjs"','"./shared.mjs"'));
     await writeJSON(path.join(dir,'config/project.json'),{...project,title:`Lyric Motion · ${id}`});
     await writeJSON(path.join(dir,'timeline.json'),timeline);await writeJSON(path.join(dir,'source.json'),source);
     const captions=timeline.lines.map((l,i)=>`${i+1}\n${timecode(l.start)} --> ${timecode(l.end)}\n${l.translations?.['zh-CN']||l.subtitle||l.text}\n`).join('\n');await writeFile(path.join(dir,'captions.srt'),'\uFEFF'+captions);

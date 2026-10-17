@@ -22,6 +22,9 @@ For an accompanying reference, analyze it using [reference.md](reference.md). Th
 
 ## Composition
 
+When a user requests words appearing as they are sung, let lyric words drive the main composition. Previous words can move, resize and hand off the focus. Use supplied word timing or actual ASR estimates with honest uncertainty; line-level LRC alone does not prove exact word alignment. Keep editorial reveal cues separate from verified timeline tokens. Match meaningful verbs with glyph actions and selective full-page transformations; avoid decorative filler replacing the words.
+
+
 Read the local runtime and template only as an interface contract, not as an art-direction example. Implement in the project's `artwork.js` and local assets. Use `project.width`, `project.height`, and `project.duration` so the agreed format is preserved. Load local assets through project-relative URLs and wait for them in `createArtwork`.
 
 Develop a varied visual arc across the music. Useful questions are what the lyric is doing, where the viewer should look, and how the outgoing motion can become the next scene. Choose a few strong materials, then vary their behavior. Do not repeat the same centered heading, decorative background, and transition for every line. Maintain clear reading time while allowing deliberate oversized text and fast musical accents.
