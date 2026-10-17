@@ -6,8 +6,8 @@ The user may choose a number or name in conversation. Do not require them to sel
 | --- | --- | --- |
 | `auto` / `0` | AI 自由创作 | No imported preset; choose an original direction. |
 | `playground` / `1` / `字形游乐场` | 字形游乐场 | Expressive type, scale changes, playful physical word behavior. |
-| `poetry` / `2` / `流动诗境` | 流动诗境 | Poetic space, flowing forms, and expressive restraint. |
-| `sculpture` / `3` / `数字雕塑` | 数字雕塑 | Dimensional letterforms, spatial relationships, sculptural light. |
+| `poetry` / `2` / `流动诗境` | 流动诗境 | Paper, ink, flowing forms, and expressive negative space. |
+| `sculpture` / `3` / `数字雕塑` | 数字雕塑 | Spatial choreography, evolving structures, materials, and sculptural light. |
 | `storybook` / `4` / `故事手绘` | 故事手绘 | Hand-drawn characters, objects, and places perform the lyric's story. |
 
 List the real shipped catalog or locate one bundle:
@@ -33,4 +33,4 @@ For `storybook`, design a visual story from the actual lyric situations and emot
 
 For every direction, movement should have a purpose. A request for more energy can change shot scale, camera, poses, materials, and transition handoffs while preserving lyric readability. Quiet visual materials do not require static slides. Use actual supplied timing and observed musical cues; do not manufacture a beat grid and call it measured synchronization.
 
-The public style examples use original synthetic instrumental audio and original graphics. They show possible outcomes, not validated semantic synchronization to sung lyrics. Private sung studies, user songs, and reference footage are separate local inputs and are not bundled for redistribution.
+The self-contained examples under `examples/styles/` use original synthetic instrumental audio and original graphics. Their text cues are editorial, not sung alignment. The main README separately shows maintainer-selected rendered song excerpts with documented sources, timing limits and music rights; those private artwork projects and original inputs are not bundled. Neither set is a required scene template. Publishing a user's own song project still needs an explicit request for that media and destination.

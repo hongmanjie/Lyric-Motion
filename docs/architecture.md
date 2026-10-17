@@ -92,7 +92,7 @@ The JSON Schemas describe structural contracts. CLI `style-check` performs the d
 
 One canonical Skill source is copied into the client's project skill directory with a self-contained `toolkit/`. Paths derive from the installed location. Existing modified installations are preserved. Global installation and credential forwarding are outside this alpha.
 
-`package` builds an explicit public allowlist into an English-named folder and tar archive, with SHA256 per file. It excludes user projects, private references, generated QA and intermediate renders. README media intentionally includes the original four-style highlight and a separate documented CC0 vocal example; their editable public sources are included. Release packaging is not a GitHub publish action.
+`package` builds an explicit public allowlist into an English-named folder and tar archive, with SHA256 per file. It excludes user projects, private references, generated QA and intermediate renders. The lead README contains maintainer-selected rendered song excerpts under `docs/media/showcase/`, with separate source/rights/timing notes; their original inputs and private artwork projects are excluded. The other original-instrumental and CC0 vocal examples retain editable public sources. Release packaging is not a GitHub publish action.
 
 ## Host status
 
