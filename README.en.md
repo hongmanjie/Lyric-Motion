@@ -8,9 +8,9 @@
 
 **1 · Painted Story | 《走散》 | 29 seconds**
 
-https://github.com/user-attachments/assets/988037b3-9d23-4409-b581-e4369866d1b3
+https://github.com/user-attachments/assets/44b440a9-0e92-4738-b3fc-c0f36dc948c5
 
-A fox, an empty seat, a departing train and an incomplete ticket perform separation and farewell. [Play MP4](docs/media/showcase/duo/painted-story.mp4)
+An empty seat, a ticket maze and an incomplete postcard perform a journey caught in the wish to recover the past. Excerpt from the complete 《走散》 MV. [Play MP4](docs/media/showcase/duo/painted-story.mp4)
 
 **2 · Rhythmic Graphics | 《稳稳地接住你》 | 44 seconds**
 
@@ -53,7 +53,7 @@ The core needs **no npm install and no extra API key**. Invoke $lyric-motion in 
 
 **Attach a new song and LRC lyrics, choose a style from the videos above, and say:**
 
-> Use Lyric Motion's Painted Story style to make a complete landscape MV. The protagonist is a little fox. Let its actions and changing situations perform the lyrics. Add clear bottom lyrics, implement it, inspect actual frames and continuous playback, fix issues and deliver MP4 plus editable source.
+> Use Lyric Motion's Painted Story style to make a complete landscape MV. First interpret the lyrics and author a complete story, with a cast and motifs specific to this song. Let actions and consequences perform the lyrics; repeated passages should advance the story. Add clear bottom lyrics, implement it, inspect actual frames and continuous playback, fix issues and deliver MP4 plus editable source.
 
 Or:
 
@@ -75,7 +75,7 @@ Generate standard **.lrc** files with local Whisper, plus SRT, text and raw tran
 
 ### 2. Choose a style: song + lyrics + pack → MV
 
-Choose **1 / Painted Story** or **2 / Rhythmic Graphics**. The agent reads the prompt, art/motion guide and original visual board; Rhythmic Graphics also provides deterministic motion helpers. Import copies the pack into the new song project. Cast, colors and scenes adapt to its lyrics.
+Choose **1 / Painted Story** or **2 / Rhythmic Graphics**. The agent reads the prompt, art/motion guide and original visual board; Rhythmic Graphics also provides deterministic motion helpers. Import copies the pack into the new song project. Cast, colors and scenes adapt to its lyrics. Painted Story first analyzes the lyrics and authors a complete plot, character arc and shot events; repeated passages must introduce new actions or choices.
 
 **Say:**
 

@@ -12,9 +12,11 @@
 
 [![《走散》纸绘叙事](media/showcase/duo/painted-story.png)](media/showcase/duo/painted-story.mp4)
 
-[有声示例](media/showcase/duo/painted-story.mp4) · [提示词](../examples/styles/painted-story/prompt.md) · [创作指南](../examples/styles/painted-story/guide.md) · [原创画面参考](../examples/styles/painted-story/visual-reference.svg) · [结构化档案](../examples/styles/painted-story/profile.json)
+[有声示例](media/showcase/duo/painted-story.mp4) · [提示词](../examples/styles/painted-story/prompt.md) · [故事构思方法](../examples/styles/painted-story/story-planning.md) · [表演积木](../examples/styles/painted-story/story-kit.mjs) · [创作指南](../examples/styles/painted-story/guide.md) · [原创画面参考](../examples/styles/painted-story/visual-reference.svg) · [结构化档案](../examples/styles/painted-story/profile.json)
 
-让角色通过预备、动作和反应演出歌词。景别说明距离、视线和选择；纸、墨线和少量纹理统一材料。同一处境可以在副歌回归时改变光线、行为和意义，不能原样循环。主角、故事、色板和镜头时长按新歌设计。
+先拆解歌词的语义、情绪和重复段落，由 Agent 构思完整故事、角色变化和贯穿道具，再编写分镜事件。每一镜既贴合正在唱的内容，也以动作和后果推动故事。副歌重唱时使用新的信息、选择或关系，不能只换光线、姿态和背景。
+
+角色通过预备、动作与反应演出，景别说明距离、视线和选择。风格包包含叙事方法和可选的动作阶段、表情过渡、接触坐标及可改写 2D 角色积木。主角、道具、情节与结局按新歌设计，不固定成《走散》的故事。
 
 美术原则参考 [JohnHeibel/ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) 与[指定视频](https://www.bilibili.com/video/BV1MaHp6KENU/)，示例由本项目原创 Canvas 实现，未复制上游角色或代码，不绑定模型或客户端。
 

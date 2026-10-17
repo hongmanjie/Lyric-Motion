@@ -6,23 +6,25 @@
       "id": "painted-story",
       "video": "painted-story.mp4",
       "poster": "painted-story.png",
-      "posterTime": 11.8,
+      "posterTime": 4.8,
       "duration": 29.233333,
       "width": 1920,
       "height": 1080,
       "frames": 877,
-      "bytes": 6656796,
-      "sha256": "7066c5c56b7a730aa5454662f0d3d1c82599577f39983858adabcbc17802f148",
-      "nativePlayer": "https://github.com/user-attachments/assets/988037b3-9d23-4409-b581-e4369866d1b3",
+      "bytes": 4284970,
+      "sha256": "a4eb02b3b57cd88c8d14ffc68297ee0ec121ae5a3a3f75c03bb75f0b4bdeeaa4",
+      "nativePlayer": "https://github.com/user-attachments/assets/44b440a9-0e92-4738-b3fc-c0f36dc948c5",
       "song": "走散",
       "sourceRange": {
         "start": 93.03,
         "end": 122.2633333333,
         "clock": "maintainer-supplied recording"
       },
-      "audioExcerptSHA256": "5bb06fe8685483285e0861647772dc6f0ea9fbc1643554835d74874ff4fc0999",
       "captionTiming": "Original supplied LRC line starts; no verified word alignment.",
-      "opening": "First frame shows the painted scene; blank fade removed for native-player preview."
+      "opening": "An actual scene is visible from the first frame; there is no blank fade.",
+      "revision": 8,
+      "audioRecordingSHA256": "220167a47dcb0ccac010c69e94c8c23d1733a1c904afd8ea48e8e789f3d96cc6",
+      "visualDesign": "Excerpt from the complete original story: closing doors, an empty seat, a viaduct, a memory occupying the map, a ticket maze and an unfilled postcard. Repeated song sections elsewhere develop new events and choices."
     },
     {
       "id": "rhythmic-type",

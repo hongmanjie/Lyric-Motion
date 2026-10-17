@@ -23,7 +23,7 @@ node tools/cli.mjs styles
 node tools/cli.mjs init --audio /path/song.mp3 --lyrics /path/song.lrc --out projects/song --style 2
 ~~~
 
-1 是纸绘叙事，2 是节奏图形。导入会复制提示词、档案、指南、原创画面参考和声明的动效资源，路径记录在 request.json。Agent 实际阅读和查看，再为新歌编写 artwork.js；导入本身不会生成完成的动画。可用 style --id 2 --out NEW_DIRECTORY 导出独立风格包。[风格包内容](styles.md)
+1 是纸绘叙事，2 是节奏图形。导入会复制提示词、档案、指南、原创画面参考和声明的动效资源，路径记录在 request.json。纸绘方向先由 Agent 拆解歌词、构思完整故事、角色变化与贯穿道具，并记录每镜事件及后果；重复歌词不重播原镜头。Agent 实际阅读和查看，再为新歌编写 artwork.js；导入本身不会生成完成的动画。可用 style --id 2 --out NEW_DIRECTORY 导出独立风格包。[风格包内容](styles.md)
 
 ## 3. 自由创作
 

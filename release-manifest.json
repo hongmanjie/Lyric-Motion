@@ -33,8 +33,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "size": 6065,
-      "sha256": "713f880fd588f73ae6fc0766f5865061904843b74704bd9622d8ced70e56bb9b"
+      "size": 7058,
+      "sha256": "b5412734014e5a97b0ef9d3525e811a6f717f99f11549ddf63f175c7a782c19d"
     },
     {
       "path": "CLAUDE.md",
@@ -63,23 +63,23 @@
     },
     {
       "path": "docs/media/README.md",
-      "size": 2192,
-      "sha256": "35ceba952a9011b8c2ed9424f87b5ad66c439975aaaf3c825ff6de9f6151d185"
+      "size": 2619,
+      "sha256": "74b96ca3e335aca80b5609d04bf399e809ea62110030e2717ec8a1b81ce44b32"
     },
     {
       "path": "docs/media/showcase/duo/manifest.json",
-      "size": 2474,
-      "sha256": "352a9b57d8f062d543fc964fb15a23f9dce37782ace8cbb527eb2849f884ab68"
+      "size": 2727,
+      "sha256": "d98ed77c33cdad30ef00735d16a7b96e940c4c6e76d23dbeb0eabc05362842a7"
     },
     {
       "path": "docs/media/showcase/duo/painted-story.mp4",
-      "size": 6656796,
-      "sha256": "7066c5c56b7a730aa5454662f0d3d1c82599577f39983858adabcbc17802f148"
+      "size": 4284970,
+      "sha256": "a4eb02b3b57cd88c8d14ffc68297ee0ec121ae5a3a3f75c03bb75f0b4bdeeaa4"
     },
     {
       "path": "docs/media/showcase/duo/painted-story.png",
-      "size": 1207912,
-      "sha256": "e4ffd6a769c117fc614234c9f14064e5f1368f50e17323dcc1046c566cd5b484"
+      "size": 920307,
+      "sha256": "be72a8fc06455235af359f536b82c4e7fcbc44965727a3e0b7a1bb95c90c8978"
     },
     {
       "path": "docs/media/showcase/duo/rhythmic-type.mp4",
@@ -108,13 +108,13 @@
     },
     {
       "path": "docs/styles.md",
-      "size": 4302,
-      "sha256": "428d8eb9e46ec5d98500fb3d12801312202aa58ebab8f568efb95bf83a06d3ba"
+      "size": 4751,
+      "sha256": "18dd41e3e5a59a8cca84f18527d1e8b6566adf642e31914a06cd5e970bde0613"
     },
     {
       "path": "docs/workflows.md",
-      "size": 4388,
-      "sha256": "405535ce301928a621e29aee06b300791543f4b4dd3f5debc50d9bbaf6a706d0"
+      "size": 4545,
+      "sha256": "e1f878470a8e25c4bdcbe939d98136f2f3d49371c1063564aab61883904ef44f"
     },
     {
       "path": "examples/contracts/free.request.json",
@@ -203,18 +203,28 @@
     },
     {
       "path": "examples/styles/painted-story/guide.md",
-      "size": 1651,
-      "sha256": "29aceaa522b2da14f33e68be9bc92d05396b135bb1d50869de425c62c4661e38"
+      "size": 1875,
+      "sha256": "9dc82675e3d55ff9e68604e5a77e2105582d08dd5ae53a9e73d044f1f7d39860"
     },
     {
       "path": "examples/styles/painted-story/profile.json",
-      "size": 2780,
-      "sha256": "23b6e6112eaa33e6fa9441fec716348094652f2a06e356ac610717c513b7a95c"
+      "size": 4031,
+      "sha256": "9067bad40707d18a3bcc819020221927f8a1223b516be522b62b4ffb49b7a708"
     },
     {
       "path": "examples/styles/painted-story/prompt.md",
-      "size": 1926,
-      "sha256": "66f9568abb22584cc98339bb77746d8f7ea6fc1c6bb6b98ecb7eeb7be2a5ca36"
+      "size": 1340,
+      "sha256": "306d0c18842340513ff0151f3838bcf32ab70bc0d4c44034dd249a83a3b3d66f"
+    },
+    {
+      "path": "examples/styles/painted-story/story-kit.mjs",
+      "size": 6231,
+      "sha256": "bd8086c36cd58d1b7efd44f148327eeba69ee51af0d408c55e1c22a13790a13a"
+    },
+    {
+      "path": "examples/styles/painted-story/story-planning.md",
+      "size": 4666,
+      "sha256": "e086c1e0dc85fb1390e837f76fd78776eb4cc8dad4688da0d10b39cdc41ec8b7"
     },
     {
       "path": "examples/styles/painted-story/visual-reference.svg",
@@ -309,22 +319,22 @@
     {
       "path": "package.json",
       "size": 773,
-      "sha256": "c904f390d66052f851fc61e40d2750b269df27b85002880c2321ab66f38f2298"
+      "sha256": "8f95637d0dc3811e6a663bc52a7ecfb17cec45833b460af0a585c3c8446334f9"
     },
     {
       "path": "README.en.md",
-      "size": 7817,
-      "sha256": "cae098a01d711db5ae956f92163af2bbde0137610c4f077840fbf817d784cf36"
+      "size": 8135,
+      "sha256": "3ae09e8c09a007965fc06ab07248ceec178370b5b57c63694cf14980a39eb02f"
     },
     {
       "path": "README.md",
-      "size": 7908,
-      "sha256": "311debf130d4b8cbcfa47a84a0b312fcb7ac7b74e05f9575b7b67638f78fb077"
+      "size": 8168,
+      "sha256": "df3d3d35855e4ba06c7d56662158ba46e654bb5801547814e108db36d1344beb"
     },
     {
       "path": "README.zh-CN.md",
-      "size": 7908,
-      "sha256": "311debf130d4b8cbcfa47a84a0b312fcb7ac7b74e05f9575b7b67638f78fb077"
+      "size": 8168,
+      "sha256": "df3d3d35855e4ba06c7d56662158ba46e654bb5801547814e108db36d1344beb"
     },
     {
       "path": "schemas/mv-request.schema.json",
@@ -348,8 +358,8 @@
     },
     {
       "path": "skills/lyric-motion/references/create.md",
-      "size": 6262,
-      "sha256": "fbb4e3d22a825c1232bf6407152490d42abf63573a865ac60bf1b5298fa2c3e0"
+      "size": 6449,
+      "sha256": "04f20d1ccf140857b678afc338d1550ed5a702bfb58747e157e061468264e4ea"
     },
     {
       "path": "skills/lyric-motion/references/lyrics.md",
@@ -378,13 +388,13 @@
     },
     {
       "path": "skills/lyric-motion/references/styles.md",
-      "size": 2645,
-      "sha256": "486aff55e4f7994b13bbeb58e17c3099f7bf4cd938ce9859eba0978ebc6e08b3"
+      "size": 2884,
+      "sha256": "ad86e1222b1cbe6058f7e3924d436fdfeb420ad2bbbdbef283d1c8939689c78a"
     },
     {
       "path": "skills/lyric-motion/SKILL.md",
-      "size": 5611,
-      "sha256": "81ab8185979045886aebd61cae7ea09a11c39140a6c517bbb7afe24875dd2ebd"
+      "size": 5968,
+      "sha256": "3765eaf12911307fb1ed046f00de74cede5015d628cd5d9d810e7326b970c14f"
     },
     {
       "path": "src/captions.js",
@@ -450,6 +460,11 @@
       "path": "test/runtime.test.mjs",
       "size": 10504,
       "sha256": "2ee1a4f010fd0bd03d5fba2d9010db33b7f665d3d2399143614040ac6f08d055"
+    },
+    {
+      "path": "test/story-kit.test.mjs",
+      "size": 1467,
+      "sha256": "a01e46520f8b840c782efed228083352d8dd5cfac89e47f1de96eb38330b3272"
     },
     {
       "path": "test/style-examples.test.mjs",

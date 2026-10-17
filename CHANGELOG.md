@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.8 — 2026-10-17
+
+- Made lyric interpretation and a song-specific complete story precede painted scene code: character objectives, consequences, motif continuity, staged reads and meaningful repetition.
+- Added a portable story-planning guide and original acting helpers for absolute-time action phases, continuous facial interpolation, mirrored/rotated hand anchors and an editable 2D character rig.
+- Rebuilt the private full-length 《走散》 around unused seaside tickets, an old flower, a paper-boat encounter and a changed final choice. Repeated lyrics develop new events rather than replaying the original scene sequence.
+- Updated the selected public Painted Story excerpt and preserved the five user-facing workflows. Full audio, lyrics, private story projects and reference media remain excluded.
+- Seventy-two logic tests pass; both installed pack layouts and portable story-pack import were exercised. Visual review and listening accuracy remain separate checks.
+
 ## 0.1.0-alpha.7 — 2026-10-17
 
 - Simplified the conversation workflow to five routes: generate LRC drafts, choose a style, create freely, extract a style and recreate a new song from a reference through finished export.
