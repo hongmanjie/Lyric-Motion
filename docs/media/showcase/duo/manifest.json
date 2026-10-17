@@ -28,14 +28,14 @@
       "id": "rhythmic-type",
       "video": "rhythmic-type.mp4",
       "poster": "rhythmic-type.png",
-      "posterTime": 1.9,
+      "posterTime": 9.65,
       "duration": 43.866667,
       "width": 1920,
       "height": 1080,
       "frames": 1316,
-      "bytes": 7190407,
-      "sha256": "253d3879ad20213a7233059505166434741af1cef631217d8a3bff9240088fb3",
-      "nativePlayer": "https://github.com/user-attachments/assets/94e30a93-d83f-4949-91e9-5ce7ae5baa89",
+      "bytes": 7723869,
+      "sha256": "197cd247bc174aea1023449d190576ccdab5b89e8239ce177b6a8bfbf373f617",
+      "nativePlayer": "https://github.com/user-attachments/assets/886e0ba7-2e8a-4d39-8dd1-1ee7d9b25ff6",
       "song": "稳稳地接住你",
       "sourceRange": {
         "start": 0,
@@ -49,7 +49,10 @@
         "method": "Supplied LRC anchors, actual ASR word estimates and explicitly editorial visual cues.",
         "verifiedWordAlignment": false
       },
-      "audioReference": "https://www.bilibili.com/video/BV1ptad65ES9/"
+      "audioReference": "https://www.bilibili.com/video/BV1ptad65ES9/",
+      "revision": 7,
+      "encoding": "1080p H.264 CRF 26 with 1400 kb/s maximum video rate; AAC 128 kb/s, faststart.",
+      "visualDesign": "Semantic environments, focal word handoffs, support rails, quieter echo fields, object transfer and selective deterministic bursts."
     }
   ]
 }

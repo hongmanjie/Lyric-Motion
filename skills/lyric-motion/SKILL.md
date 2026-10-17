@@ -1,49 +1,52 @@
 ---
 name: lyric-motion
-description: Create and revise local lyric music videos with Codex or Claude Code. Generate a timed LRC draft from audio, or use supplied lyrics; optionally analyze a reference into a reusable style or reconstruction prompt. Use the local toolkit for preview, reproducible rendering, and subtitles.
+description: Make editable lyric music videos in conversation with Codex or Claude Code. Generate LRC drafts from audio, choose a built-in style pack, create freely, extract a reference style, or use a reference and new song to produce a finished MV. Preview, revise, and render locally.
 ---
 
 # Lyric Motion
 
-Work through the conversation. The user supplies a song and optionally lyrics, a reference, or an art direction. Do not make the user fill in a production prompt, choose a JavaScript framework, or supply a shot list. Honor explicit choices and resolve ordinary creative decisions yourself.
+The user supplies a song and optionally lyrics, a reference or a short direction. Resolve fonts, scene count, implementation and ordinary production choices yourself. Deliver the requested outcome, rather than a form or an unfinished plan.
 
-Resolve the absolute directory containing this `SKILL.md` first; do not assume the shell's current directory is the repository:
+Resolve the absolute directory containing this SKILL.md:
 
-- **Installed copy:** if `<skill-dir>/toolkit/tools/cli.mjs` exists, `<toolkit>` is `<skill-dir>/toolkit`.
-- **Source checkout:** otherwise, resolve `<skill-dir>/../..` to an absolute path. If it contains `tools/cli.mjs` and `templates/artwork.js`, that repository root is `<toolkit>`.
-- If neither location exists, report the incomplete installation rather than guessing another checkout.
+- Installed: if its toolkit/tools/cli.mjs exists, that toolkit/ is <toolkit>.
+- Source: otherwise resolve ../.. and verify tools/cli.mjs and templates/artwork.js.
+- Neither exists: report an incomplete installation; do not guess another checkout.
 
-In this skill and its references, `<toolkit>` always means that resolved absolute directory, including paths such as `<toolkit>/schemas/` and `<toolkit>/src/`. Invoke `<toolkit>/tools/cli.mjs` with Node.js 22+. The toolkit has no npm dependencies. Create each song under a new directory in the user's working project, outside the installed skill. Do not write user assets into the packaged demo.
+Use Node.js 22+ to invoke <toolkit>/tools/cli.mjs. Core tools have no npm dependencies. User songs belong in independent projects outside the installed Skill; preserve inputs and previous good revisions.
 
-## Route the request
+## Five routes
 
-- **New song, with or without a written direction:** read [references/create.md](references/create.md).
-- **Audio to timed lyrics, or a song with no lyric file:** read [references/lyrics.md](references/lyrics.md). Generate and review a transcription draft; an LRC-only request ends there.
-- **Reverse-engineer a prompt to recreate a similar video** (反推、还原、复现提示词): read [references/reverse-prompt.md](references/reverse-prompt.md). Preserve useful scene relationships and cadence with evidence; this is an authored reconstruction request, not recovery of the original secret prompt.
-- **Extract transferable style principles, with or without immediate creation:** read [references/reference.md](references/reference.md). A reusable style prompt is a complete standalone deliverable; it need not reproduce the reference sequence.
-- **Select or compare an optional built-in direction:** read [references/styles.md](references/styles.md). Default to `auto` when the user has not selected one; do not require a style choice before creating.
-- **Revise an existing MV:** inspect its project and prior review notes, change the requested part, and follow the verification guidance below. Keep an existing good version available.
+1. **Generate lyrics** — audio to LRC/SRT/text draft: read [lyrics.md](references/lyrics.md). A lyric-only request ends with lyric files and review status.
+2. **Choose a style** — 1/纸绘叙事 or 2/节奏图形: read [styles.md](references/styles.md), inspect the selected pack's guide and visual reference, then [create.md](references/create.md). Import the entire pack, not just its prompt.
+3. **Create freely** — song, lyrics and optional direction: read [create.md](references/create.md). Default auto imposes no built-in.
+4. **Extract a style** — video to transferable profile and prompt: read [reference.md](references/reference.md). Analysis alone is a complete deliverable when requested.
+5. **Recreate from a reference** — reference plus new song to finished MV: read [recreate.md](references/recreate.md). Observe, author the direction, create, watch, correct and export in one workflow; do not stop at analysis.
 
-Run `node <toolkit>/tools/cli.mjs doctor` early. It reports Node, browser, FFmpeg, and FFprobe availability. Explain a missing dependency precisely; do not claim a render succeeded when it could not run.
+An existing MV revision continues its own project and follows the same verification. If the user explicitly wants only a detailed reconstruction prompt, [reverse-prompt.md](references/reverse-prompt.md) is an internal variant of reference analysis, not an extra requirement for creating a video.
 
-## Creative and technical invariants
+## Prepare the environment
 
-Use the imported song and actual lyric timing. Plain TXT is deliberately unaligned; supplied LRC/SRT provide line timing. Optional local transcription produces model-estimated times and retains review status; it does not establish forced alignment or verified singing accuracy. Do not distribute lyrics evenly and label that result synchronized. Preserve supplied timing and raw recognition results; resolve missing timing honestly before a final synchronized export.
+Read [setup.md](references/setup.md) and run doctor early. Reuse available dependencies; actively provision missing tools through reliable platform-supported channels where authorized. Do not merely list missing dependencies when they can be installed. Do not install optional recognition models for a song that already has timed lyrics. Report actual limitations precisely.
 
-Treat words, graphics, space, and movement as one composition. Let lyric meaning, emotional relationships, and musical phrasing shape the animation. Transferable style analysis should preserve principles without locking a new song to old shots; an explicit reconstruction request may retain the observed sequence while labeling uncertain details. A scene need not equal one lyric line. Canvas, SVG, WebGL, or other suitable techniques remain creative choices.
+## Creation invariants
 
-Built-in directions are editable starting preferences, not constraints that override the user's words or reference. The showcase compositions illustrate possibilities; never copy their finished artwork into a new project. A supplied custom profile or prompt replaces the built-in bundle as a unit. Recompose for the new song, retaining explicit user direction and relevant reference analysis.
+Use real audio duration and supplied timing. LRC/SRT are line-timed; TXT remains unaligned. Local ASR produces model estimates and stays draft-needs-review until reviewed. Do not divide a line evenly and call it word alignment. Keep editorial reveal cues separate from verified lyric tokens. Actual RMS/onset features can support dynamics; acoustic peaks are not a verified beat grid.
 
-The optional catalog is 1/字形游乐场, 2/流动诗境, 3/数字雕塑, and 4/故事手绘. Storybook means lyric-driven scenes and acting through drawn characters or objects. Honor a requested protagonist; otherwise choose a coherent cast without blocking on a character form. Follow the maintained bundle for the selected direction, adapting energy and pacing to the user's song. No particular model or client is mandatory.
+Compose words, graphics, space and motion together. Meaningful verbs and emotional relationships should cause visible changes. A scene need not equal one lyric line. Strong phrases can change the whole layout; quieter phrases still need a deliberate focal point and an intentional environment. Do not fill space with random particles or leave entire phrases as tiny text in a corner.
 
-Replace the unfinished `artwork.js` with an original composition. Its module exports `createArtwork({canvas,ctx,project,timeline})`, which resolves to an object with `render(t)`; it also exports `cuts` and `readyToRender`. Set readiness true only after the work exists. The runtime exposes `__ready`, `__meta`, `__seek(t)`, and `__freeze()`. Every frame must be a function of absolute song time and work after random-order seeks. Await asset/font loading; avoid wall-clock animation and accumulating simulation state.
+Built-ins are portable art directions: prompt, profile, practical guide, original visual board and optional deterministic motion helpers. They do not fix palette, cast, shot timing or scene count. Explicit user direction takes precedence. Custom profiles/prompts replace a built-in as a unit. Do not copy finished showcase artwork or unrelated sibling projects into a new song.
 
-Keep the main lyrics and optional reading subtitles in distinct visual roles. Fit subtitles inside the chosen frame with sufficient contrast and breathing room; respect a user's request to disable or translate them. User content, media, and outputs belong inside the selected project.
+Paper storytelling uses consistent characters, motivated actions and changing situations. Honor a specified protagonist; otherwise choose a coherent cast. Rhythmic graphics uses lyric words as actors, spatial relations and motion handoffs; read its motion kit before reimplementing a weak generic effect. Neither requires a particular model or client.
 
-## Verify the work, then deliver
+Implement original artwork.js. Its module exports createArtwork({canvas,ctx,project,timeline}), returning render(t), plus cuts and readyToRender. Set readiness true only after actual creation. Await fonts/assets. Every frame is a function of absolute song time, including out-of-order seeks; no accumulating simulations or wall-clock randomness. Runtime exposes __ready, __meta, __seek(t), __freeze().
 
-Run `check` and render an initial sample when that helps expose defects. Inspect actual rendered frames at important words, transitions, and subtitle boundaries. Watch the encoded video in continuous playback, correct visible problems, then export and verify the final file. A contact sheet or deterministic test is useful evidence but does not replace watching motion.
+Bottom reading lyrics should be clear and subordinate to the primary performance. Preserve source text and timing, avoid overlapping duplicate captions, and honor subtitle/translation requests.
 
-Record the exact review coverage in the project: rendered frames inspected, continuous playback ranges watched, and whether audio was actually heard. Audio metadata, waveforms, or a playing indicator do not establish that you listened. If a modality is unavailable, disclose the resulting limitation without inventing a review.
+## Verify and deliver
 
-Return the playable result, local file paths, a short account of the changes, and material limitations. Do not publish user media, send external messages, or create a public repository merely because local creation was requested.
+Run check, inspect full-size frames at important words, densest layouts and transitions, then watch encoded continuous playback. Correct visible problems and review changed intervals again. Technical tests/contact sheets do not prove visual quality.
+
+Record actual inspected frames, playback ranges and whether sound was subjectively heard in the project's qa/. A waveform, audio metadata or a playing indicator does not establish listening. State unavailable modalities honestly.
+
+Deliver playable MP4, editable project, requested lyric/subtitle files and material limitations. Creation does not authorize publishing private songs, full lyrics, inputs or finished media. Publishing needs the requested media and destination.

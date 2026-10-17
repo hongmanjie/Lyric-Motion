@@ -1,204 +1,120 @@
 # Lyric Motion
 
-**Give your coding agent a song. Generate timed lyrics and make a music video you can watch, revise, and edit as code.**
+**Give Codex / Claude Code a song. Create an editable lyric MV through conversation.**
 
-[中文](README.md) · [Installation](docs/install.md) · [Style gallery](docs/styles.md) · [Workflows](docs/workflows.md)
+[简体中文](README.md) · [Style packs](docs/styles.md) · [Workflows](docs/workflows.md)
 
 ## Two songs, two visual languages
 
-**1 · Painted Story | 《走散》 (Zou San) · 29 seconds**
+**1 · Painted Story | 《走散》 | 29 seconds**
 
 https://github.com/user-attachments/assets/988037b3-9d23-4409-b581-e4369866d1b3
 
-A fox, an empty seat, a departing train and an incomplete ticket turn separation and pursuit into a painted story. The maintainer supplied the song and timed LRC. [MP4 fallback](docs/media/showcase/duo/painted-story.mp4)
+A fox, an empty seat, a departing train and an incomplete ticket perform separation and farewell. [Play MP4](docs/media/showcase/duo/painted-story.mp4)
 
-**2 · Rhythmic Type | 《稳稳地接住你》 · 44 seconds**
+**2 · Rhythmic Graphics | 《稳稳地接住你》 | 44 seconds**
 
-https://github.com/user-attachments/assets/94e30a93-d83f-4949-91e9-5ce7ae5baa89
+https://github.com/user-attachments/assets/886e0ba7-2e8a-4d39-8dd1-1ee7d9b25ff6
 
-Sung words enter in sequence, previous words move and rearrange, and semantic verbs change the glyph action or the whole composition, with occasional particle accents. It uses the same song excerpt as the designated reference and the maintainer's supplied LRC. [MP4 fallback](docs/media/showcase/duo/rhythmic-type.mp4)
+Words enter, yield and rearrange. Semantic paths, supporting structures, quiet typographic echoes and selected particles respond to the lyric actions. [Play MP4](docs/media/showcase/duo/rhythmic-type.mp4)
 
-Both are **1920×1080, 30fps, with vocals and Chinese bottom captions**. Press play and enable sound. [Styles and prompts](docs/styles.md) · [Sources and timing](docs/media/README.md)
+Both are **1920×1080, 30fps, with sound and bottom Chinese lyrics**. Click play and enable sound. [Media sources and timing](docs/media/README.md)
 
-## 1. Why Lyric Motion?
+## 1. Why this project?
 
-Coding agents can draw an MV with Canvas, SVG, or WebGL. Making the result usable takes more than a long prompt: the audio must stay in sync, references need actual observation, fonts must load before rendering, and revisions must preserve the last good version.
+Want an agent to make videos without repeatedly setting up the environment or guessing which tools to use?
 
-Lyric Motion gives **Codex and Claude Code** a reusable creation workflow and local production tools:
+**Lyric Motion brings together production tools, environment preparation, evolving video style packs and a conversation Skill.** Use your own Codex or Claude Code session to work from an existing direction or create freely.
 
-- **Start with a song.** Supply lyrics if you have them, or first generate a timed LRC draft. The agent handles ordinary typography, scene, implementation, and export decisions.
-- **Make the song visible.** Words, shapes, characters, and scene changes can express lyric meaning and musical phrasing together.
-- **Keep control after generation.** Each song has an independent, editable project with source media, timing, artwork, renders, and review notes.
+The agent interprets the lyrics, designs scenes and writes animation. The toolkit handles import, lyric timing, local preview and export. Each song keeps its own editable project. No separate generation website, project account or long production form is required.
 
-Use your existing agent conversation and model access. There is no additional generation website, hosted account, or model backend. The browser page is a local preview and player.
+## 2. Ask your agent to install
 
-## 2. Quick install
+Open the folder where you want to create videos and send this request to Codex or Claude Code:
 
-Getting the GitHub source and installing the Skill are two separate steps: **clone/download** gets this toolkit; **`install`** registers a self-contained Skill in the project where you will make your MVs.
-
-### Option A — ask your agent to install
-
-Open your intended creation folder in Codex or Claude Code and paste this request:
-
-```text
+~~~text
 Install Lyric Motion from https://github.com/hongmanjie/Lyric-Motion.git
+into the currently open project, for the client you are running in.
 
-Use the currently open project as the creation target and install for the current Codex or Claude Code client. Get the repository into a separate source folder, then read its README.md and AGENTS.md. Check Node.js 22+, FFmpeg/FFprobe, and Chrome/Edge/Chromium with the toolkit's doctor command. Install the project's local lyric-motion Skill into the creation target, preserving existing files and refusing to overwrite a conflicting Skill. Verify the installed toolkit, then report the installed path and the invocation I should use. Report missing prerequisites precisely.
-```
+Acquire the source in a separate folder. Read README.md, AGENTS.md and docs/install.md.
+Check and reuse Node.js 22+, FFmpeg, FFprobe and Chrome/Edge/Chromium.
+Actively provision missing dependencies using reliable official sources or the
+platform package manager, preferring project-local or user-scoped installation.
+Explain genuinely required system permissions.
+Preserve existing Skills and artwork; do not overwrite a conflict.
+Verify the installed toolkit, both complete style packs and a sample render.
+Report the installed path, how to invoke it and a first creation request.
+Prepare the optional local recognition environment/model only if I need lyrics from audio.
+~~~
 
-### Option B — install manually
+The core needs **no npm install and no extra API key**. Invoke $lyric-motion in Codex or /lyric-motion in Claude Code. If a newly installed Skill is not discovered, start a fresh conversation or ask the agent to read the installed SKILL.md. [Installation details](docs/install.md)
 
-Prepare **Node.js 22+**, **FFmpeg / FFprobe**, and **Chrome, Edge, or Chromium**. Then:
+## 3. Reproduce an existing visual language
 
-1. **Get the source from GitHub.**
+**Attach a new song and LRC lyrics, choose a style from the videos above, and say:**
 
-   ```sh
-   git clone https://github.com/hongmanjie/Lyric-Motion.git lyric-motion
-   cd lyric-motion
-   ```
+> Use Lyric Motion's Painted Story style to make a complete landscape MV. The protagonist is a little fox. Let its actions and changing situations perform the lyrics. Add clear bottom lyrics, implement it, inspect actual frames and continuous playback, fix issues and deliver MP4 plus editable source.
 
-   Or choose **Code → Download ZIP** on that GitHub page, extract it, and open a terminal in the extracted folder.
+Or:
 
-2. **Check the local tools.**
+> Use Lyric Motion's Rhythmic Graphics style. Let lyric words enter, yield and rearrange; make graphic actions express their meaning. Give the composition depth, change the layout on strong phrases and use particles selectively. Create, watch, revise and export.
 
-   ```sh
-   node tools/cli.mjs doctor
-   ```
+No need to choose a framework, font or scene count. Without timed lyrics, ask for an LRC draft first. Each style contains **prompt and art rules + an original visual reference + optional motion code**. The agent composes for the new song rather than swapping words in a finished example. [Inside the packs](docs/styles.md)
 
-3. **Install the Skill into your creation folder.** Choose **one** client:
+## 4. Features and how to invoke them
 
-   ```sh
-   # Codex
-   node tools/cli.mjs install --agent codex --target ../my-mv
+### 1. Generate lyrics: audio → LRC draft
 
-   # Claude Code
-   node tools/cli.mjs install --agent claude-code --target ../my-mv
-   ```
-
-4. **Open `my-mv` in that client** and start creating with the request below.
-
-The installation includes a self-contained toolkit and does not depend on the downloaded checkout staying in place. No `npm install` or API key is needed by the toolkit. [Paths, updates, and direct-checkout use](docs/install.md).
-
-Audio-to-lyrics is optional: it prepares a local Python/Whisper environment and downloads a model on first use, then reuses the cache. Creating from an existing LRC does not need it. [Generate an LRC from a song](docs/lyrics.md).
-
-## 3. Make your first MV
-
-Attach an audio file and `.lrc` or `.srt` lyrics. In Codex, mention `$lyric-motion`; in Claude Code, use `/lyric-motion`, then say:
-
-> Make a landscape MV from this song and lyrics. Playful, artistic, with clear visual focus. You decide the scenes and technique. Implement it, watch continuous playback, fix visible problems, and deliver the MP4 and editable project.
-
-No style choice, shot list, or technical form is required. Plain `.txt` lyrics can also be imported, but need real timing before a synchronized final export. If the Skill is not discovered, start a fresh conversation or explicitly ask the agent to read the installed `SKILL.md`. [Detailed workflow](docs/workflows.md).
-
-**Only have the song? Start with:**
-
-> Transcribe this song and generate an LRC. Flag uncertain words and keep the raw result. Do not make the MV yet.
-
-Times come from actual model estimates, never evenly divided text. Singing recognition can be wrong; check the draft before using it in a final video.
-
-## 4. Features — and how to use each one
-
-### 1. Turn a song into an LRC/SRT draft
-
-The agent can use optional local Whisper transcription to produce `.lrc`, `.srt`, plain text, and raw transcription data for your MV. The first run prepares an isolated Python environment and model; no transcription API key is required. The result is an estimated transcription draft, not a retrieved lyric sheet or a guarantee of accurate sung words.
+Generate standard **.lrc** files with local Whisper, plus SRT, text and raw transcription. First use prepares isolated Python dependencies and downloads a model; later runs reuse the cache. Timing is estimated from actual recognition. **Singing may be misheard or omitted, so the result remains a reviewable draft, not forced alignment of supplied text.**
 
 **Say:**
 
-> Use Lyric Motion to transcribe this song into LRC, SRT, and text. Flag uncertain words, preserve the audio and raw recognition result, and do not make an MV yet.
+> Generate an LRC lyric draft from this song with Lyric Motion. Preserve the audio and raw transcription, identify review concerns and do not make the video yet.
 
-[Setup, commands, and review](docs/lyrics.md). If you have an official lyric sheet, supply it for comparison. The current recognition command does not force-align that external text.
+[Recognition setup and review](docs/lyrics.md)
 
-### 2. Create a new MV freely from a song
+### 2. Choose a style: song + lyrics + pack → MV
 
-The agent designs around the new lyrics and musical phrasing. It can use typography, abstract graphics, illustrated scenes, or another suitable direction. `auto` is the default; no built-in style is imposed.
-
-**Say:**
-
-> Use this song and lyrics to make an MV. Choose the art direction yourself. Keep the scene changes fluid and meaningful.
-
-### 3. Choose Painted Story or Rhythmic Type
-
-These two editable sets of principles leave characters, shots, typography, timing and compositions open to the new song. The default remains `auto`.
-
-| 1 · Painted Story | 2 · Rhythmic Type |
-| --- | --- |
-| [![Painted Story: Zou San](docs/media/showcase/duo/painted-story.png)](docs/media/showcase/duo/painted-story.mp4) | [![Rhythmic Type: Catch You](docs/media/showcase/duo/rhythmic-type.png)](docs/media/showcase/duo/rhythmic-type.mp4) |
-| Character acting, painted 2D form, concrete situations and causal transitions. | Kinetic type, geometric actions, scale contrast and selective particles. |
-
-**Say in conversation:**
-
-> Use style 1 / Painted Story. The protagonist is a small fox with an old schoolbag. Let poses, expressions and situations perform the lyrics; keep characters coherent and captions readable. You decide the rest.
-
-> Use style 2 / Rhythmic Type. Make fast, fluid changes with semantic graphic actions, strong visual changes on emphatic phrases, and occasional particles.
-
-Add preferences naturally, such as warm colors or a quiet ending. Your explicit directions and supplied reference take precedence. [Profiles, prompts and commands](docs/styles.md).
-
-alpha.6 replaces the old four built-ins. Numbers 1 and 2 now refer to these directions. Saved custom bundles remain importable; previous user projects are preserved.
-
-### 4. Extract a reference's reusable style
-
-Give the agent a video and optionally a region or time range. It observes the composition, typography, motion, transitions, and relationship to the lyrics, then saves a reusable style prompt and profile. This can be the entire task, or the starting point for a different song.
+Choose **1 / Painted Story** or **2 / Rhythmic Graphics**. The agent reads the prompt, art/motion guide and original visual board; Rhythmic Graphics also provides deterministic motion helpers. Import copies the pack into the new song project. Cast, colors and scenes adapt to its lyrics.
 
 **Say:**
 
-> Analyze the upper part of this video. Explain its visual language and how its animation relates to the lyrics. Give me a reusable style prompt without fixing the new song to the reference's shots. Do not make a new MV yet.
+> Make this song using style 2, Rhythmic Graphics. Use warmer colors, stronger visual changes in the chorus and a quieter ending. Follow the pack, then finish and export.
 
-[Reference workflow](docs/workflows.md#2-analyze-a-reference).
+[Style packs and examples](docs/styles.md)
 
-### 5. Reverse-engineer a prompt for a similar video
+### 3. Create freely: song + lyrics + your direction → original MV
 
-Ask for a copyable request that could guide a **similar visible result**, retaining useful composition, motion mechanisms, scene relationships, and cadence. This is more specific than transferring a style. The agent separates observations from inferences and states what it actually viewed or heard. It cannot recover the original author's private prompt.
-
-**Say:**
-
-> Reverse-engineer a production prompt for this video. Describe the composition, materials, actions, transitions, and scene progression so I can make a similar video. Give me the complete copyable prompt, label uncertain details, and do not start a new production yet.
-
-The deliverable is `reconstruction-prompt.md` plus structured analysis and cited evidence. [How it works](docs/reverse-prompt.md).
-
-### 6. Apply a saved prompt to a new song
-
-Supply an extracted style prompt, a reconstruction prompt, or your own written direction. The agent applies it to new lyrics and timing. A custom style bundle replaces the built-in direction rather than silently mixing unrelated instructions.
+Omit a style to use auto. A brief mood or direction is enough; the agent chooses materials, composition, motion and scenes.
 
 **Say:**
 
-> Use this saved prompt with my new song and lyrics. Keep its visual relationships, but redesign the words, actions, and timing for this song.
+> Create freely from this song and lyrics: playful, artistic and bold. Let words, graphics and composition express the content and respond to musical phrasing. Deliver a landscape MV and editable project.
 
-### 7. Preview and revise a specific moment
+### 4. Extract a style: reference video → reusable direction
 
-The local preview shares the audio clock and supports scrubbing. Ask for a change at a specific moment; the agent edits the project, preserves the previous good version, renders, and reviews the affected interval. Actual video observation depends on the tools available in your client.
-
-**Say:**
-
-> At 8–12 seconds the screen feels crowded. Make one word the focus and connect the next scene through its movement. Preserve the previous version and check the revised playback.
-
-### 8. Add captions and export the editable result
-
-Create a composed lyric layer, an MP4, a timed SRT, and the editable project. The default format is landscape; portrait and square are also supported. Translation is agent-authored when requested, not generated by the lyric parser.
+Provide a video and optionally a region/time range. The agent observes typography, material, hierarchy, motion, transitions and lyric relationships, then delivers a reusable prompt, structured profile and evidence.
 
 **Say:**
 
-> Add subtle Chinese lyrics at the bottom, sized to stay readable without competing with the artwork. Deliver a landscape MP4, an SRT, and the editable project. Keep the original lyric file.
+> Extract only the upper part's style. Explain how the animation relates to the lyrics and give me a transferable prompt. Do not lock a new song to the same shots or make the MV yet.
 
-## 5. What to expect from this alpha
+### 5. Recreate from a reference: reference + new song → finished MV
 
-- LRC/SRT preserve supplied line timing. Optional Whisper transcription produces actual model-estimated times and stays a draft for review. TXT remains unaligned. External-text forced alignment, automatic translation, and beat detection are not provided; sung words and word-level precision need separate verification.
-- Local tools prepare evidence and render media; the agent does the interpretation and creative work. Technical checks do not prove visual quality or that audio was heard.
-- Windows tooling has been exercised locally. Fresh-session client discovery and macOS/Linux host execution still need broader verification.
+Provide your reference, new audio and lyrics. The agent continues through **observation → art direction → new lyric scenes → preview and fixes → export**, instead of stopping at an analysis document.
 
-## 6. For contributors and direct tool use
+**Say:**
 
-Ordinary users can stay in conversation. The agent has commands for lyric transcription, import, style selection, reference preparation, reverse-prompt preparation/export, preview, rendering, and subtitle export. [Command workflows](docs/workflows.md) · [Architecture](docs/architecture.md).
+> Use this reference's typography, composition and motion energy to make a landscape MV for my new song and lyrics. Keywords should cause meaningful visual changes and strong phrases should have clear actions. Continue through actual playback review and deliver the finished video.
 
-```sh
-node tools/cli.mjs styles
-node tools/cli.mjs preview
-node tools/cli.mjs render
-node tools/cli.mjs help
-```
+Missing timed lyrics can be drafted first. If a linked video cannot actually be observed, the agent reports the missing source. Observation, inference and uncertainty stay distinct. [The five workflows](docs/workflows.md)
 
-New songs live in independent `projects/` folders. The shared runtime is in `src/`; creation happens in each project's `artwork.js`. Example artwork demonstrates possibilities, not a compulsory template. Public release packaging uses an explicit allowlist. Raw user inputs, references, and private review files stay in independent projects; public showcase media is managed separately.
+## 5. Project and contribution
 
-Media processing and rendering run locally; your agent client controls what is sent to its provider. **Local tooling does not mean offline inference.** The toolkit carries no model credentials and makes no promise of unlimited subscription usage.
+Each independent projects/ directory preserves inputs, timing, animation and exports. Preview, subtitles, revision and rendering support the workflows above rather than adding more user-facing steps. [Architecture](docs/architecture.md) · [Contributing](CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
 
-Code and original project content: [MIT](LICENSE). Bundled fonts retain OFL notices. The featured *Zou San* and *Catch You* songs, recordings, and lyrics belong to their respective rights holders; the code license grants no rights to the song. [Third-party notices](THIRD_PARTY_NOTICES.md) · [Demo provenance](docs/media/README.md).
+Media processing/rendering is local; your agent client decides what reaches its model provider. Results depend on material, model and review. Line-timed LRC is not word alignment; measured acoustic onsets are not verified beats. Technical checks do not establish visual quality.
 
-[Contributing](CONTRIBUTING.md) · [Roadmap](docs/roadmap.md) · [Changelog](CHANGELOG.md). Share the prompts, client/model, manual edits, and asset permissions behind your examples. If Lyric Motion helps you make something worth sharing, a Star helps others find it.
+Code is [MIT](LICENSE), with OFL font notices. **Songs, recordings and lyrics retain their separate rights; the code license grants no music rights.** Source songs, full lyric files and private artwork are excluded from installation. [Third-party notices](THIRD_PARTY_NOTICES.md) · [Showcase sources](docs/media/README.md)
+
+If this helps, leave a Star or share what you made.

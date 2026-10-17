@@ -58,7 +58,7 @@
         "allOf": [{"if": {"properties": {"status": {"const": "observed"}}}, "then": {"required": ["evidence"]}}]
       }
     },
-    "extensions": {"type": "object"}
+    "extensions": {"type": "object", "properties": {"assets": {"type": "object", "maxProperties": 8, "propertyNames": {"pattern": "^[a-z][a-zA-Z0-9]{0,39}$"}, "additionalProperties": {"type": "string", "minLength": 1, "description": "Supporting file relative to this profile. Import validates containment, file type, size and symlink-free path."}}}}
   },
   "$defs": {
     "statements": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},

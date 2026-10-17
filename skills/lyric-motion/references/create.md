@@ -4,7 +4,7 @@
 
 Resolve file paths from the conversation and workspace. If the user only supplies audio, use [lyrics.md](lyrics.md) to generate and review a timed draft before import. A direction can be as brief as “playful typography”; otherwise choose an art direction suited to the song. Do not stop to ask about fonts, colors, scene count, or implementation unless a missing preference materially prevents progress.
 
-The default style is `auto`, with no built-in profile imposed. If the user selects 1/字形游乐场, 2/流动诗境, 3/数字雕塑, or 4/故事手绘, read [styles.md](styles.md) and pass `--style` with that selection. It imports reusable preferences, not the showcase's finished artwork.
+The default style is `auto`, with no built-in profile imposed. If the user selects 1/纸绘叙事 or 2/节奏图形, read [styles.md](styles.md) and pass `--style` with that selection. It imports the complete portable pack: prompt, profile, guide, original visual board and any declared motion helpers. Read and inspect those assets before composing; it never imports finished showcase artwork.
 
 Use the bundled CLI with a new output directory:
 

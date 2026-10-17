@@ -1,124 +1,47 @@
-# Install for a conversation
+# 让 Agent 完成安装
 
-Lyric Motion runs locally through your existing Codex or Claude Code session. The project does not provide a model, use your subscription from a website, or collect API keys. The agent writes the creative implementation; bundled tools prepare files, preview, check, and render them.
+用户只需将 [README 的安装指令](../README.md#二让-agent-安装) 发给当前 Codex／Claude Code。下面是 Agent 执行的安装约定，不需要用户手动逐项操作。
 
-**First get the repository from GitHub; then install its Skill into your creation project.** Downloading source does not by itself register a Skill. The installer makes a self-contained copy in the selected project's client-specific Skill directory.
+## 获取与准备
 
-## Requirements
+1. 在独立源码目录获取 https://github.com/hongmanjie/Lyric-Motion.git，保留当前创作目录和已有文件。可以使用 Git；没有 Git 时使用 GitHub 官方源码归档，不必为了下载项目额外安装 Git。
+2. 阅读仓库 AGENTS.md 和 Skill。核心工具没有 npm 依赖，直接使用 Node.js 22+ 执行，避免把无关包管理问题带进安装。
+3. 检查 Node、FFmpeg、FFprobe 和 Chrome／Edge／Chromium。复用已有工具；缺失时由 Agent 使用当前系统的可靠包管理器或官方发行包补齐，优先使用项目本地、用户级或可撤回的安装。下载前验证来源和系统架构，不运行来历不明的远程脚本。
+4. 不提前安装歌词识别模型。需要音频转 LRC 时，再按 [歌词流程](lyrics.md) 准备 Python 3.10–3.13、独立环境与本地模型缓存。已有 LRC/SRT 的制作不需要 Python。
 
-- Node.js 22 or newer.
-- FFmpeg and FFprobe on `PATH` for media import/export.
-- Chrome, Edge, or Chromium for rendering and local preview.
-- Codex or Claude Code with access to the working directory and shell tools.
+环境限制、网络限制或系统权限会影响补齐过程。能独立完成的先完成；确实无法继续时报告具体缺项和实际失败，不能把“检查到了”写成“安装成功”。
 
-No npm dependencies are required by the core MV toolkit. Rendering, file access, and browser observation remain subject to your agent's actual permissions and available tools.
+## 安装到当前客户端
 
-**Optional audio-to-LRC:** Python 3.10–3.13 is required only when generating lyrics from audio. On first use, `lyrics` prepares an isolated faster-whisper environment and downloads the selected model; subsequent runs reuse the cache. FFmpeg/FFprobe are also used. This local recognizer needs no transcription API key. Existing LRC/SRT creation does not require Python or a model download. [Setup and review details](lyrics.md).
+源码中由 Agent 调用其中一个命令，--target 是用户当前打开的创作目录，路径需要正确引用：
 
-## 1. Install by asking your agent
+~~~sh
+node tools/cli.mjs install --agent codex --target /absolute/creation-folder
+node tools/cli.mjs install --agent claude-code --target /absolute/creation-folder
+~~~
 
-Open the folder where you intend to create MVs in Codex or Claude Code. Copy this request:
-
-```text
-Install Lyric Motion from https://github.com/hongmanjie/Lyric-Motion.git
-
-Use the currently open project as the creation target and install for the current Codex or Claude Code client. Get the repository into a separate source folder, then read its README.md and AGENTS.md. Check Node.js 22+, FFmpeg/FFprobe, and Chrome/Edge/Chromium with the toolkit's doctor command. Install the project's local lyric-motion Skill into the creation target, preserving existing files and refusing to overwrite a conflicting Skill. Verify the installed toolkit, then report the installed path and the invocation I should use. Report missing prerequisites precisely.
-```
-
-The agent runs the same local installer described below. It should use the current client's project-level destination and keep source acquisition separate from your song projects.
-
-## 2. Install manually from GitHub
-
-### Step 1 — clone or download the source
-
-```sh
-git clone https://github.com/hongmanjie/Lyric-Motion.git lyric-motion
-cd lyric-motion
-```
-
-Alternatively, open that repository's GitHub page, choose **Code → Download ZIP**, extract it, and open a terminal in the extracted source directory. A ZIP download does not require Git.
-
-### Step 2 — check local prerequisites
-
-```sh
-node tools/cli.mjs doctor
-```
-
-Use its report to resolve missing tools before attempting a render. There is no `npm install` step.
-
-### Step 3 — install into your creation project
-
-Choose **one** client. Run from the downloaded source directory; `../my-mv` is the separate folder where you will create songs:
-
-```sh
-# Codex
-node tools/cli.mjs install --agent codex --target ../my-mv
-
-# Claude Code
-node tools/cli.mjs install --agent claude-code --target ../my-mv
-```
-
-For Windows, quote paths containing spaces:
-
-```powershell
-node tools/cli.mjs install --agent codex --target "C:\Work\My MV"
-```
-
-The installer writes only to the selected project:
-
-| Client | Installed directory |
+| 客户端 | 项目级安装位置 |
 | --- | --- |
-| Codex | `.agents/skills/lyric-motion/` |
-| Claude Code | `.claude/skills/lyric-motion/` |
+| Codex | .agents/skills/lyric-motion/ |
+| Claude Code | .claude/skills/lyric-motion/ |
 
-Each copy contains `SKILL.md`, its references, and a self-contained `toolkit/` with the local CLI, runtime, template, schemas, and public examples. It does not depend on the original checkout and does not copy private projects, generated renders, reference footage, or account settings. The optional transcription environment and model cache are prepared separately when requested, rather than shipped in every Skill installation.
+复制内容包括 Skill、流程说明、独立 toolkit/、两个风格包、字体许可和原始工具演示。导入新歌后不依赖原源码位置。不会复制私人歌曲、用户作品、账号配置、参考视频或生成检查文件。
 
-### Step 4 — open the target project and invoke the Skill
+完全相同的重复安装报告 unchanged。不同版本、用户修改或同名 Skill 冲突会被保留并拒绝覆盖；Agent 先将旧安装备份到用户创作目录中的明确备份位置，再安装新副本，不丢弃用户修改。不更新或删除独立歌曲工程。
 
-Open `my-mv` in the selected client. In Codex, mention `$lyric-motion`; in Claude Code, use `/lyric-motion`. Attach your song and lyrics, then use a [first request](#4-first-requests) below. Start a fresh conversation if the newly installed Skill is not discovered. You can also explicitly ask the agent to read the installed `SKILL.md` path.
+## 必须验证再交接
 
-### Updates and uninstall
+从**安装后的绝对路径**调用，不能只验证源码：
 
-Repeating an identical installation reports `unchanged`. An edited or different installation is preserved and the installer refuses to overwrite it; move the old skill aside before installing an update. Known generated `qa/`, `renders/`, `output/`, and cache folders are excluded from the package and do not count as modifications. Symlinks/junctions in source or installation paths are refused. There is no global install or automatic updater in this alpha.
+~~~sh
+node /installed/lyric-motion/toolkit/tools/cli.mjs doctor
+node /installed/lyric-motion/toolkit/tools/cli.mjs styles
+node /installed/lyric-motion/toolkit/tools/cli.mjs check
+node /installed/lyric-motion/toolkit/tools/cli.mjs render --sample --name install-smoke
+~~~
 
-To uninstall, remove only the installed `lyric-motion` directory from the selected project. Keep your independently created song projects and exports.
+默认检查/短渲染使用随包的原创工具演示，生成文件保存在安装副本的演示 qa/ 与 renders/，不碰用户作品。检查两个风格的指南、画面参考，以及节奏图形动效代码都存在；已有浏览器观察工具时打开实际示例，记录可见结果。技术通过不等于主观美术或音频审查。
 
-## 3. Alternative: use the downloaded checkout directly
+交接给用户：实际安装路径、补齐了哪些环境、验证结果，以及 Codex 的 $lyric-motion 或 Claude Code 的 /lyric-motion。新安装未被发现时，提示新开对话，或直接读取已验证的 SKILL.md。两个客户端的新会话发现与 macOS/Linux 环境还需要更多实际验证，不把本地文件测试写成全平台验证。
 
-After cloning or downloading the repository, open that source folder in Codex or Claude Code and say:
-
-> Use the Lyric Motion skill in `skills/lyric-motion/SKILL.md`. Make a landscape MV from `/path/song.mp3` and `/path/lyrics.lrc`. Choose a playful art direction, then preview and refine it.
-
-This explicit path works without registering a project-level Skill. Songs belong under new `projects/<id>/` directories; the packaged demo remains an example.
-
-In a source checkout, the Skill resolves the repository root two directories above its own `skills/lyric-motion/` directory. In an installed copy it uses the neighboring `toolkit/` instead. Commands resolve from that absolute location, so the agent can work from your song project's directory without depending on the original shell directory.
-
-## 4. First requests
-
-**Only have a song? Generate lyric files first:**
-
-> 只有这首歌，先用 Lyric Motion 识别歌词并生成 LRC、SRT 和文本，标出疑似错词，保留原始识别结果。先不用制作 MV。
-
-The result remains an ASR draft with model-estimated times until reviewed. It is not equal-duration text, a promise of exact sung-word alignment, or an external-lyrics forced aligner. [Audio-to-LRC workflow](lyrics.md).
-
-**Let the agent choose:**
-
-> Use Lyric Motion to make an MV from this song and LRC. Use landscape; decide the typography, composition, and animation. Watch the result and fix obvious issues.
-
-You can also say “use direction 1 / 字形游乐场”, “2 / 流动诗境”, “3 / 数字雕塑”, or “4 / 故事手绘”. They are optional starting points; omitting a choice keeps `auto`. The fourth direction uses consistent hand-drawn characters, expressions, gestures, and changing scenes to perform the lyric story. Name a protagonist if you have one; otherwise the agent chooses a coherent cast. No particular model or client is mandatory. See [styles.md](styles.md) for public original demos. A supplied reference or custom prompt can guide a different result.
-
-**Analyze a reference:**
-
-> Analyze only the upper part of this reference video. Extract a reusable style prompt, explain which animations follow the lyric meaning, and record any limits of your observation.
-
-**Reuse the prompt:**
-
-> Use this style prompt with my new song and lyrics. Keep the creative principles while designing new scenes around these lyrics.
-
-**Reverse-engineer a similar-video prompt:**
-
-> 反推这个视频的制作提示词，保留构图、字体、动作、转场和段落推进。给我一份能直接复制使用的完整请求，标明观察与推测，暂时不用制作新 MV。
-
-This uses the separate [reconstruction workflow](reverse-prompt.md), producing `reconstruction-prompt.md` after actual agent observation. Reference preparation alone does not create that prompt or recover the original author's private instructions.
-
-See [workflows.md](workflows.md) for supported input formats, outputs, and honest timing/review limits.
+卸载只移除当前项目的 lyric-motion Skill 目录，保留独立作品、原始歌曲和成片。

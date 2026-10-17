@@ -4,6 +4,8 @@ import {mkdir,mkdtemp,copyFile,readFile,writeFile,stat,rename,rm} from 'node:fs/
 import {pathToFileURL} from 'node:url';
 import {REPO_ROOT,json,probe,run,writeJSON,timecode,inside} from '../lib/paths.mjs';
 import {normalizeTimeline,validate} from '../lib/project.mjs';
+import {getStyle} from '../lib/styles.mjs';
+import {copyStyleAssets} from '../lib/style-pack.mjs';
 
 export const STYLE_IDS=['painted-story','rhythmic-type'];
 const PUBLIC_CUES=[
@@ -46,7 +48,7 @@ export async function makeStyleExamples({audio,timeline:timelineFile,out,start=0
   validate(project,timeline);
   const serif=path.join(REPO_ROOT,'examples/style-assets/fonts/serif.ttf'),sans=path.join(REPO_ROOT,'examples/demo/assets/display.ttf');
   for(const file of [audio,serif,sans,captionFont||sans])if(!(await stat(path.resolve(file))).isFile())throw new Error('Required source asset is not a file');
-  for(const id of STYLE_IDS)for(const file of ['profile.json','prompt.md'])await stat(path.join(REPO_ROOT,`examples/styles/${id}/${file}`));
+  const bundles=await Promise.all(STYLE_IDS.map(id=>getStyle(id)));
   for(const file of ['examples/style-assets/fonts/OFL-serif.txt','examples/demo/assets/OFL.txt','templates/artwork.js'])await stat(path.join(REPO_ROOT,file));
   const parent=path.dirname(destination);await mkdir(parent,{recursive:true});
   root=await mkdtemp(path.join(parent,'.lyric-motion-styles-'));
@@ -63,6 +65,7 @@ export async function makeStyleExamples({audio,timeline:timelineFile,out,start=0
     await copyFile(path.join(REPO_ROOT,'templates/artwork.js'),path.join(dir,'artwork.js'));
     await copyFile(path.join(REPO_ROOT,`examples/styles/${id}/profile.json`),path.join(dir,'style/style-profile.json'));
     await copyFile(path.join(REPO_ROOT,`examples/styles/${id}/prompt.md`),path.join(dir,'style/style-prompt.md'));
+    await copyStyleAssets(bundles.find(bundle=>bundle.id===id).assets,path.join(dir,'style'));
     await writeJSON(path.join(dir,'config/project.json'),{...project,title:`Lyric Motion · ${id}`});
     await writeJSON(path.join(dir,'timeline.json'),timeline);await writeJSON(path.join(dir,'source.json'),source);
     const captions=timeline.lines.map((l,i)=>`${i+1}\n${timecode(l.start)} --> ${timecode(l.end)}\n${l.translations?.['zh-CN']||l.subtitle||l.text}\n`).join('\n');await writeFile(path.join(dir,'captions.srt'),'\uFEFF'+captions);

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.1.0",
-  "revision": 1,
+  "revision": 3,
   "id": "painted-story",
   "name": "纸绘叙事",
   "summary": "以有性格的纸绘角色、因果动作和场景变化演出歌词。保留笔触与温度，为每首歌重新设计故事。",
@@ -48,5 +48,11 @@
       "参考以完整时长播放，观察为若干画面与关键帧，并非逐帧审片；未声称主观试听。",
       "这是原创可迁移的创作指导，未复制上游代码，也不宣称集成 p5.brush。"
     ]
+  },
+  "extensions": {
+    "assets": {
+      "guide": "guide.md",
+      "visualReference": "visual-reference.svg"
+    }
   }
 }

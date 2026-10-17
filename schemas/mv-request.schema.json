@@ -48,7 +48,8 @@
         "mode": {"enum": ["free", "reference"], "default": "free"},
         "direction": {"type": "string"},
         "styleProfile": {"$ref": "#/$defs/relativePath"},
-        "stylePrompt": {"$ref": "#/$defs/relativePath"}
+        "stylePrompt": {"$ref": "#/$defs/relativePath"},
+        "styleAssets": {"type": "object", "maxProperties": 8, "propertyNames": {"pattern": "^[a-z][a-zA-Z0-9]{0,39}$"}, "additionalProperties": {"$ref": "#/$defs/relativePath"}}
       }
     },
     "output": {

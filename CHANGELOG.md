@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.7 — 2026-10-17
+
+- Simplified the conversation workflow to five routes: generate LRC drafts, choose a style, create freely, extract a style and recreate a new song from a reference through finished export.
+- Made agent-assisted installation the only user-facing installation path, with active dependency preparation and installed-copy verification.
+- Added portable guides, original visual boards and deterministic motion helpers. Named-style import/export now carries validated local supporting assets, including custom relocated packs.
+- Enriched Rhythmic Graphics with semantic spaces, support structures, word handoffs and measured-audio accents, and refreshed its native README example.
+- Added dependency-free acoustic RMS/low-pass energy/onset measurement, explicitly separate from verified musical beats or lyric alignment.
+- Exercised actual local singing-to-LRC generation, draft reimport, both installation layouts and demo rendering. Seventy logic tests pass; listening accuracy and fresh-client/cross-platform discovery remain distinct review work.
+- Created the maintainer-requested full-length 《走散》 MV as a private independent continuation. Full recordings, lyric sources, artwork projects and review outputs remain outside public packaging.
+
 ## 0.1.0-alpha.6 — 2026-10-17
 
 - Replaced four built-ins with Painted Story (1) and Rhythmic Type (2); old IDs and 3/4 are retired with an explicit migration error. Custom bundles remain importable.

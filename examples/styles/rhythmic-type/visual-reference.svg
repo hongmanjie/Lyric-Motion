@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+ <rect width="1600" height="1000" fill="#e8e3d8"/>
+ <g font-family="sans-serif" fill="#172238"><text x="60" y="65" font-size="35" font-weight="700">节奏图形 / 空间、词义与接力</text><text x="60" y="105" font-size="20">原创画面语言示意；为新歌重新选择词语、关系、材料与节奏。</text></g>
+ <defs><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#f5f0e5" stroke-opacity=".1"/></pattern></defs>
+ <g transform="translate(40 145)"><rect width="750" height="380" rx="6" fill="#f5f0e5"/>
+  <g fill="none" stroke="#315bff"><path d="M-20 290C160 80 530 410 765 100" stroke-width="18"/><circle cx="650" cy="65" r="90" stroke-width="2"/><path d="M30 340H710" stroke-width="2"/></g>
+  <text x="70" y="115" font-size="28" font-family="sans-serif" fill="#315bff">01　主词 → 旧词让位 → 新关系</text>
+  <text x="70" y="270" fill="#172238" font-size="160" font-family="serif" font-weight="900" transform="rotate(-4 300 230)">靠近</text><circle cx="625" cy="250" r="72" fill="#f48158"/><text x="625" y="277" text-anchor="middle" font-family="serif" font-size="85" fill="#172238">你</text>
+ </g>
+ <g transform="translate(810 145)"><rect width="750" height="380" rx="6" fill="#172238"/><rect width="750" height="380" fill="url(#grid)"/>
+  <text x="40" y="60" font-family="sans-serif" font-size="28" fill="#d7ed77">02　词义动作 + 响应环境</text>
+  <path d="M80 320Q385 140 675 310" fill="none" stroke="#315bff" stroke-width="32"/>
+  <text x="120" y="265" font-size="174" font-family="serif" fill="#f5f0e5" font-weight="900">接</text><text x="330" y="205" font-size="115" font-family="serif" fill="#d7ed77">住</text><circle cx="580" cy="210" r="85" fill="#f48158"/><text x="580" y="245" text-anchor="middle" font-family="serif" font-size="100" fill="#172238">你</text>
+  <path d="M450 300Q550 400 690 250" fill="none" stroke="#f5f0e5" stroke-width="8"/>
+ </g>
+ <g transform="translate(40 545)"><rect width="750" height="380" rx="6" fill="#315bff"/>
+  <g fill="none" stroke="#f5f0e5" opacity=".18"><circle cx="375" cy="200" r="170"/><circle cx="375" cy="200" r="230"/><circle cx="375" cy="200" r="290"/></g>
+  <text x="40" y="60" font-family="sans-serif" font-size="28" fill="#f5f0e5">03　强句改变整页尺度与方向</text>
+  <path d="M505 82l28 55 66-15-31 57 45 50-68-6-23 66-26-65-68 10 43-54-34-55 65 13Z" fill="#d7ed77"/>
+  <text x="70" y="290" font-family="serif" font-size="170" font-weight="900" fill="#f5f0e5" transform="rotate(-7 375 220)">展开！</text><path d="m670 115 13-14m22 68 25-1m-50 133 14 17" stroke="#f48158" stroke-width="11"/>
+ </g>
+ <g transform="translate(810 545)"><rect width="750" height="380" rx="6" fill="#d7ed77"/>
+  <text x="40" y="60" font-family="sans-serif" font-size="28" fill="#172238">04　有起点、有终点的物件接力</text>
+  <path d="M80 295C170 70 500 70 660 290" stroke="#172238" stroke-width="3" stroke-dasharray="8 12" fill="none"/>
+  <text x="55" y="320" font-family="serif" font-size="100" fill="#315bff">我</text><text x="590" y="320" font-family="serif" font-size="100" fill="#172238">你</text><g transform="translate(360 185) rotate(9)"><rect x="-90" y="-65" width="180" height="130" fill="#315bff"/><path d="m-80-50 80 55 80-55" fill="none" stroke="#f5f0e5" stroke-width="4"/></g>
+  <circle cx="160" cy="190" r="10" fill="#f48158"/><circle cx="550" cy="175" r="7" fill="#f48158"/>
+ </g><text x="60" y="970" font-size="21" font-family="sans-serif" fill="#172238">低对比环境让空间完整，主焦点仍要清楚；不是每拍缩放，也不是一直撒粒子。</text>
+</svg>

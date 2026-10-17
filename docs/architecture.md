@@ -32,7 +32,7 @@ my-song/
   state.json                   Prepared or needs_input / needs_alignment
   config/project.json          Actual duration, dimensions, fps and module paths
   assets/                      Original media and raw lyrics
-  style/                       Imported prompt/profile, when provided
+  style/                       Portable prompt/profile, guide, visual board and optional motion code
   timeline.json                Language-neutral text and timing
   artwork.js                   Agent-created, editable composition
   renders/                     Versioned MP4 and optional SRT
@@ -78,9 +78,9 @@ Projects serve their artwork and local assets at root-relative paths. The shared
 
 `style-prompt` exports portable statements from a profile. `init --style-profile` and `init --style-prompt` copy prior style materials into a new project; the agent uses them alongside the new song and the user's current direction. No shot time or old song text is automatically transferred.
 
-`styles` lists `auto` and two optional directions: `painted-story` / `1` / `纸绘叙事` and `rhythmic-type` / `2` / `节奏图形`. `init --style` resolves a number, English ID or Chinese name and copies only its profile/prompt. `auto` loads no style bundle. Explicit custom profile/prompt inputs replace the built-in bundle as a unit; `request.extensions.style` records what was selected and actually applied. The example artwork stays an example, so choosing a direction never marks new artwork complete.
+`styles` lists `auto` and two optional directions: `painted-story` / `1` / `纸绘叙事` and `rhythmic-type` / `2` / `节奏图形`. `init --style` resolves a number, English ID or Chinese name and copies its profile, prompt and validated declared assets (guide, visual board and optional motion helpers). `auto` loads no style bundle. Explicit custom profile/prompt inputs replace the built-in bundle as a unit; `request.extensions.style` records what was selected and actually applied. The example artwork stays an example, so choosing a direction never marks new artwork complete.
 
-## Video-to-prompt reconstruction
+## Internal reference reconstruction aid
 
 `reverse-prompt --video` prepares a reference study with timestamped evidence and an explicit `needs-analysis` draft. The agent observes and authors the reconstruction analysis. `reconstruction-check` validates its structure, time ranges, and declared coverage; `reverse-prompt --analysis` exports a copyable production request and independent cited evidence. The command does not infer visuals by itself or recover the original private prompt.
 
