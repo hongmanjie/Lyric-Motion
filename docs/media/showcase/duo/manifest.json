@@ -11,9 +11,9 @@
       "width": 1920,
       "height": 1080,
       "frames": 877,
-      "bytes": 6745808,
-      "sha256": "237c0580d3f78403ec684708208547cc81c2d8784fe1b7d22d582f88b7d82d04",
-      "nativePlayer": "https://github.com/user-attachments/assets/bf78d7f6-c715-49c2-8f98-ee3911631e06",
+      "bytes": 6656796,
+      "sha256": "7066c5c56b7a730aa5454662f0d3d1c82599577f39983858adabcbc17802f148",
+      "nativePlayer": "https://github.com/user-attachments/assets/988037b3-9d23-4409-b581-e4369866d1b3",
       "song": "走散",
       "sourceRange": {
         "start": 93.03,
@@ -21,7 +21,8 @@
         "clock": "maintainer-supplied recording"
       },
       "audioExcerptSHA256": "5bb06fe8685483285e0861647772dc6f0ea9fbc1643554835d74874ff4fc0999",
-      "captionTiming": "Original supplied LRC line starts; no verified word alignment."
+      "captionTiming": "Original supplied LRC line starts; no verified word alignment.",
+      "opening": "First frame shows the painted scene; blank fade removed for native-player preview."
     },
     {
       "id": "rhythmic-type",

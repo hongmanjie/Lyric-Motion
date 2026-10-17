@@ -8,7 +8,7 @@
 
 **1 · Painted Story | 《走散》 (Zou San) · 29 seconds**
 
-https://github.com/user-attachments/assets/bf78d7f6-c715-49c2-8f98-ee3911631e06
+https://github.com/user-attachments/assets/988037b3-9d23-4409-b581-e4369866d1b3
 
 A fox, an empty seat, a departing train and an incomplete ticket turn separation and pursuit into a painted story. The maintainer supplied the song and timed LRC. [MP4 fallback](docs/media/showcase/duo/painted-story.mp4)
 

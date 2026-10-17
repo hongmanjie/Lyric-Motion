@@ -68,13 +68,13 @@
     },
     {
       "path": "docs/media/showcase/duo/manifest.json",
-      "size": 2092,
-      "sha256": "38c4584b1a5650c310d3f88173a8b9df8e5d7d81a265ba1981a08b598e1266ed"
+      "size": 2195,
+      "sha256": "8f183982a04daedf44e5087f334e67182011f3c99a7c4c5c923e2e3efb3fa824"
     },
     {
       "path": "docs/media/showcase/duo/painted-story.mp4",
-      "size": 6745808,
-      "sha256": "237c0580d3f78403ec684708208547cc81c2d8784fe1b7d22d582f88b7d82d04"
+      "size": 6656796,
+      "sha256": "7066c5c56b7a730aa5454662f0d3d1c82599577f39983858adabcbc17802f148"
     },
     {
       "path": "docs/media/showcase/duo/painted-story.png",
@@ -279,17 +279,17 @@
     {
       "path": "README.en.md",
       "size": 13476,
-      "sha256": "29bacf468eacb2edeb45944381ff9adfffe8947e5de202bcd20001a60952944c"
+      "sha256": "da98610c6dfda903834f404604fa80b5474ce5fa9c4ba0c3f828d92a0f2db403"
     },
     {
       "path": "README.md",
       "size": 13144,
-      "sha256": "9f463bf0b75be136ab0f9e00c16ceaf8a4ce643aa96f1678e842e9c1ef448a0d"
+      "sha256": "2f2d906ea14060f2d21439b729d47fbfe44a25814055791773256621d73228f0"
     },
     {
       "path": "README.zh-CN.md",
       "size": 13144,
-      "sha256": "9f463bf0b75be136ab0f9e00c16ceaf8a4ce643aa96f1678e842e9c1ef448a0d"
+      "sha256": "2f2d906ea14060f2d21439b729d47fbfe44a25814055791773256621d73228f0"
     },
     {
       "path": "schemas/mv-request.schema.json",

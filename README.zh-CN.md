@@ -8,7 +8,7 @@
 
 **1 · 纸绘叙事｜《走散》 · 29 秒**
 
-https://github.com/user-attachments/assets/bf78d7f6-c715-49c2-8f98-ee3911631e06
+https://github.com/user-attachments/assets/988037b3-9d23-4409-b581-e4369866d1b3
 
 小狐狸、空座、列车与不完整的车票，把走散、追赶和告别演成纸绘故事。歌曲和 LRC 由维护者提供。[播放 MP4](docs/media/showcase/duo/painted-story.mp4)
 
