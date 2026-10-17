@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.5 — 2026-10-17
+
+- Made Chinese the default repository README and preserved a complete English README.
+- Replaced the lead showcase with four versions of the same maintainer-selected sung excerpt, plus a 22.33-second highlight and simultaneous comparison.
+- Separated the visual directions: kinetic type, paper/ink and negative space, dimensional materials and structures, and character-led storytelling. Updated reusable Poetry and Sculpture profiles without fixing future songs to these shots.
+- Retained the original instrumental and CC0 vocal examples as separately credited, reproducible examples. Raw showcase audio, full lyric inputs, private artwork projects and review files remain excluded from releases.
+- Added source, timing and license boundaries for the new rendered demonstration media.
+
 ## 0.1.0-alpha.4 — 2026-10-16
 
 - Added a 20-second four-style highlight at the start of both READMEs, with an animated preview and full-resolution video.

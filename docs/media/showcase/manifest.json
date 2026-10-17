@@ -1,0 +1,162 @@
+{
+  "format": 1,
+  "title": "Same song, four visual directions",
+  "song": {
+    "title": "夜に駆ける",
+    "artist": "YOASOBI",
+    "source": "Maintainer-supplied recording and lyric file; selected for this public showcase by the maintainer.",
+    "sourceRange": [
+      28.62,
+      50.95333333333333
+    ],
+    "duration": 22.333333333333332
+  },
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 670
+  },
+  "audio": {
+    "sameSourceForAll": true,
+    "sourceWavSHA256": "14f5ab6d05e1a2d5d0064016eec898cf3a19c770246f44ba2477917dc64e0ae2",
+    "montage": "One continuous source track; no music substitution or overlapping tracks.",
+    "encodedAACSHA256": "99b395621840e3c93d58c182e047be49f217363c19121c05cd67b724d6949c6f"
+  },
+  "lyrics": {
+    "language": "ja",
+    "captions": "zh-CN",
+    "timing": "Actual local Whisper ASR phrase estimates, corrected against the supplied LRC text. Not external-text forced alignment or verified word alignment."
+  },
+  "montage": {
+    "sourceFrameRanges": [
+      {
+        "id": "playground",
+        "start": 0,
+        "endExclusive": 172
+      },
+      {
+        "id": "poetry",
+        "start": 164,
+        "endExclusive": 340
+      },
+      {
+        "id": "sculpture",
+        "start": 332,
+        "endExclusive": 508
+      },
+      {
+        "id": "storybook",
+        "start": 500,
+        "endExclusive": 670
+      }
+    ],
+    "crossfadeFrames": 8
+  },
+  "sources": [
+    {
+      "id": "playground",
+      "sha256": "50d12a78b654cbec3e83822a78b9bd954c196f979f6bd21e0c2b17382bb65a9e"
+    },
+    {
+      "id": "poetry",
+      "sha256": "86388bbd4cf42aa496e7db269a7f94e33bb3c76142411d8b5d075aefd1af13b9"
+    },
+    {
+      "id": "sculpture",
+      "sha256": "dd2f0a85ee7c0fa83565016867623b3f55d0746ce703b6c410add9ba904eed50"
+    },
+    {
+      "id": "storybook",
+      "sha256": "c2aa3e4b88899f522986c3f13f23ec1ec9b814be4c41af61e6ffb4282ddfa0d8"
+    }
+  ],
+  "rights": "The song and recording remain the property of their respective rights holders. Project MIT licensing does not license this song or recording. Only rendered demonstration excerpts are included, not original audio or full lyric inputs.",
+  "review": {
+    "status": "reviewed-with-limits",
+    "fullSizeFrames": true,
+    "continuousPlayback": true,
+    "playbackRanges": {
+      "highlight": [
+        0,
+        22.333333333333332
+      ],
+      "fourStyleSequence": [
+        0,
+        89.33333333333333
+      ]
+    },
+    "subjectiveListening": false,
+    "limitations": [
+      "Browser playback ran continuously; visual inspection is sampled, not a frame-by-frame review.",
+      "No subjective listening claimed. All versions share the same audio and clock, but word-level singing synchronization has not been independently verified."
+    ]
+  },
+  "files": [
+    {
+      "path": "playground.mp4",
+      "bytes": 3482148,
+      "sha256": "50f55130350300bac82be135c8efb49dde437f63ce9f73414b3e4c27e0bce7a7"
+    },
+    {
+      "path": "poetry.mp4",
+      "bytes": 3873614,
+      "sha256": "03c28234c38468e7bd705fa0e589b3fdf52567e0e1e51da7e43456c45dd981f3"
+    },
+    {
+      "path": "sculpture.mp4",
+      "bytes": 10657552,
+      "sha256": "e3ded598042a526485bf4ff82fb5d14c28d73b406c08d52dd8a7482ac1c0ac0e"
+    },
+    {
+      "path": "storybook.mp4",
+      "bytes": 4578261,
+      "sha256": "bdcfcf0b9d4e9645f9a7c7f887feb467ce70a235923fdfd62243c83e39a040a3"
+    },
+    {
+      "path": "playground.jpg",
+      "bytes": 133140,
+      "sha256": "526e8079a102b9b2133bb67d710323cf70fd9f03a697c2f998a181872cc1ce30"
+    },
+    {
+      "path": "poetry.jpg",
+      "bytes": 88852,
+      "sha256": "dda18016694df7ff8f2877e3ccd178f7890dcdd171c57b3b2e0e914e25da16a9"
+    },
+    {
+      "path": "sculpture.jpg",
+      "bytes": 185026,
+      "sha256": "f441297f78958b2f47693ef4ad2533079619b615478bfae2970181d70200a01c"
+    },
+    {
+      "path": "storybook.jpg",
+      "bytes": 105389,
+      "sha256": "fcf9427712edeee497c9ab22014644eb65ad5660bcee4310f6117ae6ba40e2e7"
+    },
+    {
+      "path": "highlight.mp4",
+      "bytes": 6875811,
+      "sha256": "2459d3f431c614b16d8c6b5225fe0cf653a8299cc87e22841e6ceaefe4074442"
+    },
+    {
+      "path": "comparison.mp4",
+      "bytes": 6805715,
+      "sha256": "84e885324cca20cc73b1acf893d3fd075f433a74657a4cd36624ba2f1463a00f"
+    },
+    {
+      "path": "poster.jpg",
+      "bytes": 170463,
+      "sha256": "cc6ca62ad67472bc5d22fe3218875ada87852f9ba1b7c4bd96e5d9af807f22c4"
+    },
+    {
+      "path": "highlight.gif",
+      "bytes": 8612160,
+      "sha256": "3091bd597def95ef764110631143ee43c606003a78065faaee35acb4475293e0"
+    }
+  ],
+  "githubPlayer": {
+    "url": "https://github.com/user-attachments/assets/84948bd4-842c-4238-83ac-2c314d4dc952",
+    "file": "highlight.mp4",
+    "sha256": "2459d3f431c614b16d8c6b5225fe0cf653a8299cc87e22841e6ceaefe4074442"
+  }
+}

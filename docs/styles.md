@@ -6,8 +6,8 @@
 | --- | --- | --- |
 | `0` / `auto` | AI 自由创作 | 不加载预设，按歌曲重新设计。 |
 | `1` / `playground` / `字形游乐场` | 字形游乐场 | 字形演戏、尺度反差、俏皮的物理关系。 |
-| `2` / `poetry` / `流动诗境` | 流动诗境 | 留白、流动形态、克制而有情绪的文字。 |
-| `3` / `sculpture` / `数字雕塑` | 数字雕塑 | 立体字形、空间关系、雕塑般的光影。 |
+| `2` / `poetry` / `流动诗境` | 流动诗境 | 纸墨、流体、负形光隙与留白承担叙事，文字只是注释。 |
+| `3` / `sculpture` / `数字雕塑` | 数字雕塑 | 立体结构、空间材质、光影与镜头运动，形体承担视觉主体。 |
 | `4` / `storybook` / `故事手绘` | 故事手绘 | 让手绘角色、物件与场景演出歌词里的故事。 |
 
 这些是可修改的创作起点。它们不固定镜头数量、时长、排版或每一句歌词的处理。用户的明确方向、参考分析和自带风格提示词仍然优先。
@@ -16,35 +16,47 @@
 
 ## 看效果
 
-下面四条方向演示使用原创图形、原创文字和原创合成器乐，用来展示视觉可能性。另有[20 秒四风格高光合辑](media/highlight/demo.mp4)和[真实人声故事手绘示例](media/vocal/demo.mp4)，后者使用单独标明来源的 CC0 录音与传统歌词，[记录素材、时间处理与检查边界](../examples/vocal-demo/README.md)。用户提供的歌曲和参考片段仍保留在私人作品中，不随开源包发布。
+下面四版使用维护者提供的 **YOASOBI《夜に駆ける》同一段 22.333 秒音轨、同一份歌词时间轴和中文字幕**，可以直接比较美术、动作和叙事的区别。日语演唱保留在有声 MP4 中。先看[四风格高光合辑](media/showcase/highlight.mp4)，或[四版完整对比](media/showcase/comparison.mp4)。
+
+公开展示的是渲染片段、封面、GIF 与 manifest；全文歌词、原始音频输入和私人制作工程不公开。歌曲及录音不属于项目 MIT 授权。[素材来源与时间方法](media/README.md)。
 
 ### 1 · 字形游乐场
 
-![字形游乐场预览](media/styles/playground/poster.png)
+[![字形游乐场预览](media/showcase/playground.jpg)](media/showcase/playground.mp4)
 
-[动态预览](media/styles/playground/demo.gif) · [演示视频](media/styles/playground/demo.mp4) · [可编辑风格](../examples/styles/playground/profile.json) · [提示词](../examples/styles/playground/prompt.md)
+[播放有声视频](media/showcase/playground.mp4) · [可编辑风格](../examples/styles/playground/profile.json) · [提示词](../examples/styles/playground/prompt.md)
+
+**字形是演员。** 字词碰撞、弹跳、挤压、拆分和重组，用尺度与速度表达压力、靠近和释放。字体动作组织视觉重心；构图按当前歌词重新设计。
 
 ### 2 · 流动诗境
 
-![流动诗境预览](media/styles/poetry/poster.png)
+[![流动诗境预览](media/showcase/poetry.jpg)](media/showcase/poetry.mp4)
 
-[动态预览](media/styles/poetry/demo.gif) · [演示视频](media/styles/poetry/demo.mp4) · [可编辑风格](../examples/styles/poetry/profile.json) · [提示词](../examples/styles/poetry/prompt.md)
+[播放有声视频](media/showcase/poetry.mp4) · [可编辑风格](../examples/styles/poetry/profile.json) · [提示词](../examples/styles/poetry/prompt.md)
+
+**纸墨与留白是主体。** 墨液扩散、负形光隙、折叠空间和朱砂线串起情绪，少量文字沿纸边或墨线出现。让材料的挤压、分离、相接和溶化表达歌词，不把画面做成另一组大字标题卡。
 
 ### 3 · 数字雕塑
 
-![数字雕塑预览](media/styles/sculpture/poster.png)
+[![数字雕塑预览](media/showcase/sculpture.jpg)](media/showcase/sculpture.mp4)
 
-[动态预览](media/styles/sculpture/demo.gif) · [演示视频](media/styles/sculpture/demo.mp4) · [可编辑风格](../examples/styles/sculpture/profile.json) · [提示词](../examples/styles/sculpture/prompt.md)
+[播放有声视频](media/showcase/sculpture.mp4) · [可编辑风格](../examples/styles/sculpture/profile.json) · [提示词](../examples/styles/sculpture/prompt.md)
+
+**空间与材质是主体。** 通过形体、空间层次、反射、光影和镜头运动建立视觉关系。压缩、分离、穿越与重组发生在场景里，文字辅助阅读；不能仅把字形版换成有立体效果的同一套排版。
 
 ### 4 · 故事手绘
 
-![故事手绘预览](media/styles/storybook/poster.png)
+[![故事手绘预览](media/showcase/storybook.jpg)](media/showcase/storybook.mp4)
 
-[动态预览](media/styles/storybook/demo.gif) · [演示视频](media/styles/storybook/demo.mp4) · [可编辑风格](../examples/styles/storybook/profile.json) · [提示词](../examples/styles/storybook/prompt.md)
+[播放有声视频](media/showcase/storybook.mp4) · [可编辑风格](../examples/styles/storybook/profile.json) · [提示词](../examples/styles/storybook/prompt.md)
 
 根据歌词中的人物、行为、关系和情绪设计场景。手绘角色或反复出现的物件贯穿不同景别与地点，动作和场景转换配合歌曲演出。先建立清楚的角色轮廓、服装、代表色和关键道具，让表情、视线、手势、身体重心和物体互动表现“准备—动作—回应”。全景交代处境，中近景呈现关系，特写突出歌词里的关键动作；镜头运动应帮助看懂表演。
 
 用户可以指定主角，例如“小狐狸”“背包女孩”或“一对老朋友”；不指定时，Agent 按歌曲自行选择连贯角色，不必先填写角色表。铅笔、墨线、纸张、有限配色都是可选材料，不能用一层纹理代替故事。角色设计、具体场景、分镜和镜头数量仍为当前歌曲原创，不要求沿用演示中的造型、某只小熊或参考分镜。MV 在本地渲染；模型与客户端不限定为某一款。
+
+## 其他可复现示例
+
+仓库另外保留[原创器乐四方向示例](showcase.md#other-reproducible-examples)和[CC0 人声故事示例](../examples/vocal-demo/README.md)，它们有独立素材与可编辑源码。它们不是本页《夜に駆ける》主展示的音源，也不能靠运行旧示例脚本重建这组主展示。原始文字与器乐的编辑时间、真实歌声的模型时间估计及逐字对齐是不同概念。
 
 ## 在对话里使用
 

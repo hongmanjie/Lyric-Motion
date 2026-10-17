@@ -2,15 +2,20 @@
 
 **给编程 Agent 一首歌，在对话中生成歌词、制作和修改一支可编辑的 MV。**
 
-[English](README.md) · [安装详情](docs/install.md) · [风格画廊](docs/styles.md) · [完整工作流](docs/workflows.md)
+[English](README.en.md) · [安装详情](docs/install.md) · [风格画廊](docs/styles.md) · [完整工作流](docs/workflows.md)
 
-[![20 秒看四种创作方向](docs/media/highlight/demo.gif)](docs/media/highlight/demo.mp4)
+https://github.com/user-attachments/assets/84948bd4-842c-4238-83ac-2c314d4dc952
 
-**20 秒看效果：字形游乐场 → 流动诗境 → 数字雕塑 → 故事手绘。** 点击播放[带音乐的高清合辑](docs/media/highlight/demo.mp4)。画面由代码绘制，使用原创器乐和编排文字。
+**同一首歌、同一段 22.33 秒，四种不同的画面语言。** 歌曲为 YOASOBI《夜に駆ける》，使用同一段日语演唱与歌词，底部配中文字幕。画面由代码绘制：字形碰撞、纸墨留白、空间材质、角色故事。
 
-[![人声与歌词联动示例：Auld Lang Syne](docs/media/vocal/poster.png)](docs/media/vocal/demo.mp4)
+**点击上方播放按钮，观看 22 秒有声高光合辑。** [MP4 备用链接](docs/media/showcase/highlight.mp4) · [四风格同屏对比](docs/media/showcase/comparison.mp4)。下方画廊可分别观看每一版完整视频。
 
-**再看真实人声＋歌词联动：** [播放《Auld Lang Syne》故事手绘示例](docs/media/vocal/demo.mp4)。角色、动作和镜头表达歌词，底部保留可读字幕；采用可公开使用的 CC0 人声录音和传统歌词。[素材与时间说明](examples/vocal-demo/README.md)。
+<details>
+<summary>播放器无法加载？展开无声动图</summary>
+
+[![同一首《夜に駆ける》，四种不同的 MV 表达](docs/media/showcase/highlight.gif)](docs/media/showcase/highlight.mp4)
+
+</details>
 
 ## 一、为什么需要这个项目？
 
@@ -119,15 +124,15 @@ Agent 根据新歌的歌词、情绪和音乐段落设计画面，可以使用�
 
 | 1 · 字形游乐场 | 2 · 流动诗境 |
 | --- | --- |
-| [![字形游乐场](docs/media/styles/playground/poster.png)](docs/media/styles/playground/demo.gif) | [![流动诗境](docs/media/styles/poetry/poster.png)](docs/media/styles/poetry/demo.gif) |
-| 大字体、俏皮尺度、字形与图形的物理互动。[带音乐 MP4](docs/media/styles/playground/demo.mp4) | 纸张墨线、流动形态、富有情绪的留白。[带音乐 MP4](docs/media/styles/poetry/demo.mp4) |
+| [![字形游乐场：字形碰撞与尺度变化](docs/media/showcase/playground.jpg)](docs/media/showcase/playground.mp4) | [![流动诗境：纸墨与光隙承担叙事](docs/media/showcase/poetry.jpg)](docs/media/showcase/poetry.mp4) |
+| **让字形演戏。** 字词碰撞、弹跳、挤压与大胆尺度变化，画面重心随文字动作转移。[播放有声视频](docs/media/showcase/playground.mp4) | **让材料流动。** 墨液扩散、纸张折叠、负形光隙与朱砂线表达情绪，文字退到边缘。[播放有声视频](docs/media/showcase/poetry.mp4) |
 
 | 3 · 数字雕塑 | 4 · 故事手绘 |
 | --- | --- |
-| [![数字雕塑](docs/media/styles/sculpture/poster.png)](docs/media/styles/sculpture/demo.gif) | [![故事手绘](docs/media/styles/storybook/poster.png)](docs/media/styles/storybook/demo.gif) |
-| 立体形态、空间运动与雕塑般的光影。[带音乐 MP4](docs/media/styles/sculpture/demo.mp4) | 手绘角色、物件与场景，根据歌词演出故事。[带音乐 MP4](docs/media/styles/storybook/demo.mp4) |
+| [![数字雕塑：空间与材质变形](docs/media/showcase/sculpture.jpg)](docs/media/showcase/sculpture.mp4) | [![故事手绘：角色演出歌词故事](docs/media/showcase/storybook.jpg)](docs/media/showcase/storybook.mp4) |
+| **让空间变形。** 立体结构、材质、光影与镜头运动组织视觉，随音乐压缩、分离、重组。[播放有声视频](docs/media/showcase/sculpture.mp4) | **让角色表演。** 连续人物、具体处境、动作和前后关系，把歌词演成手绘故事。[播放有声视频](docs/media/showcase/storybook.mp4) |
 
-点击图片可看动态预览。这四条方向演示使用原创器乐和原创编排文字；上方另有可公开分享的真实人声示例。用户歌曲示例和参考视频保留在私人作品中。[完整风格、提示词与源码](docs/styles.md)。
+四版使用《夜に駆ける》的**同一段音轨、同一份歌词时间轴和中文字幕**，便于直接比较美术与动作的差异。点击封面播放对应有声 MP4。歌词时间采用有记录的行级估计，不把演示当作逐字精度证明。[风格资料与提示词](docs/styles.md)。
 
 **在对话里说：**
 
@@ -198,10 +203,10 @@ node tools/cli.mjs render
 node tools/cli.mjs help
 ```
 
-新作品放在独立 `projects/` 目录，共享预览运行时位于 `src/`，每首歌的画面写在自己的 `artwork.js`。示例用于展示可能性。公开打包采用明确白名单，排除用户歌曲、参考视频和私人检查文件。
+新作品放在独立 `projects/` 目录，共享预览运行时位于 `src/`，每首歌的画面写在自己的 `artwork.js`。示例用于展示可能性。公开打包采用明确白名单；原始用户输入、参考视频和私人检查文件保留在独立作品目录，公开演示媒体单独管理。
 
 媒体处理和渲染在本地完成；Agent 客户端决定哪些内容发给模型提供方。**本地工具不等于离线推理**。项目不复制模型凭证，不承诺订阅无限使用。
 
-代码、原创示例文字和合成配乐采用 [MIT](LICENSE)；字体保留 OFL 声明，人声示例另附 CC0 录音来源。[第三方许可](THIRD_PARTY_NOTICES.md) · [演示素材来源](docs/media/README.md)。请使用有权处理和分享的素材。
+代码和项目原创内容采用 [MIT](LICENSE)，字体保留 OFL 声明。演示歌曲《夜に駆ける》、录音及歌词的权利归各自权利人，代码许可证不授予歌曲使用权。[第三方许可](THIRD_PARTY_NOTICES.md) · [演示素材来源](docs/media/README.md)。
 
 [贡献说明](CONTRIBUTING.md) · [路线图](docs/roadmap.md) · [更新记录](CHANGELOG.md)。分享作品时说明提示词、模型／客户端、人工修改与素材许可。觉得有用，欢迎给一颗 Star，让更多人找到它。

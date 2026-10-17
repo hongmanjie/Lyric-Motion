@@ -1,32 +1,43 @@
 # Public media provenance
 
-Public media separates two sources: the four original graphic directions use repository-authored copy and a procedural instrumental; the separate vocal story uses Bautsch's CC0 recording of the traditional Auld Lang Syne. Neither includes user-provided recordings, private lyric translations, tutorial footage, or reference screenshots. See [third-party notices](../../THIRD_PARTY_NOTICES.md) for license boundaries.
+The main README showcase is **YOASOBI's Yoru ni Kakeru (夜に駆ける)**, rendered in four distinct directions from the same 22.333-second excerpt. The repository also retains separate original-instrumental and CC0 vocal examples. Their sources and licenses are different; the main showcase is not an original instrumental or a CC0 recording.
 
-The original instrumental is synthesized by `node tools/make-demo.mjs`: stereo PCM at 44.1 kHz, deterministic percussion, bass and plucked notes. Its text timings are authored editorial cues and it has no vocals. Those graphic previews do not establish transcription or forced-alignment accuracy.
+## Main showcase: one sung excerpt, four directions
 
-The locally bundled Noto Sans JP font is under the SIL Open Font License 1.1, included at `examples/demo/assets/OFL.txt`. Direction examples also retain their serif font's notice in `examples/style-assets/fonts/OFL-serif.txt`. Screenshots, GIFs and MP4s placed in this folder are derived from actual rendered video. See the repository license for original code, documentation and generated demo media.
+`showcase/` contains the code-rendered previews selected by the maintainer for this project's public demonstration:
 
-To update the showcase, regenerate assets, render the demo, inspect full-resolution frames and continuous playback, then capture the verified output. Keep paths relative in GitHub READMEs. A still image or GIF can be embedded directly; provide a linked MP4 because Markdown video embedding varies by GitHub surface.
+| File | Content |
+| --- | --- |
+| `showcase/highlight.mp4` | Four-direction highlight with the Japanese vocal and Chinese reading subtitles. |
+| `showcase/highlight.gif` | Silent inline preview derived from the highlight. |
+| `showcase/poster.jpg` | Still cover captured from the rendered showcase. |
+| `showcase/comparison.mp4` | Complete four-version comparison. |
+| `showcase/playground.mp4`, `poetry.mp4`, `sculpture.mp4`, `storybook.mp4` | Individual versions using the same excerpt and lyric clock. |
+| `showcase/playground.jpg`, `poetry.jpg`, `sculpture.jpg`, `storybook.jpg` | Actual rendered cover frames for the gallery. |
+| `showcase/manifest.json` | Source description, excerpt clock, processing and exported media metadata. |
 
-## 20-second four-style highlight
+**Source:** a recording excerpt of *Yoru ni Kakeru* by YOASOBI supplied by the maintainer for this project's demonstration. Each individual version uses source-audio seconds **28.62–50.953333**, approximately **22.333333 seconds**, from the supplied excerpt file. These are positions in that file, not claimed full-track positions. The original audio input, complete lyric file and private production projects are not published; this folder contains only rendered excerpts, stills, GIF and the manifest.
 
-`highlight/demo.mp4` is a 600-frame, 1920×1080, 30 fps montage of the public style exports. It changes direction approximately every five seconds, with short transitions. `highlight/demo.gif` is its silent inline README preview, not an independently animated mockup. The full 16-second original score continues with its first four seconds repeated and a final fade; no private song audio is used.
+**Rights:** the song, recording and lyrics belong to their respective rights holders. The project does not claim CC0 status or authorization from those rights holders. The code's MIT license does not grant rights to the song or recording. The maintainer's choice to display a clip is not a statement that the music is freely reusable. See [third-party notices](../../THIRD_PARTY_NOTICES.md).
 
-Regenerate with `node tools/make-highlight.mjs` after verifying the individual style exports. `highlight/manifest.json` records source hashes, exact excerpt frames, transitions, audio construction, output hashes, and actual review status. Reinspect the result after regeneration; the generation tool deliberately resets review to pending.
+**Timing:** the same line clock was prepared from actual local Whisper Japanese recognition estimates, with supplied LRC text used to correct the recognized phrases. The LRC's full-track clock differed from the supplied excerpt, so it was not directly applied as if both clocks matched. This is estimated phrase timing, not forced alignment or verified per-word alignment. Source `tokens` were not fabricated. Real audio RMS and energy-rise events can drive material movement; those events are not a verified musical beat grid. This example does not establish recognition accuracy for arbitrary songs.
 
-## 20-second sung-lyric story
+The four versions use different visual subjects: performing type, flowing ink and empty paper, spatial structures and materials, and drawn characters. The same music, lyric timing and Chinese subtitles keep the comparison meaningful. Actual review coverage and limitations are recorded with the production/export metadata; a GIF or poster alone is not evidence of continuous playback or subjective listening.
 
-`vocal/demo.mp4` uses the first 20 seconds of [Bautsch's CC0 Auld Lang Syne recording](https://commons.wikimedia.org/wiki/File:AuldLangSyne.ogg), with a short final audio fade. Its lyrics are traditional/Burns public-domain text. Original project artwork and Chinese translations are separate from the CC0 recording.
+## Other example: original four-direction previews
 
-The editable [vocal example](../../examples/vocal-demo/README.md) retains the recording and explains recognition-derived timing, grouped lyric phrases, source checks, and actual visual/audio review coverage. Its timestamps are model estimates with documented edits; this demonstration is not proof that arbitrary singing will transcribe or align correctly. `vocal/poster.png` is captured from the encoded video. The README links this poster to the actual MP4.
+`styles/` contains the earlier, separately reproducible direction examples under `examples/styles/`. They use original code-rendered artwork, repository-authored graphic copy and a **14.3-second procedural instrumental excerpt**, with a short fade and no added silent ending hold. They contain no vocals; their phrase cues are editorial decisions, not vocal alignment.
 
-## Individual style previews
+The score is synthesized by `node tools/make-demo.mjs`: deterministic percussion, bass and plucked notes in stereo 44.1 kHz PCM. The 2 × 2 `styles/overview.png`, per-direction covers, GIFs and MP4s come from actual exported video. Their own `styles/manifest.json` and `styles/review.json` retain provenance and review coverage. `highlight/` is a separate 20-second montage of these original-instrumental exports, generated by `tools/make-highlight.mjs`; it is not the main song showcase.
 
-The `styles/` previews show **Playground**, **Flowing Poetry**, **Digital Sculpture**, and **Story Sketch** as four separate original implementations under `examples/styles/`. They share a **14.3-second original instrumental excerpt**, a short audio fade-out, **no added silent ending hold**, and four authored editorial phrases:
+## Other example: CC0 sung-lyric story
 
-- BREAK THROUGH THE NOISE
-- MAKE TOMORROW BRIGHT
-- DIVE INTO THE NIGHT
-- TAKE MY HAND
+`vocal/demo.mp4` uses the first 20 seconds of [Bautsch's CC0 Auld Lang Syne recording](https://commons.wikimedia.org/wiki/File:AuldLangSyne.ogg), with a short final fade. Its traditional/Burns lyrics are public-domain source material; original artwork and Chinese adaptations are distinct from the CC0 recording.
 
-These text and subphrase cues are editorial decisions. The music has no vocals, so the previews do not demonstrate transcription, forced alignment, or verified singing-to-word synchronization. The 2 × 2 `styles/overview.png` uses actual exported poster frames. `styles/manifest.json` records provenance and rendering metadata; `styles/review.json` records actual review coverage. Private song studies and their translated lyrics remain excluded from the public package. See [the showcase workflow](../showcase.md) for regeneration commands.
+The editable [vocal example](../../examples/vocal-demo/README.md) retains its source and documents recognition-derived timing, manual phrase grouping and actual review limits. Its estimates are not proof of accurate transcription or alignment for every song. This CC0 source applies only to the *Auld Lang Syne* example, not *Yoru ni Kakeru*.
+
+## Fonts and updates
+
+Bundled Noto Sans JP and Noto Serif JP fonts retain SIL Open Font License 1.1 notices in [the demo assets](../../examples/demo/assets/OFL.txt) and [the style font assets](../../examples/style-assets/fonts/OFL-serif.txt). Original code and project-authored content use the repository license; recording rights remain separate.
+
+Use relative image/GIF links and a clear MP4 link in README. A native GitHub video player requires a real uploaded attachment URL in its own paragraph; a relative MP4 link does not create one. See [the showcase workflow](../showcase.md) for the distinction between updating the main private-source showcase and regenerating self-contained examples.

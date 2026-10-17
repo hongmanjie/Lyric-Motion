@@ -3,7 +3,7 @@ import {createHash,randomUUID} from 'node:crypto';
 import {mkdir,lstat,readdir,readFile,writeFile,rename,rm} from 'node:fs/promises';
 import {REPO_ROOT,inside,writeJSON,run} from '../lib/paths.mjs';
 import {collectInstallSources,excludedPackagePath} from './install.mjs';
-const PUBLIC_PATHS=['README.md','README.zh-CN.md','LICENSE','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','CHANGELOG.md','AGENTS.md','CLAUDE.md','.gitignore','.gitattributes','.github','docs','test','examples/contracts'];
+const PUBLIC_PATHS=['README.md','README.zh-CN.md','README.en.md','LICENSE','THIRD_PARTY_NOTICES.md','CONTRIBUTING.md','CHANGELOG.md','AGENTS.md','CLAUDE.md','.gitignore','.gitattributes','.github','docs','test','examples/contracts'];
 async function walk(relative,files){
   if(excludedPackagePath(relative))return;const file=path.join(REPO_ROOT,relative),info=await lstat(file);if(info.isSymbolicLink())throw new Error(`Public source symlink: ${relative}`);
   if(info.isDirectory())for(const child of (await readdir(file)).sort())await walk(path.join(relative,child),files);
